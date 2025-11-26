@@ -11,6 +11,15 @@ builder.Services.AddDbContext<QR_DATNContext>(options =>
 // Đăng ký Repository
 builder.Services.AddScoped<INguoiTieuDungRepository, NguoiTieuDungRepository>();
 builder.Services.AddScoped<ILichSuQuetRepository, LichSuQuetRepository>();
+builder.Services.AddScoped<ILoHangRepository, LoHangRepository>();
+builder.Services.AddScoped<IMaQrLoHangRepository, MaQrLoHangRepository>();
+builder.Services.AddScoped<ISanPhamRepository, SanPhamRepository>();
+builder.Services.AddScoped<ICuaHangRepository, CuaHangRepository>();
+builder.Services.AddScoped<IDoanhNghiepRepository, DoanhNghiepRepository>();
+builder.Services.AddScoped<IYeuCauDangKyDnRepository, YeuCauDangKyDnRepository>();
+builder.Services.AddScoped<IQrScanRepository, QrScanRepository>();
+
+
 //Đăng ký Controllers 
 builder.Services.AddControllers();
 

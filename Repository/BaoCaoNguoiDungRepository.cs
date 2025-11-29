@@ -31,7 +31,7 @@ namespace DATN1.Repository
             var query = _context.BaoCaoNguoiDungs.AsQueryable();
 
             if (nguoiTieuDungId.HasValue)
-                query = query.Where(x => x.NguoiTieuDungId == nguoiTieuDungId.Value);
+                query = query.Where(x => x.NguoiDungId == nguoiTieuDungId.Value);
 
             if (!string.IsNullOrWhiteSpace(trangThaiXuLy))
                 query = query.Where(x => x.TrangThaiXuLy == trangThaiXuLy);

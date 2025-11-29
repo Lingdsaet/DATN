@@ -14,7 +14,7 @@ namespace DATN.ReponseDto
         public decimal? KinhDo { get; set; }
         public string? DiaChiGanDung { get; set; }
 
-        public Guid? NguoiTieuDungId { get; set; }
+        public Guid? NguoiDungId { get; set; }
 
         // Sản phẩm & lô
         public string? TenSanPham { get; set; }

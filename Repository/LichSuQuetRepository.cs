@@ -15,7 +15,7 @@ namespace DATN.Repository
         public async Task<List<LichSuQuet>> GetByNguoiTieuDungIdAsync(Guid nguoiTieuDungId)
         {
             return await _context.LichSuQuets
-                .Where(x => x.NguoiTieuDungId == nguoiTieuDungId)
+                .Where(x => x.NguoiDungId == nguoiTieuDungId)
                 .Include(x => x.MaQrLoHang)               // tên navigation có thể là MaQrLoHang hoặc MaQR_LoHang
                     .ThenInclude(q => q.LoHang)
                         .ThenInclude(l => l.SanPham)

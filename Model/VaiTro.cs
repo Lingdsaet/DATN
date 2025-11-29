@@ -7,16 +7,16 @@ using Microsoft.EntityFrameworkCore;
 namespace DATN.Model;
 
 [Table("VaiTro")]
-[Index("Ma", Name = "UQ__VaiTro__3214CC9E3C276059", IsUnique = true)]
+[Index("Ma", Name = "UQ__VaiTro__3214CC9E3F967829", IsUnique = true)]
 public partial class VaiTro
 {
     [Key]
-    public Guid Id { get; set; }
+    public byte Id { get; set; }
 
     [StringLength(50)]
     public string Ma { get; set; } = null!;
 
-    [StringLength(100)]
+    [StringLength(150)]
     public string Ten { get; set; } = null!;
 
     [StringLength(250)]

@@ -37,9 +37,15 @@ public partial class NguoiDung
 
     public bool XoaMem { get; set; }
 
+    [InverseProperty("NguoiDung")]
+    public virtual ICollection<BaoCaoNguoiDung> BaoCaoNguoiDungs { get; set; } = new List<BaoCaoNguoiDung>();
+
     [ForeignKey("DoanhNghiepId")]
     [InverseProperty("NguoiDungs")]
     public virtual DoanhNghiep? DoanhNghiep { get; set; }
+
+    [InverseProperty("NguoiDung")]
+    public virtual ICollection<LichSuQuet> LichSuQuets { get; set; } = new List<LichSuQuet>();
 
     [ForeignKey("NguoiDungId")]
     [InverseProperty("NguoiDungs")]

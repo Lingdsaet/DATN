@@ -4,7 +4,7 @@
     {
         public string MaQr { get; set; } = null!;
 
-        public Guid? NguoiTieuDungId { get; set; }
+        public Guid? NguoiDungId { get; set; }
 
         public string? ThietBi { get; set; }
         public string? HeDieuHanh { get; set; }

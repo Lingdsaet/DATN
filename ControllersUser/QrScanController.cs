@@ -54,7 +54,7 @@ namespace DATN1.ControllersUser
             {
                 Id = Guid.NewGuid(),
                 MaQrLoHangId = qrEntity.Id,
-                NguoiTieuDungId = request.NguoiTieuDungId,
+                NguoiDungId = request.NguoiDungId,
                 ThoiGian = now,
                 KetQua = ketQua,                // OK/WARNING/SUSPECT
                 ThietBi = request.ThietBi,

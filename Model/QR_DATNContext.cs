@@ -35,8 +35,6 @@ public partial class QR_DATNContext : DbContext
 
     public virtual DbSet<NguoiDung> NguoiDungs { get; set; }
 
-    public virtual DbSet<NguoiTieuDung> NguoiTieuDungs { get; set; }
-
     public virtual DbSet<SanPham> SanPhams { get; set; }
 
     public virtual DbSet<SuKienChuoiCungUng> SuKienChuoiCungUngs { get; set; }
@@ -45,6 +43,8 @@ public partial class QR_DATNContext : DbContext
 
     public virtual DbSet<YeuCauDangKyDn> YeuCauDangKyDns { get; set; }
 
+    public DbSet<NguoiDungVaiTro> NguoiDungVaiTro { get; set; } = null!;
+        
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
         => optionsBuilder.UseSqlServer("Data Source = DESKTOP-J4NABFA ; Database =QR_DATN;User ID=sa;Password=1234;Encrypt=false;TrustServerCertificate=True;");
@@ -53,7 +53,7 @@ public partial class QR_DATNContext : DbContext
     {
         modelBuilder.Entity<BaoCaoNguoiDung>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__BaoCaoNg__3214EC0764584E66");
+            entity.HasKey(e => e.Id).HasName("PK__BaoCaoNg__3214EC079DD83DAF");
 
             entity.Property(e => e.Id).HasDefaultValueSql("(newsequentialid())");
 
@@ -61,12 +61,27 @@ public partial class QR_DATNContext : DbContext
 
             entity.HasOne(d => d.MaQrLoHang).WithMany(p => p.BaoCaoNguoiDungs).HasConstraintName("FK_BCND_QR");
 
-            entity.HasOne(d => d.NguoiTieuDung).WithMany(p => p.BaoCaoNguoiDungs).HasConstraintName("FK_BCND_NTD");
+            entity.HasOne(d => d.NguoiDung).WithMany(p => p.BaoCaoNguoiDungs).HasConstraintName("FK_BCND_User");
+        });
+
+        modelBuilder.Entity<NguoiDungVaiTro>(entity =>
+        {
+            entity.ToTable("NguoiDung_VaiTro");          // tên bảng trong SQL
+
+            entity.HasKey(x => new { x.NguoiDungId, x.VaiTroId });
+
+            entity.HasOne(x => x.NguoiDung)
+                  .WithMany()                            // hoặc WithMany(x => x.NguoiDungVaiTros) nếu bạn có collection
+                  .HasForeignKey(x => x.NguoiDungId);
+
+            entity.HasOne(x => x.VaiTro)
+                  .WithMany()
+                  .HasForeignKey(x => x.VaiTroId);
         });
 
         modelBuilder.Entity<CuaHang>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__CuaHang__3214EC07557150F6");
+            entity.HasKey(e => e.Id).HasName("PK__CuaHang__3214EC0786DB7C70");
 
             entity.Property(e => e.Id).HasDefaultValueSql("(newsequentialid())");
 
@@ -79,31 +94,31 @@ public partial class QR_DATNContext : DbContext
 
         modelBuilder.Entity<DiaDiem>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__DiaDiem__3214EC073C7A8FD2");
+            entity.HasKey(e => e.Id).HasName("PK__DiaDiem__3214EC079112EF75");
 
             entity.Property(e => e.Id).HasDefaultValueSql("(newsequentialid())");
         });
 
         modelBuilder.Entity<DmLoaiSuKien>(entity =>
         {
-            entity.HasKey(e => e.Ma).HasName("PK__DM_LoaiS__3214CC9FC35A9965");
+            entity.HasKey(e => e.Ma).HasName("PK__DM_LoaiS__3214CC9F71D7CF50");
         });
 
         modelBuilder.Entity<DmTrangThaiQr>(entity =>
         {
-            entity.HasKey(e => e.Ma).HasName("PK__DM_Trang__3214CC9FBBFD3300");
+            entity.HasKey(e => e.Ma).HasName("PK__DM_Trang__3214CC9F24CDCCA5");
         });
 
         modelBuilder.Entity<DoanhNghiep>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__DoanhNgh__3214EC07BE295F18");
+            entity.HasKey(e => e.Id).HasName("PK__DoanhNgh__3214EC0761E1D8B3");
 
             entity.Property(e => e.Id).HasDefaultValueSql("(newsequentialid())");
         });
 
         modelBuilder.Entity<LichSuQuet>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__LanQuet__3214EC07F1DD02E2");
+            entity.HasKey(e => e.Id).HasName("PK__LichSuQu__3214EC07B4D69953");
 
             entity.Property(e => e.Id).HasDefaultValueSql("(newsequentialid())");
 
@@ -111,12 +126,12 @@ public partial class QR_DATNContext : DbContext
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK_LanQuet_QR");
 
-            entity.HasOne(d => d.NguoiTieuDung).WithMany(p => p.LichSuQuets).HasConstraintName("FK_LanQuet_NTD");
+            entity.HasOne(d => d.NguoiDung).WithMany(p => p.LichSuQuets).HasConstraintName("FK_LanQuet_User");
         });
 
         modelBuilder.Entity<LoHang>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__LoHang__3214EC07CB649EB1");
+            entity.HasKey(e => e.Id).HasName("PK__LoHang__3214EC07A9F26D12");
 
             entity.Property(e => e.Id).HasDefaultValueSql("(newsequentialid())");
 
@@ -127,7 +142,7 @@ public partial class QR_DATNContext : DbContext
 
         modelBuilder.Entity<MaQrLoHang>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__MaQR_LoH__3214EC076A7032A1");
+            entity.HasKey(e => e.Id).HasName("PK__MaQR_LoH__3214EC0711BAE841");
 
             entity.Property(e => e.Id).HasDefaultValueSql("(newsequentialid())");
 
@@ -142,40 +157,33 @@ public partial class QR_DATNContext : DbContext
 
         modelBuilder.Entity<NguoiDung>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__NguoiDun__3214EC07BCBD19B2");
+            entity.HasKey(e => e.Id).HasName("PK__NguoiDun__3214EC07AC31B2CF");
 
             entity.Property(e => e.Id).HasDefaultValueSql("(newsequentialid())");
 
             entity.HasOne(d => d.DoanhNghiep).WithMany(p => p.NguoiDungs).HasConstraintName("FK_NguoiDung_DoanhNghiep");
 
-            entity.HasMany(d => d.VaiTros).WithMany(p => p.NguoiDungs)
-                .UsingEntity<Dictionary<string, object>>(
-                    "NguoiDungVaiTro",
-                    r => r.HasOne<VaiTro>().WithMany()
-                        .HasForeignKey("VaiTroId")
-                        .OnDelete(DeleteBehavior.ClientSetNull)
-                        .HasConstraintName("FK_NDV_VaiTro"),
-                    l => l.HasOne<NguoiDung>().WithMany()
-                        .HasForeignKey("NguoiDungId")
-                        .OnDelete(DeleteBehavior.ClientSetNull)
-                        .HasConstraintName("FK_NDV_NguoiDung"),
-                    j =>
-                    {
-                        j.HasKey("NguoiDungId", "VaiTroId").HasName("PK__NguoiDun__B0CCFCAC00B6E4F7");
-                        j.ToTable("NguoiDung_VaiTro");
-                    });
-        });
-
-        modelBuilder.Entity<NguoiTieuDung>(entity =>
-        {
-            entity.HasKey(e => e.Id).HasName("PK__NguoiTie__3214EC073F050A7B");
-
-            entity.Property(e => e.Id).HasDefaultValueSql("(newsequentialid())");
+            //entity.HasMany(d => d.VaiTros).WithMany(p => p.NguoiDungs)
+            //    .UsingEntity<Dictionary<string, object>>(
+            //        "NguoiDungVaiTro",
+            //        r => r.HasOne<VaiTro>().WithMany()
+            //            .HasForeignKey("VaiTroId")
+            //            .OnDelete(DeleteBehavior.ClientSetNull)
+            //            .HasConstraintName("FK_NDV_VaiTro"),
+            //        l => l.HasOne<NguoiDung>().WithMany()
+            //            .HasForeignKey("NguoiDungId")
+            //            .OnDelete(DeleteBehavior.ClientSetNull)
+            //            .HasConstraintName("FK_NDV_NguoiDung"),
+            //        j =>
+            //        {
+            //            j.HasKey("NguoiDungId", "VaiTroId").HasName("PK__NguoiDun__B0CCFCAC0CA4532C");
+            //            j.ToTable("NguoiDung_VaiTro");
+            //        });
         });
 
         modelBuilder.Entity<SanPham>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__SanPham__3214EC07D20E0DD1");
+            entity.HasKey(e => e.Id).HasName("PK__SanPham__3214EC0788CCB47A");
 
             entity.Property(e => e.Id).HasDefaultValueSql("(newsequentialid())");
 
@@ -186,7 +194,7 @@ public partial class QR_DATNContext : DbContext
 
         modelBuilder.Entity<SuKienChuoiCungUng>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__SuKienCh__3214EC07FE7C8755");
+            entity.HasKey(e => e.Id).HasName("PK__SuKienCh__3214EC0740D5C7F3");
 
             entity.Property(e => e.Id).HasDefaultValueSql("(newsequentialid())");
 
@@ -203,14 +211,14 @@ public partial class QR_DATNContext : DbContext
 
         modelBuilder.Entity<VaiTro>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__VaiTro__3214EC078356F312");
+            entity.HasKey(e => e.Id).HasName("PK__VaiTro__3214EC07926265D9");
 
-            entity.Property(e => e.Id).HasDefaultValueSql("(newsequentialid())");
+            entity.Property(e => e.Id).ValueGeneratedOnAdd();
         });
 
         modelBuilder.Entity<YeuCauDangKyDn>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__YeuCauDa__3214EC07FBB32C56");
+            entity.HasKey(e => e.Id).HasName("PK__YeuCauDa__3214EC0709C42057");
 
             entity.Property(e => e.Id).HasDefaultValueSql("(newsequentialid())");
         });

@@ -40,7 +40,7 @@ namespace DATN.ControllersUser
             var entity = new BaoCaoNguoiDung
             {
                 Id = Guid.NewGuid(),
-                NguoiTieuDungId = request.NguoiTieuDungId,
+                NguoiDungId = request.NguoiTieuDungId,
                 MaQrLoHangId = request.MaQrLoHangId, // sửa cho đúng property của entity
                 LanQuetId = request.LanQuetId,
                 ThoiGian = now,
@@ -110,7 +110,7 @@ namespace DATN.ControllersUser
             return new BaoCaoNguoiDungResponseDto
             {
                 Id = x.Id,
-                NguoiTieuDungId = x.NguoiTieuDungId,
+                NguoiTieuDungId = x.NguoiDungId,
                 MaQrLoHangId = x.MaQrLoHangId, 
                 LanQuetId = x.LanQuetId,
                 ThoiGian = x.ThoiGian,

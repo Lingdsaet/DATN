@@ -1,6 +1,10 @@
 ﻿using DATN.Model;
 using DATN.Repository;
+using DATN.Utils;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -9,7 +13,7 @@ builder.Services.AddDbContext<QR_DATNContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 // Đăng ký Repository
-builder.Services.AddScoped<INguoiTieuDungRepository, NguoiTieuDungRepository>();
+
 builder.Services.AddScoped<ILichSuQuetRepository, LichSuQuetRepository>();
 builder.Services.AddScoped<ILoHangRepository, LoHangRepository>();
 builder.Services.AddScoped<IMaQrLoHangRepository, MaQrLoHangRepository>();
@@ -18,10 +22,42 @@ builder.Services.AddScoped<ICuaHangRepository, CuaHangRepository>();
 builder.Services.AddScoped<IDoanhNghiepRepository, DoanhNghiepRepository>();
 builder.Services.AddScoped<IYeuCauDangKyDnRepository, YeuCauDangKyDnRepository>();
 builder.Services.AddScoped<IQrScanRepository, QrScanRepository>();
-
+builder.Services.AddScoped<INguoiDungRepository, NguoiDungRepository>();
+builder.Services.AddScoped<IVaiTroRepository, VaiTroRepository>();
+builder.Services.AddScoped<INguoiDungVaiTroRepository, NguoiDungVaiTroRepository>();
+//builder.Services.AddScoped<ISuKienChuoiCungUngRepository, SuKienChuoiCungUngRepository>();
+//builder.Services.AddScoped<IDmLoaiSuKienRepository, DmLoaiSuKienRepository>();
 
 //Đăng ký Controllers 
 builder.Services.AddControllers();
+
+// 2. Đăng ký service tạo token
+builder.Services.AddScoped<IJwtTokenService, JwtTokenService>();
+
+// 3. Thêm Authentication + JWT Bearer
+builder.Services.Configure<JwtSettings>(
+    builder.Configuration.GetSection("Jwt"));
+var jwtSection = builder.Configuration.GetSection("Jwt");
+var key = jwtSection.GetValue<string>("Key");
+var issuer = jwtSection.GetValue<string>("Issuer");
+var audience = jwtSection.GetValue<string>("Audience");
+
+builder.Services
+    .AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+    .AddJwtBearer(options =>
+    {
+        options.TokenValidationParameters = new TokenValidationParameters
+        {
+            ValidateIssuer = true,
+            ValidateAudience = true,
+            ValidateLifetime = true,
+            ValidateIssuerSigningKey = true,
+            ValidIssuer = issuer,
+            ValidAudience = audience,
+            IssuerSigningKey = new SymmetricSecurityKey(
+                Encoding.UTF8.GetBytes(key!))
+        };
+    });
 
 // Đăng ký Authorization (để dùng được app.UseAuthorization)
 builder.Services.AddAuthorization();

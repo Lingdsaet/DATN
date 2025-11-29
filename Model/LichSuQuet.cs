@@ -16,7 +16,7 @@ public partial class LichSuQuet
     [Column("MaQR_LoHangId")]
     public Guid MaQrLoHangId { get; set; }
 
-    public Guid? NguoiTieuDungId { get; set; }
+    public Guid? NguoiDungId { get; set; }
 
     [Precision(0)]
     public DateTime ThoiGian { get; set; }
@@ -46,7 +46,7 @@ public partial class LichSuQuet
     [InverseProperty("LichSuQuets")]
     public virtual MaQrLoHang MaQrLoHang { get; set; } = null!;
 
-    [ForeignKey("NguoiTieuDungId")]
+    [ForeignKey("NguoiDungId")]
     [InverseProperty("LichSuQuets")]
-    public virtual NguoiTieuDung? NguoiTieuDung { get; set; }
+    public virtual NguoiDung? NguoiDung { get; set; }
 }

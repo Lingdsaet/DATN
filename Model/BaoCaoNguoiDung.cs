@@ -13,7 +13,7 @@ public partial class BaoCaoNguoiDung
     [Key]
     public Guid Id { get; set; }
 
-    public Guid? NguoiTieuDungId { get; set; }
+    public Guid? NguoiDungId { get; set; }
 
     [Column("MaQR_LoHangId")]
     public Guid? MaQrLoHangId { get; set; }
@@ -45,7 +45,7 @@ public partial class BaoCaoNguoiDung
     [InverseProperty("BaoCaoNguoiDungs")]
     public virtual MaQrLoHang? MaQrLoHang { get; set; }
 
-    [ForeignKey("NguoiTieuDungId")]
+    [ForeignKey("NguoiDungId")]
     [InverseProperty("BaoCaoNguoiDungs")]
-    public virtual NguoiTieuDung? NguoiTieuDung { get; set; }
+    public virtual NguoiDung? NguoiDung { get; set; }
 }

@@ -66,7 +66,7 @@ namespace DATN1.ControllersUser
                 ViDo = x.ViDo,
                 KinhDo = x.KinhDo,
                 DiaChiGanDung = x.DiaChiGanDung,
-                NguoiTieuDungId = x.NguoiTieuDungId,
+                NguoiDungId = x.NguoiDungId,
 
                 TenSanPham = sp?.Ten,
                 MaSanPham = sp?.MaSanPham,

@@ -49,6 +49,7 @@ namespace DATN1.ControllersUser
             return Ok(dto);
         }
 
+        [HttpPost("GanDoanhNghiepChoNguoiDung")]
         public async Task<IActionResult> GanDoanhNghiepChoNguoiDung(
         [FromBody] GanDoanhNghiepChoNguoiDungRequest request)
         {

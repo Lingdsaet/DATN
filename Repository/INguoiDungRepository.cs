@@ -13,6 +13,9 @@
         Task SaveChangesAsync();
         Task<NguoiDung?> GetByEmailOrPhoneAsync(string key);
         Task<List<string>> GetRoleCodesAsync(Guid nguoiDungId);
+        Task<NguoiDung?> GetByIdAsync(Guid id);
+        Task UpdateAsync(NguoiDung user);
+
     }
 
     public interface IVaiTroRepository
@@ -23,6 +26,8 @@
     public interface INguoiDungVaiTroRepository
     {
         Task AddAsync(NguoiDungVaiTro mapping);
+        Task RemoveAllRolesOfUserAsync(Guid nguoiDungId);
+        Task SaveChangesAsync();
     }
 
 }

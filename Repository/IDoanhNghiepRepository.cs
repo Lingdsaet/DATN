@@ -9,5 +9,6 @@ namespace DATN.Repository
         Task<DoanhNghiep> CreateAsync(DoanhNghiep dn);
         Task<DoanhNghiep?> UpdateAsync(DoanhNghiep dn);
         Task<bool> SoftDeleteAsync(Guid id);
+        Task AddAsync(DoanhNghiep dn);
     }
 }

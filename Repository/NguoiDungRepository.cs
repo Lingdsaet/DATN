@@ -52,6 +52,16 @@ namespace DATN.Repository
                 )
                 .ToListAsync();
         }
+        public Task<NguoiDung?> GetByIdAsync(Guid id)
+        {
+            return _context.NguoiDungs.FirstOrDefaultAsync(x => x.Id == id);
+        }
+
+        public Task UpdateAsync(NguoiDung user)
+        {
+            _context.NguoiDungs.Update(user);
+            return Task.CompletedTask;
+        }
     }
 
     public class VaiTroRepository : IVaiTroRepository
@@ -81,6 +91,31 @@ namespace DATN.Repository
         public Task AddAsync(NguoiDungVaiTro mapping)
         {
             return _context.NguoiDungVaiTro.AddAsync(mapping).AsTask();
+        }
+    
+    public Task<NguoiDung?> GetByIdAsync(Guid id)
+        {
+            return _context.NguoiDungs.FirstOrDefaultAsync(x => x.Id == id);
+        }
+
+        public Task UpdateAsync(NguoiDung user)
+        {
+            _context.NguoiDungs.Update(user);
+            return Task.CompletedTask;
+        }
+
+        public Task RemoveAllRolesOfUserAsync(Guid nguoiDungId)
+        {
+            var list = _context.NguoiDungVaiTro
+                .Where(x => x.NguoiDungId == nguoiDungId);
+
+            _context.NguoiDungVaiTro.RemoveRange(list);
+            return Task.CompletedTask;
+        }
+
+        public Task SaveChangesAsync()
+        {
+            return _context.SaveChangesAsync();
         }
     }
 }

@@ -59,5 +59,9 @@ namespace DATN.Repository
             await _context.SaveChangesAsync();
             return true;
         }
+        public Task AddAsync(DoanhNghiep dn)
+        {
+            return _context.DoanhNghieps.AddAsync(dn).AsTask();
+        }
     }
 }

@@ -8,13 +8,23 @@ namespace DATN1.ControllersUser
 {
     [ApiController]
     [Route("api/[controller]")]
-    public class DoanhNghiepsController : ControllerBase
+    public class AdminDoanhNghiepController : ControllerBase
     {
-        private readonly IDoanhNghiepRepository _repo;
+        private readonly INguoiDungRepository _nguoiDungRepo;
+        private readonly IDoanhNghiepRepository _doanhNghiepRepo;
+        private readonly INguoiDungVaiTroRepository _nguoiDungVaiTroRepo;
+        private readonly IVaiTroRepository _vaiTroRepo;
 
-        public DoanhNghiepsController(IDoanhNghiepRepository repo)
+        public AdminDoanhNghiepController(
+        INguoiDungRepository nguoiDungRepo,
+        IDoanhNghiepRepository doanhNghiepRepo,
+        INguoiDungVaiTroRepository nguoiDungVaiTroRepo,
+        IVaiTroRepository vaiTroRepo)
         {
-            _repo = repo;
+            _nguoiDungRepo = nguoiDungRepo;
+            _doanhNghiepRepo = doanhNghiepRepo;
+            _nguoiDungVaiTroRepo = nguoiDungVaiTroRepo;
+            _vaiTroRepo = vaiTroRepo;
         }
 
         // GET: api/DoanhNghieps?trangThai=ACTIVE
@@ -22,7 +32,7 @@ namespace DATN1.ControllersUser
         public async Task<ActionResult<IEnumerable<DoanhNghiepResponseDto>>> GetAll(
             [FromQuery] string? trangThai)
         {
-            var list = await _repo.GetAllAsync(trangThai);
+            var list = await _doanhNghiepRepo.GetAllAsync(trangThai);
             var result = list.Select(MapToDto);
             return Ok(result);
         }
@@ -31,7 +41,7 @@ namespace DATN1.ControllersUser
         [HttpGet("{id}")]
         public async Task<ActionResult<DoanhNghiepResponseDto>> GetById(Guid id)
         {
-            var entity = await _repo.GetByIdAsync(id);
+            var entity = await _doanhNghiepRepo.GetByIdAsync(id);
             if (entity == null)
                 return NotFound("Không tìm thấy doanh nghiệp.");
 
@@ -39,35 +49,104 @@ namespace DATN1.ControllersUser
             return Ok(dto);
         }
 
-        // POST: api/DoanhNghieps  (Thêm doanh nghiệp)
-        [HttpPost]
-        public async Task<ActionResult<DoanhNghiepResponseDto>> Create(
-            [FromBody] DoanhNghiepCreateRequestDto request)
+        public async Task<IActionResult> GanDoanhNghiepChoNguoiDung(
+        [FromBody] GanDoanhNghiepChoNguoiDungRequest request)
         {
-            if (!ModelState.IsValid)
-                return BadRequest(ModelState);
+            // 1. Tìm user
+            var user = await _nguoiDungRepo.GetByIdAsync(request.NguoiDungId);
+            if (user == null)
+            {
+                return NotFound(new
+                {
+                    Success = false,
+                    Message = "Không tìm thấy người dùng."
+                });
+            }
 
-            var now = DateTime.UtcNow;
-
-            var entity = new DoanhNghiep
+            // 2. Tạo DoanhNghiep mới
+            var dn = new DoanhNghiep
             {
                 Id = Guid.NewGuid(),
-                Ten = request.Ten,
+                Ten = request.TenDoanhNghiep,
                 MaSoThue = request.MaSoThue,
-                Email = request.Email,
-                DienThoai = request.DienThoai,
                 DiaChi = request.DiaChi,
-                TrangThai = request.TrangThai,
-                CreatedAt = now,
-                UpdatedAt = now,
-                XoaMem = false
+                DienThoai = request.DienThoai,
+                Email = request.Email,
+                CreatedAt = DateTime.UtcNow,
+                UpdatedAt = DateTime.UtcNow
             };
 
-            entity = await _repo.CreateAsync(entity);
-            var dto = MapToDto(entity);
+            await _doanhNghiepRepo.AddAsync(dn);
 
-            return CreatedAtAction(nameof(GetById), new { id = dto.Id }, dto);
+            // 3. Gán DoanhNghiepId cho user
+            user.DoanhNghiepId = dn.Id;
+            user.UpdatedAt = DateTime.UtcNow;
+            await _nguoiDungRepo.UpdateAsync(user);
+
+            // 4. Lấy vai trò DOANH_NGHIEP
+            var vaiTroDoanhNghiep = await _vaiTroRepo.GetByMaAsync("DOANH_NGHIEP");
+            if (vaiTroDoanhNghiep == null)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, new
+                {
+                    Success = false,
+                    Message = "Chưa cấu hình vai trò DOANH_NGHIEP trong bảng VaiTro."
+                });
+            }
+
+            // 5. Xoá hết role cũ của user, thêm role DOANH_NGHIEP
+            await _nguoiDungVaiTroRepo.RemoveAllRolesOfUserAsync(user.Id);
+
+            var mapping = new NguoiDungVaiTro
+            {
+                NguoiDungId = user.Id,
+                VaiTroId = vaiTroDoanhNghiep.Id   // tinyint/byte
+            };
+            await _nguoiDungVaiTroRepo.AddAsync(mapping);
+
+            // 6. Lưu thay đổi
+            await _nguoiDungVaiTroRepo.SaveChangesAsync();
+
+            return Ok(new
+            {
+                Success = true,
+                Message = "Gán doanh nghiệp và cập nhật vai trò DOANH_NGHIEP thành công.",
+                Data = new
+                {
+                    UserId = user.Id,
+                    DoanhNghiepId = dn.Id
+                }
+            });
         }
+        // POST: api/DoanhNghieps  (Thêm doanh nghiệp)
+        //[HttpPost]
+        //public async Task<ActionResult<DoanhNghiepResponseDto>> Create(
+        //    [FromBody] DoanhNghiepCreateRequestDto request)
+        //{
+        //    if (!ModelState.IsValid)
+        //        return BadRequest(ModelState);
+
+        //    var now = DateTime.UtcNow;
+
+        //    var entity = new DoanhNghiep
+        //    {
+        //        Id = Guid.NewGuid(),
+        //        Ten = request.Ten,
+        //        MaSoThue = request.MaSoThue,
+        //        Email = request.Email,
+        //        DienThoai = request.DienThoai,
+        //        DiaChi = request.DiaChi,
+        //        TrangThai = request.TrangThai,
+        //        CreatedAt = now,
+        //        UpdatedAt = now,
+        //        XoaMem = false
+        //    };
+
+        //    entity = await _doanhNghiepRepo.CreateAsync(entity);
+        //    var dto = MapToDto(entity);
+
+        //    return CreatedAtAction(nameof(GetById), new { id = dto.Id }, dto);
+        //}
 
         // PUT: api/DoanhNghieps/{id}  (Sửa doanh nghiệp)
         [HttpPut("{id}")]
@@ -78,7 +157,7 @@ namespace DATN1.ControllersUser
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
-            var entity = await _repo.GetByIdAsync(id);
+            var entity = await _doanhNghiepRepo.GetByIdAsync(id);
             if (entity == null)
                 return NotFound("Không tìm thấy doanh nghiệp.");
 
@@ -102,7 +181,7 @@ namespace DATN1.ControllersUser
 
             entity.UpdatedAt = DateTime.UtcNow;
 
-            entity = await _repo.UpdateAsync(entity);
+            entity = await _doanhNghiepRepo.UpdateAsync(entity);
             var dto = MapToDto(entity);
 
             return Ok(dto);
@@ -112,7 +191,7 @@ namespace DATN1.ControllersUser
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(Guid id)
         {
-            var success = await _repo.SoftDeleteAsync(id);
+            var success = await _doanhNghiepRepo.SoftDeleteAsync(id);
             if (!success)
                 return NotFound("Không tìm thấy doanh nghiệp.");
 

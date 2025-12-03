@@ -25,7 +25,13 @@ namespace DATN.Repository
                 .OrderByDescending(x => x.CreatedAt)
                 .ToListAsync();
         }
-
+        public Task<List<SanPham>> GetAllAsync()
+        {
+            
+            return _context.SanPhams
+                .Where(sp => !sp.XoaMem)   
+                .ToListAsync();
+        }
         public async Task<SanPham> CreateAsync(SanPham sanPham)
         {
             _context.SanPhams.Add(sanPham);

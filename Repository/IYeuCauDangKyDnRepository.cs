@@ -8,5 +8,7 @@ namespace DATN.Repository
         Task<YeuCauDangKyDn?> GetByIdAsync(Guid id);
         Task<List<YeuCauDangKyDn>> GetAllAsync(string? trangThai);
         Task<YeuCauDangKyDn?> UpdateAsync(YeuCauDangKyDn yc);
+        Task<List<YeuCauDangKyDn>> GetAllAsync();
+        Task<bool> SoftDeleteAsync(Guid id);
     }
 }

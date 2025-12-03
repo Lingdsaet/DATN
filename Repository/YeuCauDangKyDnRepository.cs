@@ -45,5 +45,22 @@ namespace DATN.Repository
             await _context.SaveChangesAsync();
             return yc;
         }
+
+        public Task<List<YeuCauDangKyDn>> GetAllAsync()
+        {
+            // nếu cần có thể filter theo TrangThai
+            return _context.YeuCauDangKyDns
+                .OrderByDescending(x => x.CreatedAt)
+                .ToListAsync();
+        }
+        public async Task<bool> SoftDeleteAsync(Guid id)
+        {
+            var entity = await _context.YeuCauDangKyDns
+                .FirstOrDefaultAsync(x => x.Id == id);
+            if (entity == null) return false;
+            _context.YeuCauDangKyDns.Remove(entity);
+            await _context.SaveChangesAsync();
+            return true;
+        }
     }
 }

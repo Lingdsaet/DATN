@@ -9,5 +9,6 @@ namespace DATN.Repository
         Task<SanPham> CreateAsync(SanPham sanPham);
         Task<SanPham?> UpdateAsync(SanPham sanPham);
         Task<bool> SoftDeleteAsync(Guid id);
+        Task<List<SanPham>> GetAllAsync();
     }
 }

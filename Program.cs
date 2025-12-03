@@ -7,6 +7,20 @@ using Microsoft.IdentityModel.Tokens;
 using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
+const string AllowFrontend = "AllowFrontend";
+
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy(name: AllowFrontend, policy =>
+    {
+        policy
+            .WithOrigins("http://localhost:5173") // React Vite
+            .AllowAnyHeader()
+            .AllowAnyMethod();
+        // Nếu sau này cần dùng cookie/bearer kèm credentials:
+        // .AllowCredentials();
+    });
+});
 
 // Đăng ký DbContext
 builder.Services.AddDbContext<QR_DATNContext>(options =>

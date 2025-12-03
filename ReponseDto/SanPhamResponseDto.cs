@@ -4,6 +4,7 @@
     {
         public Guid Id { get; set; }
         public Guid DoanhNghiepId { get; set; }
+        public string? TenDoanhNghiep { get; set; }
         public string Ten { get; set; } = null!;
         public string? MaSanPham { get; set; }
         public string? MoTa { get; set; }

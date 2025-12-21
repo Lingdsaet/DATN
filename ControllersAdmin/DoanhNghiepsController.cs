@@ -51,7 +51,7 @@ namespace DATN1.ControllersUser
 
         [HttpPost("GanDoanhNghiepChoNguoiDung")]
         public async Task<IActionResult> GanDoanhNghiepChoNguoiDung(
-        [FromBody] GanDoanhNghiepChoNguoiDungRequest request)
+     [FromBody] GanDoanhNghiepChoNguoiDungRequest request)
         {
             // 1. Tìm user
             var user = await _nguoiDungRepo.GetByIdAsync(request.NguoiDungId);
@@ -64,7 +64,7 @@ namespace DATN1.ControllersUser
                 });
             }
 
-            // 2. Tạo DoanhNghiep mới
+            // 2. Tạo DoanhNghiep mới (⚠ BỔ SUNG TrangThai)
             var dn = new DoanhNghiep
             {
                 Id = Guid.NewGuid(),
@@ -73,16 +73,19 @@ namespace DATN1.ControllersUser
                 DiaChi = request.DiaChi,
                 DienThoai = request.DienThoai,
                 Email = request.Email,
+                TrangThai = "ACTIVE", 
                 CreatedAt = DateTime.UtcNow,
                 UpdatedAt = DateTime.UtcNow
             };
 
             await _doanhNghiepRepo.AddAsync(dn);
+            
 
             // 3. Gán DoanhNghiepId cho user
             user.DoanhNghiepId = dn.Id;
             user.UpdatedAt = DateTime.UtcNow;
             await _nguoiDungRepo.UpdateAsync(user);
+            await _nguoiDungRepo.SaveChangesAsync();
 
             // 4. Lấy vai trò DOANH_NGHIEP
             var vaiTroDoanhNghiep = await _vaiTroRepo.GetByMaAsync("DOANH_NGHIEP");
@@ -95,17 +98,16 @@ namespace DATN1.ControllersUser
                 });
             }
 
-            // 5. Xoá hết role cũ của user, thêm role DOANH_NGHIEP
+            // 5. Xoá role cũ, gán role mới
             await _nguoiDungVaiTroRepo.RemoveAllRolesOfUserAsync(user.Id);
 
             var mapping = new NguoiDungVaiTro
             {
                 NguoiDungId = user.Id,
-                VaiTroId = vaiTroDoanhNghiep.Id   // tinyint/byte
+                VaiTroId = vaiTroDoanhNghiep.Id
             };
-            await _nguoiDungVaiTroRepo.AddAsync(mapping);
 
-            // 6. Lưu thay đổi
+            await _nguoiDungVaiTroRepo.AddAsync(mapping);
             await _nguoiDungVaiTroRepo.SaveChangesAsync();
 
             return Ok(new
@@ -119,6 +121,7 @@ namespace DATN1.ControllersUser
                 }
             });
         }
+        
         // POST: api/DoanhNghieps  (Thêm doanh nghiệp)
         //[HttpPost]
         //public async Task<ActionResult<DoanhNghiepResponseDto>> Create(

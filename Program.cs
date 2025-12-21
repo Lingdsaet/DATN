@@ -7,6 +7,21 @@ using Microsoft.IdentityModel.Tokens;
 using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
+
+// Đăng ký HttpClientFactory (bắt buộc)
+builder.Services.AddHttpClient();
+
+// (Tuỳ chọn) Named client cho Chat API
+builder.Services.AddHttpClient("gemini", (sp, c) =>
+{
+    var cfg = sp.GetRequiredService<IConfiguration>();
+
+    c.BaseAddress = new Uri(cfg["Gemini:BaseUrl"]!);
+    c.Timeout = TimeSpan.FromSeconds(60);
+    c.DefaultRequestHeaders.Add("Accept", "application/json");
+});
+
+
 const string AllowFrontend = "AllowFrontend";
 
 builder.Services.AddCors(options =>

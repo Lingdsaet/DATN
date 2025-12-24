@@ -2,5 +2,6 @@
 {
     public interface IFirebaseService
     {
+        Task<string> UploadImageToFirebase(IFormFile file);
     }
 }

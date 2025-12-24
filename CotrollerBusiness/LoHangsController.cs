@@ -25,6 +25,32 @@ namespace DATN1.ControllersUser
             _context = context;
         }
 
+        // GET: api/LoHangs  (Lấy danh sách lô hàng)
+        [HttpGet]
+        public async Task<ActionResult<IEnumerable<LoHangResponseDto>>> GetAll()
+        {
+            var entities = await _context.LoHangs
+                .Where(x => !x.XoaMem)
+                .ToListAsync();
+
+            var dtos = entities.Select(entity => new LoHangResponseDto
+            {
+                Id = entity.Id,
+                SanPhamId = entity.SanPhamId,
+                MaLo = entity.MaLo,
+                NgaySanXuat = entity.NgaySanXuat,
+                HanSuDung = entity.HanSuDung,
+                SoLuong = entity.SoLuong,
+                TieuChuanApDung = entity.TieuChuanApDung,
+                KetQuaKiemNghiem = entity.KetQuaKiemNghiem,
+                TrangThai = entity.TrangThai,
+                CreatedAt = entity.CreatedAt,
+                UpdatedAt = entity.UpdatedAt
+            }).ToList();
+
+            return Ok(dtos);
+        }
+
         // GET: api/LoHangs/{id}  (Xem chi tiết lô hàng)
         [HttpGet("{id}")]
         public async Task<ActionResult<LoHangResponseDto>> GetById(Guid id)
@@ -150,6 +176,8 @@ namespace DATN1.ControllersUser
             entity.UpdatedAt = DateTime.UtcNow;
 
             entity = await _loHangRepo.UpdateAsync(entity);
+            if (entity == null)
+                return BadRequest("Lỗi khi cập nhật lô hàng.");
 
             var dto = new LoHangResponseDto
             {

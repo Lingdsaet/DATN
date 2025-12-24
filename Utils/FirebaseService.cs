@@ -1,6 +1,24 @@
-﻿namespace DATN.Utils
+﻿using Firebase.Storage;
+namespace DATN.Utils
 {
-    public class FireBase
+    public class FirebaseService : IFirebaseService
     {
+        private readonly string _bucket = "fir-9a230.appspot.com";
+
+        public async Task<string> UploadImageToFirebase(IFormFile file)
+        {
+            if (file == null || file.Length == 0) return null;
+
+            var fileName = $"{Guid.NewGuid()}_{file.FileName}";
+            using (var stream = file.OpenReadStream())
+            {
+                var task = new FirebaseStorage(_bucket)
+                    .Child("SanPhamImages")
+                    .Child(fileName)
+                    .PutAsync(stream);
+
+                return await task;
+            }
+        }
     }
 }

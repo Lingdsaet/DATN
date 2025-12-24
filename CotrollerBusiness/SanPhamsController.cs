@@ -2,6 +2,7 @@
 using DATN.ReponseDto;
 using DATN.Repository;
 using DATN.RequestDto;
+using DATN.Utils;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -13,14 +14,34 @@ namespace DATN1.ControllersUser
     {
         private readonly ISanPhamRepository _sanPhamRepo;
         private readonly QR_DATNContext _context;
+        private readonly IFirebaseService _firebaseService;
 
-        public SanPhamsController(ISanPhamRepository sanPhamRepo, QR_DATNContext context)
+        public SanPhamsController(ISanPhamRepository sanPhamRepo, QR_DATNContext context, IFirebaseService firebaseService)
         {
             _sanPhamRepo = sanPhamRepo;
             _context = context;
+            _firebaseService = firebaseService;
         }
 
-        // GET: api/SanPhams/{id}
+        // GET: api/SanPhams (tất cả sản phẩm)
+        [HttpGet]
+        public async Task<ActionResult<IEnumerable<SanPhamResponseDto>>> GetAll()
+        {
+            var list = await _context.SanPhams.Where(x => !x.XoaMem).ToListAsync();
+            var result = list.Select(MapToDto);
+            return Ok(result);
+        }
+
+        // GET: api/SanPhams/doanh-nghiep/{doanhNghiepId}  ⚠️ PHẢI ĐẶT TRƯỚC {id}
+        [HttpGet("doanh-nghiep/{doanhNghiepId}")]
+        public async Task<ActionResult<IEnumerable<SanPhamResponseDto>>> GetByDoanhNghiep(Guid doanhNghiepId)
+        {
+            var list = await _sanPhamRepo.GetByDoanhNghiepIdAsync(doanhNghiepId);
+            var result = list.Select(MapToDto);
+            return Ok(result);
+        }
+
+        // GET: api/SanPhams/{id}  ⚠️ PHẢI ĐẶT CUỐI CÙNG
         [HttpGet("{id}")]
         public async Task<ActionResult<SanPhamResponseDto>> GetById(Guid id)
         {
@@ -31,51 +52,72 @@ namespace DATN1.ControllersUser
             return Ok(dto);
         }
 
-        // GET: api/SanPhams/doanh-nghiep/{doanhNghiepId}
-        [HttpGet("doanh-nghiep/{doanhNghiepId}")]
-        public async Task<ActionResult<IEnumerable<SanPhamResponseDto>>> GetByDoanhNghiep(Guid doanhNghiepId)
-        {
-            var list = await _sanPhamRepo.GetByDoanhNghiepIdAsync(doanhNghiepId);
-            var result = list.Select(MapToDto);
-            return Ok(result);
-        }
-
         // POST: api/SanPhams   (thêm sản phẩm)
         [HttpPost]
-        public async Task<ActionResult<SanPhamResponseDto>> Create([FromBody] SanPhamCreateRequestDto request)
+        public async Task<ActionResult<SanPhamResponseDto>> Create([FromForm] CreateSanPhamDto dto)
         {
-            if (!ModelState.IsValid)
-                return BadRequest(ModelState);
-
-            // Kiểm tra doanh nghiệp tồn tại
-            var dnExists = await _context.DoanhNghieps
-                .AnyAsync(x => x.Id == request.DoanhNghiepId && !x.XoaMem);
-
-            if (!dnExists)
-                return BadRequest("Doanh nghiệp không tồn tại.");
-
-            var now = DateTime.UtcNow;
-
-            var entity = new SanPham
+            // BẮT ĐẦU: TRY-CATCH DEBUG
+            try
             {
-                Id = Guid.NewGuid(),
-                DoanhNghiepId = request.DoanhNghiepId,
-                Ten = request.Ten,
-                MaSanPham = request.MaSanPham,
-                MoTa = request.MoTa,
-                HinhAnhUrl = request.HinhAnhUrl,
-                TieuChuanApDung = request.TieuChuanApDung,
-                TrangThai = request.TrangThai,
-                CreatedAt = now,
-                UpdatedAt = now,
-                XoaMem = false
-            };
+                // 1. Validate Model
+                if (!ModelState.IsValid)
+                {
+                    var errors = string.Join("; ", ModelState.Values
+                                        .SelectMany(v => v.Errors)
+                                        .Select(e => e.ErrorMessage));
+                    return BadRequest("Lỗi dữ liệu: " + errors);
+                }
 
-            entity = await _sanPhamRepo.CreateAsync(entity);
-            var dto = MapToDto(entity);
+                // 2. Kiểm tra Doanh Nghiệp (Có thể lỗi DB ở đây)
+                var dnExists = await _context.DoanhNghieps
+                    .AnyAsync(x => x.Id == dto.DoanhNghiepId && !x.XoaMem);
 
-            return CreatedAtAction(nameof(GetById), new { id = dto.Id }, dto);
+                if (!dnExists)
+                    return BadRequest($"Doanh nghiệp ID {dto.DoanhNghiepId} không tồn tại.");
+
+                // 3. Upload ảnh (Có thể lỗi Firebase ở đây)
+                string? imageUrl = null;
+                if (dto.HinhAnh != null && dto.HinhAnh.Length > 0)
+                {
+                    imageUrl = await _firebaseService.UploadImageToFirebase(dto.HinhAnh);
+                }
+
+                // 4. Tạo Entity
+                var sanPham = new SanPham
+                {
+                    Id = Guid.NewGuid(),
+                    DoanhNghiepId = dto.DoanhNghiepId,
+                    Ten = dto.Ten,
+                    MaSanPham = dto.MaSanPham,
+                    MoTa = dto.MoTa,
+                    TieuChuanApDung = dto.TieuChuanApDung,
+                    HinhAnhUrl = imageUrl,
+                    TrangThai = "Hoạt động",
+                    CreatedAt = DateTime.UtcNow,
+                    UpdatedAt = DateTime.UtcNow,
+                    XoaMem = false
+                };
+
+                // 5. Lưu DB
+                await _sanPhamRepo.AddAsync(sanPham);
+
+                // 6. Trả về
+                var response = MapToDto(sanPham); // Đảm bảo hàm MapToDto không lỗi
+                return CreatedAtAction(nameof(GetById), new { id = sanPham.Id }, response);
+            }
+            catch (Exception ex)
+            {
+                // QUAN TRỌNG: Trả về lỗi chi tiết để bạn đọc
+                return StatusCode(500, new
+                {
+                    Message = "Server gặp lỗi nội bộ",
+                    Error = ex.Message,
+                    StackTrace = ex.ToString()
+                });
+            }
         }
+
+
 
         // PUT: api/SanPhams/{id}   (sửa sản phẩm)
         [HttpPut("{id}")]

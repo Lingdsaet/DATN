@@ -8,10 +8,10 @@ using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Đăng ký HttpClientFactory (bắt buộc)
+
 builder.Services.AddHttpClient();
 
-// (Tuỳ chọn) Named client cho Chat API
+//  Named client cho Chat API
 builder.Services.AddHttpClient("gemini", (sp, c) =>
 {
     var cfg = sp.GetRequiredService<IConfiguration>();
@@ -26,16 +26,15 @@ const string AllowFrontend = "AllowFrontend";
 
 builder.Services.AddCors(options =>
 {
-    options.AddPolicy(name: AllowFrontend, policy =>
+    options.AddPolicy("AllowAll", policy =>
     {
         policy
-            .WithOrigins("http://localhost:5173") // React Vite
-            .AllowAnyHeader()
-            .AllowAnyMethod();
-        // Nếu sau này cần dùng cookie/bearer kèm credentials:
-        // .AllowCredentials();
+            .AllowAnyOrigin()
+            .AllowAnyMethod()
+            .AllowAnyHeader();
     });
 });
+
 
 // Đăng ký DbContext
 builder.Services.AddDbContext<QR_DATNContext>(options =>
@@ -54,6 +53,7 @@ builder.Services.AddScoped<IQrScanRepository, QrScanRepository>();
 builder.Services.AddScoped<INguoiDungRepository, NguoiDungRepository>();
 builder.Services.AddScoped<IVaiTroRepository, VaiTroRepository>();
 builder.Services.AddScoped<INguoiDungVaiTroRepository, NguoiDungVaiTroRepository>();
+builder.Services.AddScoped<IFirebaseService, FirebaseService>();
 //builder.Services.AddScoped<ISuKienChuoiCungUngRepository, SuKienChuoiCungUngRepository>();
 //builder.Services.AddScoped<IDmLoaiSuKienRepository, DmLoaiSuKienRepository>();
 
@@ -105,10 +105,9 @@ if (app.Environment.IsDevelopment())
 }
 
 // Nếu có dùng HTTPS:
-app.UseHttpsRedirection();
+//app.UseHttpsRedirection();
 
-// Nếu sau này có Authentication thì:
-// app.UseAuthentication();
+app.UseCors("AllowAll");
 
 app.UseAuthorization();
 

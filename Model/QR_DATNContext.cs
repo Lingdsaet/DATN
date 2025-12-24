@@ -102,11 +102,30 @@ public partial class QR_DATNContext : DbContext
         modelBuilder.Entity<DmLoaiSuKien>(entity =>
         {
             entity.HasKey(e => e.Ma).HasName("PK__DM_LoaiS__3214CC9F71D7CF50");
+            
+            // Seed data cho các loại sự kiện
+            entity.HasData(
+                new DmLoaiSuKien { Ma = "SX", MoTa = "Sản xuất" },
+                new DmLoaiSuKien { Ma = "DONG_GOI", MoTa = "Đóng gói" },
+                new DmLoaiSuKien { Ma = "VAN_CHUYEN", MoTa = "Vận chuyển" },
+                new DmLoaiSuKien { Ma = "KHO", MoTa = "Nhập kho" },
+                new DmLoaiSuKien { Ma = "PHAN_PHOI", MoTa = "Phân phối" },
+                new DmLoaiSuKien { Ma = "BAN_LE", MoTa = "Bán lẻ" },
+                new DmLoaiSuKien { Ma = "TRA_HANG", MoTa = "Trả hàng" },
+                new DmLoaiSuKien { Ma = "KHAC", MoTa = "Khác" }
+            );
         });
 
         modelBuilder.Entity<DmTrangThaiQr>(entity =>
         {
             entity.HasKey(e => e.Ma).HasName("PK__DM_Trang__3214CC9F24CDCCA5");
+            
+            // Seed data cho các trạng thái QR
+            entity.HasData(
+                new DmTrangThaiQr { Ma = "ACTIVE", MoTa = "Đang hoạt động" },
+                new DmTrangThaiQr { Ma = "REVOKED", MoTa = "Đã bị thu hồi" },
+                new DmTrangThaiQr { Ma = "PENDING", MoTa = "Chờ kích hoạt" }
+            );
         });
 
         modelBuilder.Entity<DoanhNghiep>(entity =>

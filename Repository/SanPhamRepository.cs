@@ -32,7 +32,7 @@ namespace DATN.Repository
                 .Where(sp => !sp.XoaMem)   
                 .ToListAsync();
         }
-        public async Task<SanPham> CreateAsync(SanPham sanPham)
+        public async Task<SanPham> AddAsync(SanPham sanPham)
         {
             _context.SanPhams.Add(sanPham);
             await _context.SaveChangesAsync();

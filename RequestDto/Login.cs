@@ -14,6 +14,7 @@
         public string? HoTen { get; set; }
         public string? Email { get; set; }
         public string? DienThoai { get; set; }
+        public Guid? DoanhNghiepId { get; set; }
 
         // Danh sách mã vai trò: ["ADMIN", "DOANH_NGHIEP", "NGUOI_TIEU_DUNG"]
         public List<string> Roles { get; set; } = new();

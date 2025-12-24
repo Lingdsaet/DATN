@@ -81,7 +81,9 @@ namespace DATN.Login
                 HoTen = user.HoTen,
                 Email = user.Email,
                 DienThoai = user.DienThoai,
+                DoanhNghiepId = user.DoanhNghiepId,
                 Roles = roles
+
             };
 
             // Tạo token

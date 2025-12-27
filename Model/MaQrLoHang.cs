@@ -30,6 +30,9 @@ public partial class MaQrLoHang
 
     [Precision(0)]
     public DateTime UpdatedAt { get; set; }
+    [StringLength(500)]
+    public string? QrImageUrl { get; set; }
+
 
     public bool XoaMem { get; set; }
 

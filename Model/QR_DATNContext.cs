@@ -31,6 +31,8 @@ public partial class QR_DATNContext : DbContext
 
     public virtual DbSet<LoHang> LoHangs { get; set; }
 
+    public virtual DbSet<LoaiSanPham> LoaiSanPhams { get; set; }
+
     public virtual DbSet<MaQrLoHang> MaQrLoHangs { get; set; }
 
     public virtual DbSet<NguoiDung> NguoiDungs { get; set; }
@@ -42,8 +44,9 @@ public partial class QR_DATNContext : DbContext
     public virtual DbSet<VaiTro> VaiTros { get; set; }
 
     public virtual DbSet<YeuCauDangKyDn> YeuCauDangKyDns { get; set; }
+    public DbSet<NguoiDungVaiTro> NguoiDungVaiTro { get; set; } = null!;
 
-        
+
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
         => optionsBuilder.UseSqlServer("Data Source = DESKTOP-J4NABFA ; Database =QR_DATN;User ID=sa;Password=1234;Encrypt=false;TrustServerCertificate=True;");
@@ -61,21 +64,6 @@ public partial class QR_DATNContext : DbContext
             entity.HasOne(d => d.MaQrLoHang).WithMany(p => p.BaoCaoNguoiDungs).HasConstraintName("FK_BCND_QR");
 
             entity.HasOne(d => d.NguoiDung).WithMany(p => p.BaoCaoNguoiDungs).HasConstraintName("FK_BCND_User");
-        });
-
-        modelBuilder.Entity<NguoiDungVaiTro>(entity =>
-        {
-            entity.ToTable("NguoiDung_VaiTro");          // tên bảng trong SQL
-
-            entity.HasKey(x => new { x.NguoiDungId, x.VaiTroId });
-
-            entity.HasOne(x => x.NguoiDung)
-                  .WithMany()                            // hoặc WithMany(x => x.NguoiDungVaiTros) nếu bạn có collection
-                  .HasForeignKey(x => x.NguoiDungId);
-
-            entity.HasOne(x => x.VaiTro)
-                  .WithMany()
-                  .HasForeignKey(x => x.VaiTroId);
         });
 
         modelBuilder.Entity<CuaHang>(entity =>
@@ -101,30 +89,11 @@ public partial class QR_DATNContext : DbContext
         modelBuilder.Entity<DmLoaiSuKien>(entity =>
         {
             entity.HasKey(e => e.Ma).HasName("PK__DM_LoaiS__3214CC9F71D7CF50");
-            
-            // Seed data cho các loại sự kiện
-            entity.HasData(
-                new DmLoaiSuKien { Ma = "SX", MoTa = "Sản xuất" },
-                new DmLoaiSuKien { Ma = "DONG_GOI", MoTa = "Đóng gói" },
-                new DmLoaiSuKien { Ma = "VAN_CHUYEN", MoTa = "Vận chuyển" },
-                new DmLoaiSuKien { Ma = "KHO", MoTa = "Nhập kho" },
-                new DmLoaiSuKien { Ma = "PHAN_PHOI", MoTa = "Phân phối" },
-                new DmLoaiSuKien { Ma = "BAN_LE", MoTa = "Bán lẻ" },
-                new DmLoaiSuKien { Ma = "TRA_HANG", MoTa = "Trả hàng" },
-                new DmLoaiSuKien { Ma = "KHAC", MoTa = "Khác" }
-            );
         });
 
         modelBuilder.Entity<DmTrangThaiQr>(entity =>
         {
             entity.HasKey(e => e.Ma).HasName("PK__DM_Trang__3214CC9F24CDCCA5");
-            
-            // Seed data cho các trạng thái QR
-            entity.HasData(
-                new DmTrangThaiQr { Ma = "ACTIVE", MoTa = "Đang hoạt động" },
-                new DmTrangThaiQr { Ma = "REVOKED", MoTa = "Đã bị thu hồi" },
-                new DmTrangThaiQr { Ma = "PENDING", MoTa = "Chờ kích hoạt" }
-            );
         });
 
         modelBuilder.Entity<DoanhNghiep>(entity =>
@@ -158,6 +127,13 @@ public partial class QR_DATNContext : DbContext
                 .HasConstraintName("FK_LoHang_SanPham");
         });
 
+        modelBuilder.Entity<LoaiSanPham>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("PK__LoaiSanP__3214EC07A5A1EC29");
+
+            entity.Property(e => e.Id).HasDefaultValueSql("(newsequentialid())");
+        });
+
         modelBuilder.Entity<MaQrLoHang>(entity =>
         {
             entity.HasKey(e => e.Id).HasName("PK__MaQR_LoH__3214EC0711BAE841");
@@ -181,22 +157,22 @@ public partial class QR_DATNContext : DbContext
 
             entity.HasOne(d => d.DoanhNghiep).WithMany(p => p.NguoiDungs).HasConstraintName("FK_NguoiDung_DoanhNghiep");
 
-            //entity.HasMany(d => d.VaiTros).WithMany(p => p.NguoiDungs)
-            //    .UsingEntity<Dictionary<string, object>>(
-            //        "NguoiDungVaiTro",
-            //        r => r.HasOne<VaiTro>().WithMany()
-            //            .HasForeignKey("VaiTroId")
-            //            .OnDelete(DeleteBehavior.ClientSetNull)
-            //            .HasConstraintName("FK_NDV_VaiTro"),
-            //        l => l.HasOne<NguoiDung>().WithMany()
-            //            .HasForeignKey("NguoiDungId")
-            //            .OnDelete(DeleteBehavior.ClientSetNull)
-            //            .HasConstraintName("FK_NDV_NguoiDung"),
-            //        j =>
-            //        {
-            //            j.HasKey("NguoiDungId", "VaiTroId").HasName("PK__NguoiDun__B0CCFCAC0CA4532C");
-            //            j.ToTable("NguoiDung_VaiTro");
-            //        });
+            entity.HasMany(d => d.VaiTros).WithMany(p => p.NguoiDungs)
+                .UsingEntity<Dictionary<string, object>>(
+                    "NguoiDungVaiTro",
+                    r => r.HasOne<VaiTro>().WithMany()
+                        .HasForeignKey("VaiTroId")
+                        .OnDelete(DeleteBehavior.ClientSetNull)
+                        .HasConstraintName("FK_NDV_VaiTro"),
+                    l => l.HasOne<NguoiDung>().WithMany()
+                        .HasForeignKey("NguoiDungId")
+                        .OnDelete(DeleteBehavior.ClientSetNull)
+                        .HasConstraintName("FK_NDV_NguoiDung"),
+                    j =>
+                    {
+                        j.HasKey("NguoiDungId", "VaiTroId").HasName("PK__NguoiDun__B0CCFCAC0CA4532C");
+                        j.ToTable("NguoiDung_VaiTro");
+                    });
         });
 
         modelBuilder.Entity<SanPham>(entity =>
@@ -208,6 +184,8 @@ public partial class QR_DATNContext : DbContext
             entity.HasOne(d => d.DoanhNghiep).WithMany(p => p.SanPhams)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK_SanPham_DoanhNghiep");
+
+            entity.HasOne(d => d.LoaiSanPham).WithMany(p => p.SanPhams).HasConstraintName("FK_SanPham_LoaiSanPham");
         });
 
         modelBuilder.Entity<SuKienChuoiCungUng>(entity =>
@@ -233,6 +211,20 @@ public partial class QR_DATNContext : DbContext
 
             entity.Property(e => e.Id).ValueGeneratedOnAdd();
         });
+
+        modelBuilder.Entity<NguoiDungVaiTro>()
+            .HasKey(x => new { x.NguoiDungId, x.VaiTroId });
+
+        modelBuilder.Entity<NguoiDungVaiTro>()
+            .HasOne(x => x.NguoiDung)
+            .WithMany(x => x.NguoiDungVaiTros)
+            .HasForeignKey(x => x.NguoiDungId);
+
+        modelBuilder.Entity<NguoiDungVaiTro>()
+            .HasOne(x => x.VaiTro)
+            .WithMany(x => x.NguoiDungVaiTros)
+            .HasForeignKey(x => x.VaiTroId);
+        
 
         modelBuilder.Entity<YeuCauDangKyDn>(entity =>
         {

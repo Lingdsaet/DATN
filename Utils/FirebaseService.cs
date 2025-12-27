@@ -20,5 +20,20 @@ namespace DATN.Utils
                 return await task;
             }
         }
+        public async Task<string> UploadQrImageAsync(
+        byte[] imageBytes,
+        string fileName)
+        {
+            using var stream = new MemoryStream(imageBytes);
+
+            var task = new FirebaseStorage(_bucket)
+                .Child("qr")
+                .Child("lo-hang")
+                .Child($"{fileName}.png")
+                .PutAsync(stream);
+
+            return await task; // 🔥 URL ảnh QR
+        }
+
     }
 }

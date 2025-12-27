@@ -13,5 +13,14 @@
         public string TrangThai { get; set; } = null!;
         public DateTime CreatedAt { get; set; }
         public DateTime UpdatedAt { get; set; }
+        public string? QrImageUrl { get; set; }   
+
     }
+    public class LoHangQrListResponseDto
+    {
+        public Guid LoHangId { get; set; }
+        public string MaLo { get; set; } = null!;
+        public string? QrImageUrl { get; set; }
+    }
+
 }

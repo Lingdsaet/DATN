@@ -25,4 +25,6 @@ public partial class VaiTro
     [ForeignKey("VaiTroId")]
     [InverseProperty("VaiTros")]
     public virtual ICollection<NguoiDung> NguoiDungs { get; set; } = new List<NguoiDung>();
+    public ICollection<NguoiDungVaiTro> NguoiDungVaiTros { get; set; }
+        = new List<NguoiDungVaiTro>();
 }

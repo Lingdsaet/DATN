@@ -26,7 +26,7 @@ namespace DATN1.ControllersUser
         }
 
         // GET: api/LoHangs  (Lấy danh sách lô hàng)
-        [HttpGet]
+        [HttpGet("list")]
         public async Task<ActionResult<IEnumerable<LoHangResponseDto>>> GetAll()
         {
             var entities = await _context.LoHangs
@@ -78,13 +78,13 @@ namespace DATN1.ControllersUser
         }
 
         // POST: api/LoHangs  (Thêm lô hàng + tự tạo QR)
-        [HttpPost]
+        [HttpPost("Create")]
         public async Task<ActionResult<LoHangResponseDto>> Create([FromBody] LoHangCreateRequestDto request)
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
-            // Kiểm tra sản phẩm tồn tại
+            //  Kiểm tra sản phẩm tồn tại
             var sanPhamExists = await _context.SanPhams
                 .AnyAsync(x => x.Id == request.SanPhamId && !x.XoaMem);
 
@@ -96,6 +96,7 @@ namespace DATN1.ControllersUser
 
             var now = DateTime.UtcNow;
 
+            //  Tạo lô hàng
             var entity = new LoHang
             {
                 Id = Guid.NewGuid(),
@@ -112,12 +113,16 @@ namespace DATN1.ControllersUser
                 XoaMem = false
             };
 
-            // Lưu lô hàng
+            //  Lưu lô hàng
             entity = await _loHangRepo.CreateAsync(entity);
 
-            // ✅ Tự động tạo QR cho lô hàng vừa thêm
-            await _maQrRepo.CreateForLoHangAsync(entity.Id, "QR tự động tạo khi thêm lô hàng.");
+            //  Tạo QR + lấy ảnh QR
+            var qrEntity = await _maQrRepo.CreateForLoHangAsync(
+                entity.Id,
+                "QR tự động tạo khi thêm lô hàng."
+            );
 
+            // Trả về DTO kèm ảnh QR
             var dto = new LoHangResponseDto
             {
                 Id = entity.Id,
@@ -130,14 +135,16 @@ namespace DATN1.ControllersUser
                 KetQuaKiemNghiem = entity.KetQuaKiemNghiem,
                 TrangThai = entity.TrangThai,
                 CreatedAt = entity.CreatedAt,
-                UpdatedAt = entity.UpdatedAt
+                UpdatedAt = entity.UpdatedAt,
+                QrImageUrl = qrEntity?.QrImageUrl
             };
 
             return CreatedAtAction(nameof(GetById), new { id = dto.Id }, dto);
         }
 
-        // PUT: api/LoHangs/{id}  (Chỉnh sửa lô hàng)
-        [HttpPut("{id}")]
+
+        // PUT: api/LoHangs/{id} 
+        [HttpPut("edit/{id}")]
         public async Task<ActionResult<LoHangResponseDto>> Update(
             Guid id,
             [FromBody] LoHangUpdateRequestDto request)
@@ -207,5 +214,28 @@ namespace DATN1.ControllersUser
 
             return NoContent();
         }
+
+        [HttpGet("list_qr")]
+        public async Task<ActionResult<IEnumerable<LoHangQrListResponseDto>>> GetAllQr()
+        {
+            var data = await _context.LoHangs
+                .Where(lh => !lh.XoaMem)
+                .Join(
+                    _context.MaQrLoHangs.Where(qr => !qr.XoaMem),
+                    lh => lh.Id,
+                    qr => qr.LoHangId,
+                    (lh, qr) => new LoHangQrListResponseDto
+                    {
+                        LoHangId = lh.Id,
+                        MaLo = lh.MaLo,
+                        QrImageUrl = qr.QrImageUrl
+                    }
+                )
+                .ToListAsync();
+
+            return Ok(data);
+        }
+
+
     }
 }

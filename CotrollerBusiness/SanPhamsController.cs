@@ -32,7 +32,7 @@ namespace DATN1.ControllersUser
             return Ok(result);
         }
 
-        // GET: api/SanPhams/doanh-nghiep/{doanhNghiepId}  ⚠️ PHẢI ĐẶT TRƯỚC {id}
+        // GET: api/SanPhams/doanh-nghiep/{doanhNghiepId} 
         [HttpGet("doanh-nghiep/{doanhNghiepId}")]
         public async Task<ActionResult<IEnumerable<SanPhamResponseDto>>> GetByDoanhNghiep(Guid doanhNghiepId)
         {
@@ -41,7 +41,7 @@ namespace DATN1.ControllersUser
             return Ok(result);
         }
 
-        // GET: api/SanPhams/{id}  ⚠️ PHẢI ĐẶT CUỐI CÙNG
+        // GET: api/SanPhams/{id}  
         [HttpGet("{id}")]
         public async Task<ActionResult<SanPhamResponseDto>> GetById(Guid id)
         {
@@ -68,14 +68,14 @@ namespace DATN1.ControllersUser
                     return BadRequest("Lỗi dữ liệu: " + errors);
                 }
 
-                // 2. Kiểm tra Doanh Nghiệp (Có thể lỗi DB ở đây)
+                // 2. Kiểm tra Doanh Nghiệp 
                 var dnExists = await _context.DoanhNghieps
                     .AnyAsync(x => x.Id == dto.DoanhNghiepId && !x.XoaMem);
 
                 if (!dnExists)
                     return BadRequest($"Doanh nghiệp ID {dto.DoanhNghiepId} không tồn tại.");
 
-                // 3. Upload ảnh (Có thể lỗi Firebase ở đây)
+                // 3. Upload ảnh 
                 string? imageUrl = null;
                 if (dto.HinhAnh != null && dto.HinhAnh.Length > 0)
                 {
@@ -92,7 +92,7 @@ namespace DATN1.ControllersUser
                     MoTa = dto.MoTa,
                     TieuChuanApDung = dto.TieuChuanApDung,
                     HinhAnhUrl = imageUrl,
-                    TrangThai = "Hoạt động",
+                    TrangThai = "PENDING",
                     CreatedAt = DateTime.UtcNow,
                     UpdatedAt = DateTime.UtcNow,
                     XoaMem = false
@@ -107,7 +107,7 @@ namespace DATN1.ControllersUser
             }
             catch (Exception ex)
             {
-                // QUAN TRỌNG: Trả về lỗi chi tiết để bạn đọc
+                //  Trả về lỗi chi tiết để đọc
                 return StatusCode(500, new
                 {
                     Message = "Server gặp lỗi nội bộ",

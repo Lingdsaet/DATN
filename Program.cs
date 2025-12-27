@@ -54,6 +54,8 @@ builder.Services.AddScoped<INguoiDungRepository, NguoiDungRepository>();
 builder.Services.AddScoped<IVaiTroRepository, VaiTroRepository>();
 builder.Services.AddScoped<INguoiDungVaiTroRepository, NguoiDungVaiTroRepository>();
 builder.Services.AddScoped<IFirebaseService, FirebaseService>();
+builder.Services.AddScoped<IQrCodeService, QrCodeService>();
+
 //builder.Services.AddScoped<ISuKienChuoiCungUngRepository, SuKienChuoiCungUngRepository>();
 //builder.Services.AddScoped<IDmLoaiSuKienRepository, DmLoaiSuKienRepository>();
 

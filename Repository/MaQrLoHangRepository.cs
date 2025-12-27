@@ -1,4 +1,5 @@
 ﻿using DATN.Model;
+using DATN.Utils;
 using Microsoft.EntityFrameworkCore;
 
 namespace DATN.Repository
@@ -6,10 +7,16 @@ namespace DATN.Repository
     public class MaQrLoHangRepository : IMaQrLoHangRepository
     {
         private readonly QR_DATNContext _context;
+        private readonly IQrCodeService _qrCodeService;
+        private readonly IFirebaseService _firebaseService;
+        
 
-        public MaQrLoHangRepository(QR_DATNContext context)
+
+        public MaQrLoHangRepository(QR_DATNContext context, IFirebaseService firebaseService, IQrCodeService qrCodeService)
         {
             _context = context;
+            _firebaseService = firebaseService;
+            _qrCodeService = qrCodeService;
         }
 
         public async Task<MaQrLoHang> CreateForLoHangAsync(Guid loHangId, string? ghiChu = null)
@@ -18,17 +25,26 @@ namespace DATN.Repository
 
             // Id QR dùng luôn làm token mã
             var qrId = Guid.NewGuid();
-            var qrContent = qrId.ToString("N"); // hoặc build URL tại đây
+            var qrContent = $"https://yourdomain.com/truy-xuat/lo-hang/{loHangId}"; // link trang truy xuát
 
+            //  Tạo ảnh QR
+            var qrBytes = _qrCodeService.GenerateQrPng(qrContent);
+
+            //  UPLOAD FIREBASE 
+            var qrImageUrl = await _firebaseService
+                .UploadQrImageAsync(qrBytes, loHangId.ToString());
+
+            //  Tạo entity QR
             var entity = new MaQrLoHang
             {
-                Id = qrId,
+                Id = Guid.NewGuid(),
                 LoHangId = loHangId,
                 MaQr = qrContent,
-                TrangThai = "ACTIVE",              // phải tồn tại trong DM_TrangThaiQR
+                QrImageUrl = qrImageUrl,  
+                TrangThai = "ACTIVE",
                 GhiChu = ghiChu,
-                CreatedAt = now,
-                UpdatedAt = now,
+                CreatedAt = DateTime.UtcNow,
+                UpdatedAt = DateTime.UtcNow,
                 XoaMem = false
             };
 

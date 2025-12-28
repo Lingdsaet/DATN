@@ -49,5 +49,5 @@ public partial class SuKienChuoiCungUng
 
     [ForeignKey("LoaiSuKien")]
     [InverseProperty("SuKienChuoiCungUngs")]
-    public virtual DmLoaiSuKien LoaiSuKienNavigation { get; set; } = null!;
+    public virtual LoaiSuKien LoaiSuKienNavigation { get; set; } = null!;
 }

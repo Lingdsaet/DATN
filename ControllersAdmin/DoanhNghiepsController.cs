@@ -101,7 +101,7 @@ namespace DATN1.ControllersUser
             // 5. Xoá role cũ, gán role mới
             await _nguoiDungVaiTroRepo.RemoveAllRolesOfUserAsync(user.Id);
 
-            var mapping = new NguoiDungVaiTro
+            var mapping = new NguoiDung_VaiTro
             {
                 NguoiDungId = user.Id,
                 VaiTroId = vaiTroDoanhNghiep.Id

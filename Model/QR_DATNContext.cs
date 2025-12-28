@@ -21,9 +21,9 @@ public partial class QR_DATNContext : DbContext
 
     public virtual DbSet<DiaDiem> DiaDiems { get; set; }
 
-    public virtual DbSet<DmLoaiSuKien> DmLoaiSuKiens { get; set; }
+    public virtual DbSet<LoaiSuKien> DmLoaiSuKiens { get; set; }
 
-    public virtual DbSet<DmTrangThaiQr> DmTrangThaiQrs { get; set; }
+    public virtual DbSet<TrangThaiQr> DmTrangThaiQrs { get; set; }
 
     public virtual DbSet<DoanhNghiep> DoanhNghieps { get; set; }
 
@@ -44,7 +44,7 @@ public partial class QR_DATNContext : DbContext
     public virtual DbSet<VaiTro> VaiTros { get; set; }
 
     public virtual DbSet<YeuCauDangKyDn> YeuCauDangKyDns { get; set; }
-    public DbSet<NguoiDungVaiTro> NguoiDungVaiTro { get; set; } = null!;
+    public DbSet<NguoiDung_VaiTro> NguoiDungVaiTro { get; set; } = null!;
 
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -86,14 +86,14 @@ public partial class QR_DATNContext : DbContext
             entity.Property(e => e.Id).HasDefaultValueSql("(newsequentialid())");
         });
 
-        modelBuilder.Entity<DmLoaiSuKien>(entity =>
+        modelBuilder.Entity<LoaiSuKien>(entity =>
         {
-            entity.HasKey(e => e.Ma).HasName("PK__DM_LoaiS__3214CC9F71D7CF50");
+            entity.HasKey(e => e.Ma).HasName("PK__LoaiS__3214CC9F71D7CF50");
         });
 
-        modelBuilder.Entity<DmTrangThaiQr>(entity =>
+        modelBuilder.Entity<TrangThaiQr>(entity =>
         {
-            entity.HasKey(e => e.Ma).HasName("PK__DM_Trang__3214CC9F24CDCCA5");
+            entity.HasKey(e => e.Ma).HasName("PK__Trang__3214CC9F24CDCCA5");
         });
 
         modelBuilder.Entity<DoanhNghiep>(entity =>
@@ -212,15 +212,15 @@ public partial class QR_DATNContext : DbContext
             entity.Property(e => e.Id).ValueGeneratedOnAdd();
         });
 
-        modelBuilder.Entity<NguoiDungVaiTro>()
+        modelBuilder.Entity<NguoiDung_VaiTro>()
             .HasKey(x => new { x.NguoiDungId, x.VaiTroId });
 
-        modelBuilder.Entity<NguoiDungVaiTro>()
+        modelBuilder.Entity<NguoiDung_VaiTro>()
             .HasOne(x => x.NguoiDung)
             .WithMany(x => x.NguoiDungVaiTros)
             .HasForeignKey(x => x.NguoiDungId);
 
-        modelBuilder.Entity<NguoiDungVaiTro>()
+        modelBuilder.Entity<NguoiDung_VaiTro>()
             .HasOne(x => x.VaiTro)
             .WithMany(x => x.NguoiDungVaiTros)
             .HasForeignKey(x => x.VaiTroId);

@@ -50,7 +50,7 @@ public partial class NguoiDung
     [ForeignKey("NguoiDungId")]
     [InverseProperty("NguoiDungs")]
     public virtual ICollection<VaiTro> VaiTros { get; set; } = new List<VaiTro>();
-    public ICollection<NguoiDungVaiTro> NguoiDungVaiTros { get; set; }
-        = new List<NguoiDungVaiTro>();
+    public ICollection<NguoiDung_VaiTro> NguoiDungVaiTros { get; set; }
+        = new List<NguoiDung_VaiTro>();
 
 }

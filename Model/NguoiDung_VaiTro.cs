@@ -1,6 +1,9 @@
-﻿namespace DATN.Model
+﻿using System.ComponentModel.DataAnnotations.Schema;
+
+namespace DATN.Model
 {
-    public class NguoiDungVaiTro
+ 
+    public class NguoiDung_VaiTro
     {
         public Guid NguoiDungId { get; set; }
         public byte VaiTroId { get; set; }  // TINYINT -> byte

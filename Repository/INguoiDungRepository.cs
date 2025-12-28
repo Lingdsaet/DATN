@@ -25,7 +25,7 @@
 
     public interface INguoiDungVaiTroRepository
     {
-        Task AddAsync(NguoiDungVaiTro mapping);
+        Task AddAsync(NguoiDung_VaiTro mapping);
         Task RemoveAllRolesOfUserAsync(Guid nguoiDungId);
         Task SaveChangesAsync();
     }

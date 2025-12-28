@@ -88,7 +88,7 @@ namespace DATN.Repository
             _context = context;
         }
 
-        public Task AddAsync(NguoiDungVaiTro mapping)
+        public Task AddAsync(NguoiDung_VaiTro mapping)
         {
             return _context.NguoiDungVaiTro.AddAsync(mapping).AsTask();
         }

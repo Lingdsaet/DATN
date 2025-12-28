@@ -48,5 +48,5 @@ public partial class MaQrLoHang
 
     [ForeignKey("TrangThai")]
     [InverseProperty("MaQrLoHangs")]
-    public virtual DmTrangThaiQr TrangThaiNavigation { get; set; } = null!;
+    public virtual TrangThaiQr TrangThaiNavigation { get; set; } = null!;
 }

@@ -49,9 +49,8 @@ namespace DATN1.ControllersUser
             return Ok(dto);
         }
 
-        [HttpPost("GanDoanhNghiepChoNguoiDung")]
-        public async Task<IActionResult> GanDoanhNghiepChoNguoiDung(
-     [FromBody] GanDoanhNghiepChoNguoiDungRequest request)
+        [HttpPost("ThemDoanhNghiep")]
+        public async Task<IActionResult> ThemCuaHang([FromBody] ThemCuaHangChoNguoiDungRequest request)
         {
             // 1. Tìm user
             var user = await _nguoiDungRepo.GetByIdAsync(request.NguoiDungId);

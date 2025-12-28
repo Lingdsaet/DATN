@@ -53,7 +53,7 @@ namespace DATN1.ControllersUser
         }
 
         // POST: api/SanPhams   (thêm sản phẩm)
-        [HttpPost]
+        [HttpPost("ThemSanPham")]
         public async Task<ActionResult<SanPhamResponseDto>> Create([FromForm] CreateSanPhamDto dto)
         {
             // BẮT ĐẦU: TRY-CATCH DEBUG
@@ -120,7 +120,7 @@ namespace DATN1.ControllersUser
 
 
         // PUT: api/SanPhams/{id}   (sửa sản phẩm)
-        [HttpPut("{id}")]
+        [HttpPut("sua/{id}")]
         public async Task<ActionResult<SanPhamResponseDto>> Update(
             Guid id,
             [FromBody] SanPhamUpdateRequestDto request)

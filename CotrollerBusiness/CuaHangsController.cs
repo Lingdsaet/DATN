@@ -42,7 +42,7 @@ namespace DATN1.ControllersUser
         }
 
         // POST: api/CuaHangs  (Thêm cửa hàng)
-        [HttpPost]
+        [HttpPost("themCuaHang")]
         public async Task<ActionResult<CuaHangResponseDto>> Create([FromBody] CuaHangCreateRequestDto request)
         {
             if (!ModelState.IsValid)
@@ -85,7 +85,7 @@ namespace DATN1.ControllersUser
         }
 
         // PUT: api/CuaHangs/{id}  (Sửa cửa hàng)
-        [HttpPut("{id}")]
+        [HttpPut("sua/{id}")]
         public async Task<ActionResult<CuaHangResponseDto>> Update(
             Guid id,
             [FromBody] CuaHangUpdateRequestDto request)

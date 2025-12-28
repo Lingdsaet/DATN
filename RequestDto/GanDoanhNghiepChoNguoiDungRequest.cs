@@ -1,6 +1,6 @@
 ﻿namespace DATN.RequestDto
 {
-    public class GanDoanhNghiepChoNguoiDungRequest
+    public class ThemCuaHangChoNguoiDungRequest
     {
         public Guid NguoiDungId { get; set; }
 

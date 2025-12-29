@@ -1,6 +1,7 @@
 ﻿using DATN.Model;
 using Microsoft.EntityFrameworkCore;
 
+
 namespace DATN.Repository
 {
     public class QrScanRepository : IQrScanRepository

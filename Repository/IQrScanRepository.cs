@@ -1,5 +1,6 @@
 ﻿using DATN.Model;
 
+
 namespace DATN.Repository
 {
     public interface IQrScanRepository

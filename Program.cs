@@ -2,6 +2,7 @@
 using DATN.Repository;
 using DATN.Utils;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Http.Features;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
@@ -55,9 +56,19 @@ builder.Services.AddScoped<IVaiTroRepository, VaiTroRepository>();
 builder.Services.AddScoped<INguoiDungVaiTroRepository, NguoiDungVaiTroRepository>();
 builder.Services.AddScoped<IFirebaseService, FirebaseService>();
 builder.Services.AddScoped<IQrCodeService, QrCodeService>();
-
+builder.Services.AddScoped<IMaQrSanPhamRepository, MaQrSanPhamRepository>();
 //builder.Services.AddScoped<ISuKienChuoiCungUngRepository, SuKienChuoiCungUngRepository>();
 //builder.Services.AddScoped<IDmLoaiSuKienRepository, DmLoaiSuKienRepository>();
+
+builder.Services.Configure<FormOptions>(options =>
+{
+    options.MultipartBodyLengthLimit = 50 * 1024 * 1024; 
+});
+
+builder.WebHost.ConfigureKestrel(options =>
+{
+    options.Limits.MaxRequestBodySize = 50 * 1024 * 1024;
+});
 
 //Đăng ký Controllers 
 builder.Services.AddControllers();

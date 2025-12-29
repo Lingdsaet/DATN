@@ -39,7 +39,7 @@ namespace DATN.Repository
                 .FirstOrDefaultAsync(x => x.Email == key || x.DienThoai == key);
         }
 
-        // 👉 lấy danh sách mã vai trò của user
+        // lấy danh sách mã vai trò của user
         public Task<List<string>> GetRoleCodesAsync(Guid nguoiDungId)
         {
             return _context.NguoiDungVaiTro

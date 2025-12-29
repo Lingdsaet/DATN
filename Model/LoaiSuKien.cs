@@ -6,8 +6,8 @@ using Microsoft.EntityFrameworkCore;
 
 namespace DATN.Model;
 
-[Table("DM_LoaiSuKien")]
-public partial class DmLoaiSuKien
+[Table("LoaiSuKien")]
+public partial class LoaiSuKien
 {
     [Key]
     [StringLength(50)]

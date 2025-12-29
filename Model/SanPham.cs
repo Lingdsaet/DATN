@@ -1,8 +1,9 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using Microsoft.EntityFrameworkCore;
+using DATN.Model;
 
 namespace DATN.Model;
 
@@ -53,9 +54,6 @@ public partial class SanPham
 
     public DateOnly? HanSuDung { get; set; }
 
-    [StringLength(100)]
-    public string? LoSanXuat { get; set; }
-
     [StringLength(200)]
     public string? NoiSanXuat { get; set; }
 
@@ -75,4 +73,7 @@ public partial class SanPham
     [ForeignKey("LoaiSanPhamId")]
     [InverseProperty("SanPhams")]
     public virtual LoaiSanPham? LoaiSanPham { get; set; }
+
+    [InverseProperty("SanPham")]
+    public virtual ICollection<MaQrSanPham> MaQrSanPhams { get; set; } = new List<MaQrSanPham>();
 }

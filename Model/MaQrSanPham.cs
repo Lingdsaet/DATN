@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using DATN.Model;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -6,14 +7,13 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace DATN.Model;
 
-[Table("MaQR_LoHang")]
-[Index("MaQr", Name = "UX_MaQR_Unique", IsUnique = true)]
-public partial class MaQrLoHang
+[Table("MaQR_SanPham")]
+public partial class MaQrSanPham
 {
     [Key]
     public Guid Id { get; set; }
 
-    public Guid LoHangId { get; set; }
+    public Guid SanPhamId { get; set; }
 
     [Column("MaQR")]
     [StringLength(200)]
@@ -30,23 +30,16 @@ public partial class MaQrLoHang
 
     [Precision(0)]
     public DateTime UpdatedAt { get; set; }
-    [StringLength(500)]
-    public string? QrImageUrl { get; set; }
-
 
     public bool XoaMem { get; set; }
 
-    [InverseProperty("MaQrLoHang")]
-    public virtual ICollection<BaoCaoNguoiDung> BaoCaoNguoiDungs { get; set; } = new List<BaoCaoNguoiDung>();
+    [StringLength(500)]
+    public string? QrImageUrl { get; set; }
 
-    [InverseProperty("MaQrLoHang")]
+    [InverseProperty("MaQrSanPham")]
     public virtual ICollection<LichSuQuet> LichSuQuets { get; set; } = new List<LichSuQuet>();
 
-    [ForeignKey("LoHangId")]
-    [InverseProperty("MaQrLoHangs")]
-    public virtual LoHang LoHang { get; set; } = null!;
-
-    [ForeignKey("TrangThai")]
-    [InverseProperty("MaQrLoHangs")]
-    public virtual TrangThaiQr TrangThaiNavigation { get; set; } = null!;
+    [ForeignKey("SanPhamId")]
+    [InverseProperty("MaQrSanPhams")]
+    public virtual SanPham SanPham { get; set; } = null!;
 }

@@ -4,43 +4,43 @@ using Microsoft.EntityFrameworkCore;
 
 namespace DATN.Repository
 {
-    public class MaQrLoHangRepository : IMaQrLoHangRepository
+    public class MaQrSanPhamRepository : IMaQrSanPhamRepository
     {
         private readonly QR_DATNContext _context;
         private readonly IQrCodeService _qrCodeService;
         private readonly IFirebaseService _firebaseService;
-        
 
 
-        public MaQrLoHangRepository(QR_DATNContext context, IFirebaseService firebaseService, IQrCodeService qrCodeService)
+
+        public MaQrSanPhamRepository(QR_DATNContext context, IFirebaseService firebaseService, IQrCodeService qrCodeService)
         {
             _context = context;
             _firebaseService = firebaseService;
             _qrCodeService = qrCodeService;
         }
 
-        public async Task<MaQrLoHang> CreateForLoHangAsync(Guid loHangId, string? ghiChu = null)
+        public async Task<MaQrSanPham> CreateForSanPhamAsync(Guid sanPhamId, string? ghiChu = null)
         {
             var now = DateTime.UtcNow;
 
             // Id QR dùng luôn làm token mã
             var qrId = Guid.NewGuid();
-            var qrContent = $"{loHangId}"; 
+            var qrContent = $"{sanPhamId}";
 
             //  Tạo ảnh QR
             var qrBytes = _qrCodeService.GenerateQrPng(qrContent);
 
             //  UPLOAD FIREBASE 
             var qrImageUrl = await _firebaseService
-                .UploadQrImageAsync(qrBytes, loHangId.ToString());
+                .UploadQrImageAsync(qrBytes, sanPhamId.ToString());
 
             //  Tạo entity QR
-            var entity = new MaQrLoHang
+            var entity = new MaQrSanPham
             {
                 Id = Guid.NewGuid(),
-                LoHangId = loHangId,
+                SanPhamId = sanPhamId,
                 MaQr = qrContent,
-                QrImageUrl = qrImageUrl,  
+                QrImageUrl = qrImageUrl,
                 TrangThai = "ACTIVE",
                 GhiChu = ghiChu,
                 CreatedAt = DateTime.UtcNow,
@@ -48,22 +48,22 @@ namespace DATN.Repository
                 XoaMem = false
             };
 
-            _context.MaQrLoHangs.Add(entity);
+            _context.MaQrSanPhams.Add(entity);
             await _context.SaveChangesAsync();
 
             return entity;
         }
 
-        public async Task<MaQrLoHang?> GetByIdAsync(Guid id)
+        public async Task<MaQrSanPham?> GetByIdAsync(Guid id)
         {
-            return await _context.MaQrLoHangs
+            return await _context.MaQrSanPhams
                 .FirstOrDefaultAsync(x => x.Id == id && !x.XoaMem);
         }
 
-        public async Task<MaQrLoHang?> GetByLoHangIdAsync(Guid loHangId)
+        public async Task<MaQrSanPham?> GetByLoHangIdAsync(Guid loHangId)
         {
-            return await _context.MaQrLoHangs
-                .FirstOrDefaultAsync(x => x.LoHangId == loHangId && !x.XoaMem);
+            return await _context.MaQrSanPhams
+                .FirstOrDefaultAsync(x => x.SanPhamId == loHangId && !x.XoaMem);
         }
     }
 }

@@ -15,10 +15,7 @@ namespace DATN1.ControllersUser
         private readonly IMaQrLoHangRepository _maQrRepo;
         private readonly QR_DATNContext _context;
 
-        public LoHangsController(
-            ILoHangRepository loHangRepo,
-            IMaQrLoHangRepository maQrRepo,
-            QR_DATNContext context)
+        public LoHangsController(ILoHangRepository loHangRepo, IMaQrLoHangRepository maQrRepo, QR_DATNContext context)
         {
             _loHangRepo = loHangRepo;
             _maQrRepo = maQrRepo;
@@ -33,19 +30,29 @@ namespace DATN1.ControllersUser
                 .Where(x => !x.XoaMem)
                 .ToListAsync();
 
-            var dtos = entities.Select(entity => new LoHangResponseDto
+            var dtos = entities.Select(entity =>
             {
-                Id = entity.Id,
-                SanPhamId = entity.SanPhamId,
-                MaLo = entity.MaLo,
-                NgaySanXuat = entity.NgaySanXuat,
-                HanSuDung = entity.HanSuDung,
-                SoLuong = entity.SoLuong,
-                TieuChuanApDung = entity.TieuChuanApDung,
-                KetQuaKiemNghiem = entity.KetQuaKiemNghiem,
-                TrangThai = entity.TrangThai,
-                CreatedAt = entity.CreatedAt,
-                UpdatedAt = entity.UpdatedAt
+                var qrImageUrl = _context.MaQrLoHangs
+                    .Where(q => q.LoHangId == entity.Id)
+                    .OrderByDescending(q => q.CreatedAt)
+                    .Select(q => q.QrImageUrl)
+                    .FirstOrDefault();
+
+                return new LoHangResponseDto
+                {
+                    Id = entity.Id,
+                    SanPhamId = entity.SanPhamId,
+                    MaLo = entity.MaLo,
+                    NgaySanXuat = entity.NgaySanXuat,
+                    HanSuDung = entity.HanSuDung,
+                    SoLuong = entity.SoLuong,
+                    TieuChuanApDung = entity.TieuChuanApDung,
+                    KetQuaKiemNghiem = entity.KetQuaKiemNghiem,
+                    QrImageUrl = qrImageUrl,
+                    TrangThai = entity.TrangThai,
+                    CreatedAt = entity.CreatedAt,
+                    UpdatedAt = entity.UpdatedAt
+                };
             }).ToList();
 
             return Ok(dtos);
@@ -214,28 +221,6 @@ namespace DATN1.ControllersUser
 
             return NoContent();
         }
-
-        [HttpGet("list_qr")]
-        public async Task<ActionResult<IEnumerable<LoHangQrListResponseDto>>> GetAllQr()
-        {
-            var data = await _context.LoHangs
-                .Where(lh => !lh.XoaMem)
-                .Join(
-                    _context.MaQrLoHangs.Where(qr => !qr.XoaMem),
-                    lh => lh.Id,
-                    qr => qr.LoHangId,
-                    (lh, qr) => new LoHangQrListResponseDto
-                    {
-                        LoHangId = lh.Id,
-                        MaLo = lh.MaLo,
-                        QrImageUrl = qr.QrImageUrl
-                    }
-                )
-                .ToListAsync();
-
-            return Ok(data);
-        }
-
 
     }
 }

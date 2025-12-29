@@ -22,9 +22,6 @@ public partial class VaiTro
     [StringLength(250)]
     public string? MoTa { get; set; }
 
-    [ForeignKey("VaiTroId")]
-    [InverseProperty("VaiTros")]
-    public virtual ICollection<NguoiDung> NguoiDungs { get; set; } = new List<NguoiDung>();
-    public ICollection<NguoiDung_VaiTro> NguoiDungVaiTros { get; set; }
-        = new List<NguoiDung_VaiTro>();
+    public ICollection<NguoiDungVaiTro> NguoiDungVaiTros { get; set; }
+        = new List<NguoiDungVaiTro>();
 }

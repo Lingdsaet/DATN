@@ -1,8 +1,9 @@
-﻿using System;
+﻿using DATN.Model;
+using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using Microsoft.EntityFrameworkCore;
 
 namespace DATN.Model;
 
@@ -14,7 +15,7 @@ public partial class LichSuQuet
     public Guid Id { get; set; }
 
     [Column("MaQR_LoHangId")]
-    public Guid MaQrLoHangId { get; set; }
+    public Guid? MaQrLoHangId { get; set; }
 
     public Guid? NguoiDungId { get; set; }
 
@@ -39,12 +40,19 @@ public partial class LichSuQuet
     [StringLength(300)]
     public string? DiaChiGanDung { get; set; }
 
+    [Column("MaQR_SanPhamId")]
+    public Guid? MaQrSanPhamId { get; set; }
+
     [InverseProperty("LanQuet")]
     public virtual ICollection<BaoCaoNguoiDung> BaoCaoNguoiDungs { get; set; } = new List<BaoCaoNguoiDung>();
 
     [ForeignKey("MaQrLoHangId")]
     [InverseProperty("LichSuQuets")]
-    public virtual MaQrLoHang MaQrLoHang { get; set; } = null!;
+    public virtual MaQrLoHang? MaQrLoHang { get; set; }
+
+    [ForeignKey("MaQrSanPhamId")]
+    [InverseProperty("LichSuQuets")]
+    public virtual MaQrSanPham? MaQrSanPham { get; set; }
 
     [ForeignKey("NguoiDungId")]
     [InverseProperty("LichSuQuets")]

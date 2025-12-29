@@ -32,7 +32,7 @@ namespace DATN.Utils
                 .Child($"{fileName}.png")
                 .PutAsync(stream);
 
-            return await task; // 🔥 URL ảnh QR
+            return await task; 
         }
 
     }

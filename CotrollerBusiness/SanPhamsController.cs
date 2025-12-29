@@ -6,7 +6,7 @@ using DATN.Utils;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
-namespace DATN1.ControllersUser
+namespace DATN.ControllersUser
 {
     [ApiController]
     [Route("api/[controller]")]
@@ -15,12 +15,14 @@ namespace DATN1.ControllersUser
         private readonly ISanPhamRepository _sanPhamRepo;
         private readonly QR_DATNContext _context;
         private readonly IFirebaseService _firebaseService;
+        private readonly IMaQrSanPhamRepository _maQrRepo;
 
-        public SanPhamsController(ISanPhamRepository sanPhamRepo, QR_DATNContext context, IFirebaseService firebaseService)
+        public SanPhamsController(ISanPhamRepository sanPhamRepo, QR_DATNContext context, IFirebaseService firebaseService, IMaQrSanPhamRepository maQrRepo)
         {
             _sanPhamRepo = sanPhamRepo;
             _context = context;
             _firebaseService = firebaseService;
+            _maQrRepo = maQrRepo;
         }
 
         // GET: api/SanPhams (tất cả sản phẩm)
@@ -56,66 +58,157 @@ namespace DATN1.ControllersUser
         [HttpPost]
         public async Task<ActionResult<SanPhamResponseDto>> Create([FromForm] CreateSanPhamDto dto)
         {
-            // BẮT ĐẦU: TRY-CATCH DEBUG
             try
             {
-                // 1. Validate Model
+                // Validate model
                 if (!ModelState.IsValid)
                 {
-                    var errors = string.Join("; ", ModelState.Values
-                                        .SelectMany(v => v.Errors)
-                                        .Select(e => e.ErrorMessage));
-                    return BadRequest("Lỗi dữ liệu: " + errors);
+                    var errors = string.Join("; ",
+                        ModelState.Values.SelectMany(v => v.Errors)
+                                         .Select(e => e.ErrorMessage));
+                    return BadRequest("Dữ liệu không hợp lệ: " + errors);
                 }
 
-                // 2. Kiểm tra Doanh Nghiệp 
+                // Kiểm tra Doanh nghiệp tồn tại
                 var dnExists = await _context.DoanhNghieps
                     .AnyAsync(x => x.Id == dto.DoanhNghiepId && !x.XoaMem);
 
                 if (!dnExists)
-                    return BadRequest($"Doanh nghiệp ID {dto.DoanhNghiepId} không tồn tại.");
+                    return BadRequest("Doanh nghiệp không tồn tại.");
 
-                // 3. Upload ảnh 
+                var existed = await _context.SanPhams.AnyAsync(x =>
+                    x.DoanhNghiepId == dto.DoanhNghiepId &&
+                    x.Ten == dto.Ten &&
+                    !x.XoaMem);
+
+                if (existed)
+                    return BadRequest("Sản phẩm đã tồn tại trong doanh nghiệp.");
+                // Kiểm tra Loại sản phẩm (nếu có)
+                if (dto.LoaiSanPhamId.HasValue)
+                {
+                    var loaiExists = await _context.LoaiSanPhams
+                        .AnyAsync(x => x.Id == dto.LoaiSanPhamId && !x.XoaMem);
+
+                    if (!loaiExists)
+                        return BadRequest("Loại sản phẩm không tồn tại.");
+                }
+
+                // Validate file ảnh
+                if (dto.HinhAnh != null)
+                {
+                    var allowedExtensions = new[] { ".jpg", ".jpeg", ".png", ".gif" };
+                    var fileExtension = Path.GetExtension(dto.HinhAnh.FileName).ToLowerInvariant();
+                    
+                    if (!allowedExtensions.Contains(fileExtension))
+                        return BadRequest("Chỉ chấp nhận các định dạng: jpg, jpeg, png, gif");
+
+                    const long maxFileSize = 5 * 1024 * 1024; // 5MB
+                    if (dto.HinhAnh.Length > maxFileSize)
+                        return BadRequest("Kích thước ảnh không được vượt quá 5MB");
+
+                    if (dto.HinhAnh.Length < 100)
+                        return BadRequest("Tệp ảnh quá nhỏ");
+                }
+
+                // Validate nghiệp vụ
+                if (dto.HanSuDung.HasValue && dto.NgaySanXuat.HasValue &&
+                    dto.HanSuDung < dto.NgaySanXuat)
+                {
+                    return BadRequest("Hạn sử dụng phải >= ngày sản xuất.");
+                }
+
+                if (dto.Gia.HasValue && dto.Gia < 0)
+                {
+                    return BadRequest("Giá sản phẩm không hợp lệ.");
+                }
+
+                //  Upload ảnh Firebase
                 string? imageUrl = null;
                 if (dto.HinhAnh != null && dto.HinhAnh.Length > 0)
                 {
-                    imageUrl = await _firebaseService.UploadImageToFirebase(dto.HinhAnh);
+                    imageUrl = await _firebaseService
+                        .UploadImageToFirebase(dto.HinhAnh);
                 }
 
-                // 4. Tạo Entity
+                //  Tạo entity SanPham
                 var sanPham = new SanPham
                 {
                     Id = Guid.NewGuid(),
                     DoanhNghiepId = dto.DoanhNghiepId,
+                    LoaiSanPhamId = dto.LoaiSanPhamId,
+
                     Ten = dto.Ten,
                     MaSanPham = dto.MaSanPham,
                     MoTa = dto.MoTa,
                     TieuChuanApDung = dto.TieuChuanApDung,
+
+                    Gia = dto.Gia,
+                    SoLuong = dto.SoLuong,
+                    DonViTinh = dto.DonViTinh,
+
+                    NgaySanXuat = dto.NgaySanXuat,
+                    HanSuDung = dto.HanSuDung,
+                    NoiSanXuat = dto.NoiSanXuat,
+
                     HinhAnhUrl = imageUrl,
+
                     TrangThai = "PENDING",
                     CreatedAt = DateTime.UtcNow,
                     UpdatedAt = DateTime.UtcNow,
                     XoaMem = false
                 };
 
-                // 5. Lưu DB
+                //  Lưu DB
                 await _sanPhamRepo.AddAsync(sanPham);
+                await _context.SaveChangesAsync();
 
-                // 6. Trả về
-                var response = MapToDto(sanPham); // Đảm bảo hàm MapToDto không lỗi
-                return CreatedAtAction(nameof(GetById), new { id = sanPham.Id }, response);
+                // Tạo QR code với xử lý lỗi
+                MaQrSanPham? qrEntity = null;
+                try
+                {
+                    qrEntity = await _maQrRepo.CreateForSanPhamAsync(sanPham.Id, "QR sản phẩm");
+                }
+                catch (Exception qrEx)
+                {
+                    // Log lỗi nhưng không fail toàn bộ request
+                    Console.WriteLine($"Lỗi tạo QR code: {qrEx.Message}");
+                }
+
+                // Trả về DTO
+                var response = new SanPhamResponseDto
+                {
+                    Id = sanPham.Id,
+                    DoanhNghiepId = sanPham.DoanhNghiepId,
+                    LoaiSanPhamId = sanPham.LoaiSanPhamId,
+                    Ten = sanPham.Ten,
+                    MaSanPham = sanPham.MaSanPham,
+                    MoTa = sanPham.MoTa,
+                    Gia = sanPham.Gia,
+                    SoLuong = sanPham.SoLuong,
+                    DonViTinh = sanPham.DonViTinh,
+                    NgaySanXuat = sanPham.NgaySanXuat,
+                    HanSuDung = sanPham.HanSuDung,
+                    NoiSanXuat = sanPham.NoiSanXuat,
+                    HinhAnhUrl = sanPham.HinhAnhUrl,
+                    QrCode = qrEntity?.MaQr,
+                    TrangThai = sanPham.TrangThai,
+                    CreatedAt = sanPham.CreatedAt,
+                    UpdatedAt = sanPham.UpdatedAt
+                };
+
+                return CreatedAtAction(nameof(GetById),
+                    new { id = sanPham.Id }, response);
             }
             catch (Exception ex)
             {
-                //  Trả về lỗi chi tiết để đọc
                 return StatusCode(500, new
                 {
-                    Message = "Server gặp lỗi nội bộ",
-                    Error = ex.Message,
-                    StackTrace = ex.ToString()
+                    Message = "Lỗi server",
+                    Error = ex.Message
                 });
             }
         }
+
 
 
 
@@ -179,7 +272,14 @@ namespace DATN1.ControllersUser
                 Ten = entity.Ten,
                 MaSanPham = entity.MaSanPham,
                 MoTa = entity.MoTa,
+                Gia = entity.Gia,
+                SoLuong = entity.SoLuong,
+                DonViTinh = entity.DonViTinh,
+                NgaySanXuat = entity.NgaySanXuat,
+                HanSuDung = entity.HanSuDung,
+                NoiSanXuat = entity.NoiSanXuat,
                 HinhAnhUrl = entity.HinhAnhUrl,
+                QrCode = entity.Qrcode,
                 TieuChuanApDung = entity.TieuChuanApDung,
                 TrangThai = entity.TrangThai,
                 CreatedAt = entity.CreatedAt,

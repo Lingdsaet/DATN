@@ -108,7 +108,7 @@ namespace DATN.ControllersUser
             };
 
             // 5. Mapping vai trò
-            var mapping = new NguoiDung_VaiTro
+            var mapping = new NguoiDungVaiTro
             {
                 NguoiDungId = user.Id,
                 VaiTroId = vaiTroConsumer.Id   // TINYINT

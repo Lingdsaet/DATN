@@ -5,7 +5,7 @@ using DATN.RequestDto;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
-namespace DATN1.ControllersUser
+namespace DATN.CotrollerBusiness
 {
     [ApiController]
     [Route("api/[controller]")]

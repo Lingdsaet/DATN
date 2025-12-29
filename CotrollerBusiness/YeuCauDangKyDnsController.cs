@@ -4,7 +4,7 @@ using DATN.Repository;
 using DATN.RequestDto;
 using Microsoft.AspNetCore.Mvc;
 
-namespace DATN1.ControllersUser
+namespace DATN.CotrollerBusiness
 {
     [ApiController]
     [Route("api/[controller]")]

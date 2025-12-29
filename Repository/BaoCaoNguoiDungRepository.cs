@@ -2,7 +2,7 @@
 using DATN.Repository;
 using Microsoft.EntityFrameworkCore;
 
-namespace DATN1.Repository
+namespace DATN.Repository
 {
     public class BaoCaoNguoiDungRepository : IBaoCaoNguoiDungRepository
     {

@@ -2,7 +2,7 @@
 using DATN.Repository;
 using Microsoft.AspNetCore.Mvc;
 
-namespace DATN1.ControllersUser
+namespace DATN.ControllersUser
 {
     [ApiController]
     [Route("api/[controller]")]

@@ -9,7 +9,7 @@ namespace DATN.Model;
 
 [Table("SanPham")]
 [Index("LoaiSanPhamId", Name = "IX_SanPham_LoaiSanPhamId")]
-[Index("DoanhNghiepId", "Ten", Name = "IX_SanPham_Ten_Per_DN", IsUnique = true)]
+[Index("DoanhNghiepId", "Ten", Name = "IX_SanPham_Ten_Per_DN")]
 public partial class SanPham
 {
     [Key]

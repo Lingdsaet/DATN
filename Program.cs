@@ -58,12 +58,13 @@ builder.Services.AddScoped<IFirebaseService, FirebaseService>();
 builder.Services.AddScoped<IQrCodeService, QrCodeService>();
 builder.Services.AddScoped<IMaQrSanPhamRepository, MaQrSanPhamRepository>();
 builder.Services.AddScoped<ILoaiSanPhamRepository, LoaiSanPhamRepository>();
+builder.Services.AddScoped<IJwtTokenService, JwtTokenService>();
 //builder.Services.AddScoped<ISuKienChuoiCungUngRepository, SuKienChuoiCungUngRepository>();
 //builder.Services.AddScoped<IDmLoaiSuKienRepository, DmLoaiSuKienRepository>();
 
 builder.Services.Configure<FormOptions>(options =>
 {
-    options.MultipartBodyLengthLimit = 50 * 1024 * 1024; 
+    options.MultipartBodyLengthLimit = 50 * 1024 * 1024;
 });
 
 builder.WebHost.ConfigureKestrel(options =>

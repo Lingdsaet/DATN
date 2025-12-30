@@ -15,12 +15,22 @@
         Task<List<string>> GetRoleCodesAsync(Guid nguoiDungId);
         Task<NguoiDung?> GetByIdAsync(Guid id);
         Task UpdateAsync(NguoiDung user);
+        Task<List<NguoiDung>> GetAllAsync();
+        Task UpdateAdminAsync(NguoiDung entity);
+        Task SoftDeleteAsync(Guid id);
+
+        Task GanVaiTroAsync(Guid nguoiDungId, List<byte> vaiTroIds);
 
     }
 
     public interface IVaiTroRepository
     {
         Task<VaiTro?> GetByMaAsync(string ma);
+        Task<List<VaiTro>> GetAllAsync();
+        Task<VaiTro?> GetByIdAsync(byte id);
+        Task<bool> ExistsByMaAsync(string ma);
+        Task AddAsync(VaiTro entity);
+        Task DeleteAsync(byte id);
     }
 
     public interface INguoiDungVaiTroRepository

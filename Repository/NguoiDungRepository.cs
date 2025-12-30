@@ -52,15 +52,66 @@ namespace DATN.Repository
                 )
                 .ToListAsync();
         }
-        public Task<NguoiDung?> GetByIdAsync(Guid id)
-        {
-            return _context.NguoiDungs.FirstOrDefaultAsync(x => x.Id == id);
-        }
+        //public Task<NguoiDung?> GetByIdAsync(Guid id)
+        //{
+        //    return _context.NguoiDungs.FirstOrDefaultAsync(x => x.Id == id);
+        //}
 
         public Task UpdateAsync(NguoiDung user)
         {
             _context.NguoiDungs.Update(user);
             return Task.CompletedTask;
+        }
+        public async Task<List<NguoiDung>> GetAllAsync()
+        {
+            return await _context.NguoiDungs
+                .Where(x => !x.XoaMem)
+                .Include(x => x.NguoiDungVaiTros)
+                    .ThenInclude(x => x.VaiTro)
+                .ToListAsync();
+        }
+
+        public async Task<NguoiDung?> GetByIdAsync(Guid id)
+        {
+            return await _context.NguoiDungs
+                .Include(x => x.NguoiDungVaiTros)
+                    .ThenInclude(x => x.VaiTro)
+                .FirstOrDefaultAsync(x => x.Id == id && !x.XoaMem);
+        }
+
+        public async Task UpdateAdminAsync(NguoiDung entity)
+        {
+            _context.NguoiDungs.Update(entity);
+            await _context.SaveChangesAsync();
+        }
+
+        public async Task SoftDeleteAsync(Guid id)
+        {
+            var user = await _context.NguoiDungs.FindAsync(id);
+            if (user == null) return;
+
+            user.XoaMem = true;
+            user.UpdatedAt = DateTime.UtcNow;
+            await _context.SaveChangesAsync();
+        }
+
+        public async Task GanVaiTroAsync(Guid nguoiDungId, List<byte> vaiTroIds)
+        {
+            var oldRoles = _context.NguoiDungVaiTro
+                .Where(x => x.NguoiDungId == nguoiDungId);
+
+            _context.NguoiDungVaiTro.RemoveRange(oldRoles);
+
+            foreach (var roleId in vaiTroIds)
+            {
+                _context.NguoiDungVaiTro.Add(new NguoiDungVaiTro
+                {
+                    NguoiDungId = nguoiDungId,
+                    VaiTroId = roleId
+                });
+            }
+
+            await _context.SaveChangesAsync();
         }
     }
 
@@ -77,6 +128,45 @@ namespace DATN.Repository
         {
             return _context.VaiTros.FirstOrDefaultAsync(x => x.Ma == ma);
         }
+
+        public async Task<List<VaiTro>> GetAllAsync()
+        {
+            return await _context.VaiTros
+                .OrderBy(x => x.Id)
+                .ToListAsync();
+        }
+
+        public async Task<VaiTro?> GetByIdAsync(byte id)
+        {
+            return await _context.VaiTros.FindAsync(id);
+        }
+
+        public async Task<bool> ExistsByMaAsync(string ma)
+        {
+            return await _context.VaiTros.AnyAsync(x => x.Ma == ma);
+        }
+
+        public async Task AddAsync(VaiTro entity)
+        {
+            _context.VaiTros.Add(entity);
+            await _context.SaveChangesAsync();
+        }
+
+        public async Task DeleteAsync(byte id)
+        {
+            var role = await _context.VaiTros
+                .Include(x => x.NguoiDungVaiTros)
+                .FirstOrDefaultAsync(x => x.Id == id);
+
+            if (role == null)
+                return;
+
+          
+            _context.NguoiDungVaiTro.RemoveRange(role.NguoiDungVaiTros);
+            _context.VaiTros.Remove(role);
+
+            await _context.SaveChangesAsync();
+        }
     }
 
     public class NguoiDungVaiTroRepository : INguoiDungVaiTroRepository
@@ -92,8 +182,8 @@ namespace DATN.Repository
         {
             return _context.NguoiDungVaiTro.AddAsync(mapping).AsTask();
         }
-    
-    public Task<NguoiDung?> GetByIdAsync(Guid id)
+
+        public Task<NguoiDung?> GetByIdAsync(Guid id)
         {
             return _context.NguoiDungs.FirstOrDefaultAsync(x => x.Id == id);
         }

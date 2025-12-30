@@ -312,6 +312,7 @@ namespace DATN.CotrollerBusiness
                 Ten = entity.Ten,
                 MaSanPham = entity.MaSanPham,
                 MoTa = entity.MoTa,
+                LoaiSanPhamId = entity.LoaiSanPhamId,
                 Gia = entity.Gia,
                 SoLuong = entity.SoLuong,
                 DonViTinh = entity.DonViTinh,

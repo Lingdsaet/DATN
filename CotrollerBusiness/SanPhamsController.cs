@@ -29,7 +29,10 @@ namespace DATN.CotrollerBusiness
         [HttpGet]
         public async Task<ActionResult<IEnumerable<SanPhamResponseDto>>> GetAll()
         {
-            var list = await _context.SanPhams.Where(x => !x.XoaMem).ToListAsync();
+            var list = await _context.SanPhams
+                .Include(x => x.MaQrSanPhams)
+                .Where(x => !x.XoaMem)
+                .ToListAsync();
             var result = list.Select(MapToDto);
             return Ok(result);
         }
@@ -110,7 +113,7 @@ namespace DATN.CotrollerBusiness
                         return BadRequest("Tệp ảnh quá nhỏ");
                 }
 
-                // Validate nghiệp vụ
+                // Validate ngày sản xuất và hạn sử dụng    
                 if (dto.HanSuDung.HasValue && dto.NgaySanXuat.HasValue &&
                     dto.HanSuDung < dto.NgaySanXuat)
                 {
@@ -163,16 +166,8 @@ namespace DATN.CotrollerBusiness
                 await _context.SaveChangesAsync();
 
                 // Tạo QR code với xử lý lỗi
-                MaQrSanPham? qrEntity = null;
-                try
-                {
-                    qrEntity = await _maQrRepo.CreateForSanPhamAsync(sanPham.Id, "QR sản phẩm");
-                }
-                catch (Exception qrEx)
-                {
-                    // Log lỗi nhưng không fail toàn bộ request
-                    Console.WriteLine($"Lỗi tạo QR code: {qrEx.Message}");
-                }
+                var qrEntity = await _maQrRepo.CreateForSanPhamAsync(sanPham.Id,"QR tự động tạo khi thêm sản phẩm.");
+
 
                 // Trả về DTO
                 var response = new SanPhamResponseDto
@@ -190,10 +185,10 @@ namespace DATN.CotrollerBusiness
                     HanSuDung = sanPham.HanSuDung,
                     NoiSanXuat = sanPham.NoiSanXuat,
                     HinhAnhUrl = sanPham.HinhAnhUrl,
-                    QrCode = qrEntity?.MaQr,
                     TrangThai = sanPham.TrangThai,
                     CreatedAt = sanPham.CreatedAt,
-                    UpdatedAt = sanPham.UpdatedAt
+                    UpdatedAt = sanPham.UpdatedAt,
+                    QrImageUrl = qrEntity?.QrImageUrl
                 };
 
                 return CreatedAtAction(nameof(GetById),
@@ -305,6 +300,8 @@ namespace DATN.CotrollerBusiness
         // Helper map entity -> DTO
         private static SanPhamResponseDto MapToDto(SanPham entity)
         {
+            var qr = entity.MaQrSanPhams? 
+                .FirstOrDefault(x => !x.XoaMem);
             return new SanPhamResponseDto
             {
                 Id = entity.Id,
@@ -320,11 +317,11 @@ namespace DATN.CotrollerBusiness
                 HanSuDung = entity.HanSuDung,
                 NoiSanXuat = entity.NoiSanXuat,
                 HinhAnhUrl = entity.HinhAnhUrl,
-                QrCode = entity.Qrcode,
                 TieuChuanApDung = entity.TieuChuanApDung,
                 TrangThai = entity.TrangThai,
                 CreatedAt = entity.CreatedAt,
-                UpdatedAt = entity.UpdatedAt
+                UpdatedAt = entity.UpdatedAt,
+                QrImageUrl = qr?.QrImageUrl,
             };
         }
     }

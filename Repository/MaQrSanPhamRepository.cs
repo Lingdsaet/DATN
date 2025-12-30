@@ -60,10 +60,10 @@ namespace DATN.Repository
                 .FirstOrDefaultAsync(x => x.Id == id && !x.XoaMem);
         }
 
-        public async Task<MaQrSanPham?> GetByLoHangIdAsync(Guid loHangId)
+        public async Task<MaQrSanPham?> GetBySanPhamIdAsync(Guid sanPhamId)
         {
             return await _context.MaQrSanPhams
-                .FirstOrDefaultAsync(x => x.SanPhamId == loHangId && !x.XoaMem);
+                .FirstOrDefaultAsync(x => x.SanPhamId == sanPhamId && !x.XoaMem);
         }
     }
 }

@@ -17,9 +17,10 @@
         public DateOnly? NgaySanXuat { get; set; }
         public DateOnly? HanSuDung { get; set; }
         public string? NoiSanXuat { get; set; }
-        public string? QrCode { get; set; }
+        
         public string TrangThai { get; set; } = null!;
         public DateTime CreatedAt { get; set; }
         public DateTime UpdatedAt { get; set; }
+        public string? QrImageUrl { get; set; }
     }
 }

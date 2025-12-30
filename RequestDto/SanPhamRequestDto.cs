@@ -17,7 +17,6 @@
         public DateOnly? NgaySanXuat { get; set; }
         public DateOnly? HanSuDung { get; set; }
 
-        public string? LoSanXuat { get; set; }
         public string? NoiSanXuat { get; set; }
 
         public IFormFile? HinhAnh { get; set; }

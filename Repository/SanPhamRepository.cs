@@ -21,6 +21,7 @@ namespace DATN.Repository
         public async Task<List<SanPham>> GetByDoanhNghiepIdAsync(Guid doanhNghiepId)
         {
             return await _context.SanPhams
+                .Include(x => x.MaQrSanPhams)
                 .Where(x => x.DoanhNghiepId == doanhNghiepId && !x.XoaMem)
                 .OrderByDescending(x => x.CreatedAt)
                 .ToListAsync();

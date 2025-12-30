@@ -6,6 +6,6 @@ namespace DATN.Repository
     {
         Task<MaQrSanPham> CreateForSanPhamAsync(Guid sanPhamId, string? ghiChu = null);
         Task<MaQrSanPham?> GetByIdAsync(Guid id);
-        Task<MaQrSanPham?> GetByLoHangIdAsync(Guid sanPhamId);
+        Task<MaQrSanPham?> GetBySanPhamIdAsync(Guid sanPhamId);
     }
 }

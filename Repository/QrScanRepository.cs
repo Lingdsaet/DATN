@@ -21,6 +21,13 @@ namespace DATN.Repository
                         .ThenInclude(sp => sp.DoanhNghiep)
                 .FirstOrDefaultAsync(q => q.MaQr == maQr && !q.XoaMem);
         }
+        public async Task<MaQrSanPham?> GetMaQrSanPhamAsync(string maQr)
+        {
+            return await _context.MaQrSanPhams
+                .Include(q => q.SanPham)
+                    .ThenInclude(sp => sp.DoanhNghiep)
+                .FirstOrDefaultAsync(q => q.MaQr == maQr && !q.XoaMem);
+        }
 
         public async Task<List<SuKienChuoiCungUng>> GetSuKienByLoHangIdAsync(Guid loHangId)
         {

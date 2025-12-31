@@ -16,7 +16,7 @@ namespace DATN.Repository
         {
             return await _context.LichSuQuets
                 .Where(x => x.NguoiDungId == nguoiTieuDungId)
-                .Include(x => x.MaQrLoHang)               // tên navigation có thể là MaQrLoHang hoặc MaQR_LoHang
+                .Include(x => x.MaQrLoHang)               
                     .ThenInclude(q => q.LoHang)
                         .ThenInclude(l => l.SanPham)
                             .ThenInclude(sp => sp.DoanhNghiep)

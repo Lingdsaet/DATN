@@ -7,6 +7,7 @@ namespace DATN.Repository
     {
         Task<MaQrLoHang?> GetMaQrWithRelationsAsync(string maQr);
         Task<List<SuKienChuoiCungUng>> GetSuKienByLoHangIdAsync(Guid loHangId);
+        Task<MaQrSanPham?> GetMaQrSanPhamAsync(string maQr);
         Task<LichSuQuet> CreateLanQuetAsync(LichSuQuet lanQuet);
     }
 }

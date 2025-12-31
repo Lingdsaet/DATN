@@ -8,6 +8,7 @@ namespace DATN.ReponseDto
         public string MaQR { get; set; } = null!;
         public DateTime ThoiGian { get; set; }
         public string KetQua { get; set; } = null!;
-       
+        public string TenSanPham { get; set; } = null!;
+
     }
 }

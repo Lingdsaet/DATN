@@ -23,42 +23,45 @@ namespace DATN.ControllersUser
 
             var result = list.Select(x =>
             {
-                var qr = x.MaQrLoHang;
-                var lo = qr?.LoHang;
-                var sp = lo?.SanPham;
-                var dn = sp?.DoanhNghiep;
+                var qrLo = x.MaQrLoHang;
+                var qrSp = x.MaQrSanPham;
+
+                var lo = qrLo?.LoHang;
+                var sp = lo?.SanPham ?? qrSp?.SanPham;
 
                 return new LichSuQuetItemDto
                 {
                     Id = x.Id,
-                    MaQR = qr?.MaQr ?? string.Empty, // fixed: only use MaQr
+                    MaQR = qrLo?.MaQr ?? qrSp?.MaQr ?? string.Empty,
                     ThoiGian = x.ThoiGian,
                     KetQua = x.KetQua,
-                  
+                    TenSanPham = sp?.Ten
                 };
             });
 
             return Ok(result);
         }
 
+
         // GET: api/LichSuQuet/{id}
         [HttpGet("{id}")]
         public async Task<ActionResult<LichSuQuetDetailDto>> GetById(Guid id)
         {
             var x = await _lichSuQuetRepo.GetByIdAsync(id);
+            if (x == null) return NotFound();
 
-            if (x == null)
-                return NotFound();
+            var qrLo = x.MaQrLoHang;
+            var qrSp = x.MaQrSanPham;
 
-            var qr = x.MaQrLoHang;
-            var lo = qr?.LoHang;
-            var sp = lo?.SanPham;
+            var lo = qrLo?.LoHang;
+            var sp = lo?.SanPham ?? qrSp?.SanPham;
             var dn = sp?.DoanhNghiep;
 
             var result = new LichSuQuetDetailDto
             {
                 Id = x.Id,
-                MaQR = qr?.MaQr ?? string.Empty, // fixed: only use MaQr
+                MaQR = qrLo?.MaQr ?? qrSp?.MaQr ?? string.Empty,
+
                 ThoiGian = x.ThoiGian,
                 KetQua = x.KetQua,
                 ThietBi = x.ThietBi,
@@ -70,6 +73,7 @@ namespace DATN.ControllersUser
 
                 TenSanPham = sp?.Ten,
                 MaSanPham = sp?.MaSanPham,
+
                 MaLo = lo?.MaLo,
                 NgaySanXuat = lo?.NgaySanXuat,
                 HanSuDung = lo?.HanSuDung,
@@ -82,4 +86,4 @@ namespace DATN.ControllersUser
             return Ok(result);
         }
     }
-}
+    }

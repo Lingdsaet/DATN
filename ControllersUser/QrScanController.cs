@@ -25,38 +25,107 @@ namespace DATN.ControllersUser
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
-            var qrEntity = await _scanRepo.GetMaQrWithRelationsAsync(request.MaQr);
+            //  Tìm QR Lô hàng
+            var qrLoHang = await _scanRepo.GetMaQrWithRelationsAsync(request.MaQr);
 
-            // Không tìm thấy QR trong hệ thống
-            if (qrEntity == null)
+            // 2Nếu không có → tìm QR Sản phẩm
+            MaQrSanPham? qrSanPham = null;
+            if (qrLoHang == null)
             {
-                var notFoundResponse = new ScanQrResponseDto
+                qrSanPham = await _scanRepo.GetMaQrSanPhamAsync(request.MaQr);
+            }
+
+            // Không thuộc hệ thống
+            if (qrLoHang == null && qrSanPham == null)
+            {
+                return Ok(new ScanQrResponseDto
                 {
                     Found = false,
                     KetQua = "SUSPECT",
                     Message = "Mã QR không thuộc hệ thống.",
                     MaQr = request.MaQr
-                };
-                return Ok(notFoundResponse);
+                });
             }
-
-            var lo = qrEntity.LoHang;
-            var sp = lo?.SanPham;
-            var dn = sp?.DoanhNghiep;
 
             var now = DateTime.UtcNow;
 
-            // Xác định kết quả
-            var ketQua = qrEntity.TrangThai == "ACTIVE" ? "OK" : "WARNING";
+            // QR LÔ HÀNG 
+            if (qrLoHang != null)
+            {
+                var lo = qrLoHang.LoHang;
+                var sp = lo?.SanPham;
+                var dn = sp?.DoanhNghiep;
 
-            // Ghi lịch sử quét
-            var lanQuet = new LichSuQuet
+                var ketQua = qrLoHang.TrangThai == "ACTIVE" ? "OK" : "WARNING";
+
+                var lanQuet = new LichSuQuet
+                {
+                    Id = Guid.NewGuid(),
+                    MaQrLoHangId = qrLoHang.Id,
+                    NguoiDungId = request.NguoiDungId,
+                    ThoiGian = now,
+                    KetQua = ketQua,
+                    ThietBi = request.ThietBi,
+                    HeDieuHanh = request.HeDieuHanh,
+                    ViDo = request.ViDo,
+                    KinhDo = request.KinhDo,
+                    DiaChiGanDung = request.DiaChiGanDung
+                };
+
+                await _scanRepo.CreateLanQuetAsync(lanQuet);
+
+                var suKienDtos = lo == null
+                    ? null
+                    : (await _scanRepo.GetSuKienByLoHangIdAsync(lo.Id))
+                        .Select(s => new ScanQrSuKienDto
+                        {
+                            ThoiGian = s.ThoiGian,
+                            LoaiSuKien = s.LoaiSuKien,
+                            DonViThucHien = s.DonViThucHien,
+                            MoTa = s.MoTa
+                        }).ToList();
+
+                return Ok(new ScanQrResponseDto
+                {
+                    Found = true,
+                    KetQua = ketQua,
+                    Message = ketQua == "OK"
+                        ? "Mã QR lô hàng hợp lệ."
+                        : "Mã QR không ở trạng thái ACTIVE.",
+
+                    LanQuetId = lanQuet.Id,
+                    MaQr = qrLoHang.MaQr,
+                    TrangThaiQr = qrLoHang.TrangThai,
+
+                    LoHangId = lo?.Id,
+                    MaLo = lo?.MaLo,
+                    NgaySanXuat = lo?.NgaySanXuat,
+                    HanSuDung = lo?.HanSuDung,
+
+                    SanPhamId = sp?.Id,
+                    TenSanPham = sp?.Ten,
+                    MaSanPham = sp?.MaSanPham,
+
+                    DoanhNghiepId = dn?.Id,
+                    TenDoanhNghiep = dn?.Ten,
+
+                    SuKienChuoiCungUng = suKienDtos
+                });
+            }
+
+            // QR SẢN PHẨM 
+            var spQr = qrSanPham!.SanPham;
+            var dnQr = spQr?.DoanhNghiep;
+
+            var ketQuaSp = qrSanPham.TrangThai == "ACTIVE" ? "OK" : "WARNING";
+
+            var lanQuetSp = new LichSuQuet
             {
                 Id = Guid.NewGuid(),
-                MaQrLoHangId = qrEntity.Id,
+                MaQrSanPhamId = qrSanPham.Id,
                 NguoiDungId = request.NguoiDungId,
                 ThoiGian = now,
-                KetQua = ketQua,                // OK/WARNING/SUSPECT
+                KetQua = ketQuaSp,
                 ThietBi = request.ThietBi,
                 HeDieuHanh = request.HeDieuHanh,
                 ViDo = request.ViDo,
@@ -64,51 +133,26 @@ namespace DATN.ControllersUser
                 DiaChiGanDung = request.DiaChiGanDung
             };
 
-            lanQuet = await _scanRepo.CreateLanQuetAsync(lanQuet);
+            await _scanRepo.CreateLanQuetAsync(lanQuetSp);
 
-            // Lấy sự kiện chuỗi cung ứng
-            List<ScanQrSuKienDto>? suKienDtos = null;
-            if (lo != null)
-            {
-                var suKienList = await _scanRepo.GetSuKienByLoHangIdAsync(lo.Id);
-                suKienDtos = suKienList.Select(s => new ScanQrSuKienDto
-                {
-                    ThoiGian = s.ThoiGian,
-                    LoaiSuKien = s.LoaiSuKien,
-                    DonViThucHien = s.DonViThucHien,
-                    DiaChi = null, // có thể map từ DiaDiem nếu Include thêm
-                    MoTa = s.MoTa
-                }).ToList();
-            }
-
-            var response = new ScanQrResponseDto
+            return Ok(new ScanQrResponseDto
             {
                 Found = true,
-                KetQua = ketQua,
-                Message = ketQua == "OK"
-                    ? "Mã QR hợp lệ."
-                    : "Mã QR không ở trạng thái ACTIVE.",
-                LanQuetId = lanQuet.Id,
+                KetQua = ketQuaSp,
+                Message = "Mã QR sản phẩm hợp lệ.",
 
-                MaQr = qrEntity.MaQr,
-                TrangThaiQr = qrEntity.TrangThai,
+                LanQuetId = lanQuetSp.Id,
+                MaQr = qrSanPham.MaQr,
+                TrangThaiQr = qrSanPham.TrangThai,
 
-                LoHangId = lo?.Id,
-                MaLo = lo?.MaLo,
-                NgaySanXuat = lo?.NgaySanXuat,
-                HanSuDung = lo?.HanSuDung,
+                SanPhamId = spQr?.Id,
+                TenSanPham = spQr?.Ten,
+                MaSanPham = spQr?.MaSanPham,
 
-                SanPhamId = sp?.Id,
-                TenSanPham = sp?.Ten,
-                MaSanPham = sp?.MaSanPham,
-
-                DoanhNghiepId = dn?.Id,
-                TenDoanhNghiep = dn?.Ten,
-
-                SuKienChuoiCungUng = suKienDtos
-            };
-
-            return Ok(response);
+                DoanhNghiepId = dnQr?.Id,
+                TenDoanhNghiep = dnQr?.Ten
+            });
         }
+
     }
 }

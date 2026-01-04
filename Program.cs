@@ -60,6 +60,8 @@ builder.Services.AddScoped<IMaQrSanPhamRepository, MaQrSanPhamRepository>();
 builder.Services.AddScoped<ILoaiSanPhamRepository, LoaiSanPhamRepository>();
 builder.Services.AddScoped<IJwtTokenService, JwtTokenService>();
 builder.Services.AddScoped<IDanhGiaSanPhamRepository, DanhGiaSanPhamRepository>();
+builder.Services.AddScoped<ITinTucRepository, TinTucRepository>();
+
 //builder.Services.AddScoped<ISuKienChuoiCungUngRepository, SuKienChuoiCungUngRepository>();
 //builder.Services.AddScoped<IDmLoaiSuKienRepository, DmLoaiSuKienRepository>();
 

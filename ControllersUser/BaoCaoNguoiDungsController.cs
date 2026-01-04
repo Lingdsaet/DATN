@@ -23,7 +23,7 @@ namespace DATN.ControllersUser
             _repo = repo;
         }
 
-        // 1) Người dùng gửi báo cáo
+        // Người dùng gửi báo cáo
         // POST: api/BaoCaoNguoiDung
         [HttpPost]
         public async Task<ActionResult<BaoCaoNguoiDungResponseDto>> Create(
@@ -57,7 +57,7 @@ namespace DATN.ControllersUser
             return CreatedAtAction(nameof(GetById), new { id = dto.Id }, dto);
         }
 
-        // 2) Admin/người dùng xem danh sách
+        // Admin/người dùng xem danh sách
         // GET: api/BaoCaoNguoiDung?nguoiTieuDungId=...&trangThaiXuLy=OPEN
         [HttpGet]
         public async Task<ActionResult<IEnumerable<BaoCaoNguoiDungResponseDto>>> GetList(
@@ -69,7 +69,7 @@ namespace DATN.ControllersUser
             return Ok(result);
         }
 
-        // 3) Xem chi tiết 1 báo cáo
+        // Xem chi tiết 1 báo cáo
         // GET: api/BaoCaoNguoiDung/{id}
         [HttpGet("{id}")]
         public async Task<ActionResult<BaoCaoNguoiDungResponseDto>> GetById(Guid id)
@@ -82,7 +82,7 @@ namespace DATN.ControllersUser
             return Ok(dto);
         }
 
-        // 4) Admin cập nhật trạng thái xử lý
+        // Admin cập nhật trạng thái xử lý
         // PUT: api/BaoCaoNguoiDung/{id}/xu-ly
         [HttpPut("Admin/{id}/xu-ly")]
         public async Task<ActionResult<BaoCaoNguoiDungResponseDto>> UpdateStatus(

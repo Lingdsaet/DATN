@@ -13,14 +13,16 @@ namespace DATN.ControllersUser
     public class TrangchuController : ControllerBase
     {
         private readonly ISanPhamRepository _sanPhamRepository;
+        private readonly ITinTucRepository _tinTucRepository;
 
-        public TrangchuController(ISanPhamRepository sanPhamRepository)
+        public TrangchuController(ISanPhamRepository sanPhamRepository, ITinTucRepository tinTucRepository)
         {
             _sanPhamRepository = sanPhamRepository;
+            _tinTucRepository = tinTucRepository;
         }
 
 
-        [HttpGet]
+        [HttpGet("list_all_san_pham")]
         public async Task<ActionResult<object>> GetAll()
         {
             var list = await _sanPhamRepository.GetAllAsync();
@@ -43,25 +45,26 @@ namespace DATN.ControllersUser
             });
         }
 
-        // GET: api/SanPhams/doanh-nghiep/{enterpriseId}
-        [HttpGet("doanh-nghiep/{enterpriseId}")]
-        public async Task<ActionResult<object>> GetByEnterprise(Guid enterpriseId)
-        {
-            var list = await _sanPhamRepository.GetAllAsync();
-            var filtered = list.Where(x => x.DoanhNghiepId == enterpriseId).ToList();
+        //// GET: api/SanPhams/doanh-nghiep/{enterpriseId}
+        //[HttpGet("doanh-nghiep/{enterpriseId}")]
+        //public async Task<ActionResult<object>> GetByEnterprise(Guid enterpriseId)
+        //{
+        //    var list = await _sanPhamRepository.GetAllAsync();
+        //    var filtered = list.Where(x => x.DoanhNghiepId == enterpriseId).ToList();
 
-            var result = filtered.Select(sp => new SanPhamResponseDto
-            {
-                Id = sp.Id,
-                DoanhNghiepId = sp.DoanhNghiepId,
-                MaSanPham = sp.MaSanPham,
-                Ten = sp.Ten,
-                MoTa = sp.MoTa,
-                HinhAnhUrl = sp.HinhAnhUrl
-            }).ToList();
+        //    var result = filtered.Select(sp => new SanPhamResponseDto
+        //    {
+        //        Id = sp.Id,
+        //        DoanhNghiepId = sp.DoanhNghiepId,
+        //        MaSanPham = sp.MaSanPham,
+        //        Ten = sp.Ten,
+        //        MoTa = sp.MoTa,
+        //        HinhAnhUrl = sp.HinhAnhUrl
+        //    }).ToList();
 
-            return Ok(result);
-        }
+        //    return Ok(result);
+        //}
+
 
         // GET: api/SanPhams/tim-kiem
         [HttpGet("tim-kiem")]
@@ -72,6 +75,36 @@ namespace DATN.ControllersUser
 
             var result = await _sanPhamRepository.SearchAsync(keyword);
             return Ok(result);
+        }
+        [HttpGet("tin_tuc_trang_chu")]
+        public async Task<ActionResult<IEnumerable<TinTucHomeDto>>> TrangChu()
+        {
+            var list = await _tinTucRepository.GetTrangChuAsync(5);
+            return Ok(list.Select(x => new TinTucHomeDto
+            {
+                Id = x.Id,
+                TieuDe = x.TieuDe,
+                TomTat = x.TomTat,
+                HinhAnhUrl = x.HinhAnhUrl,
+                CreatedAt = x.CreatedAt
+            }));
+        }
+
+        [HttpGet("chi_tiet_tin_tuc/{id}")]
+        public async Task<ActionResult<TinTucDetailDto>> GetById(Guid id)
+        {
+            var x = await _tinTucRepository.GetByIdAsync(id);
+            if (x == null) return NotFound();
+
+            return Ok(new TinTucDetailDto
+            {
+                Id = x.Id,
+                TieuDe = x.TieuDe,
+                TomTat = x.TomTat,
+                NoiDung = x.NoiDung,
+                HinhAnhUrl = x.HinhAnhUrl,
+                CreatedAt = x.CreatedAt
+            });
         }
     }
 }

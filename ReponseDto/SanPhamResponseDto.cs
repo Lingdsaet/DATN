@@ -23,4 +23,15 @@
         public DateTime UpdatedAt { get; set; }
         public string? QrImageUrl { get; set; }
     }
+
+    public class SanPhamSearchResultDto
+    {
+        public Guid Id { get; set; }
+        public string TenSanPham { get; set; } = null!;
+        public decimal? Gia { get; set; }
+        public int SoLuong { get; set; }
+        public string? HinhAnhUrl { get; set; }
+        public string TenDoanhNghiep { get; set; } = null!;
+    }
+
 }

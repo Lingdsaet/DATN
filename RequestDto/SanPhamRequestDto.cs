@@ -45,4 +45,9 @@
         public string? TrangThai { get; set; }
     }
 
+    public class SanPhamSearchRequest
+    {
+        public string? Keyword { get; set; }
+    }
+
 }

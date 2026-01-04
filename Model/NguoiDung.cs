@@ -1,9 +1,10 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using DATN.Model;
+using DATN.Model.DATN.Model;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using DATN.Model;
 
 namespace DATN.Model;
 
@@ -48,7 +49,8 @@ public partial class NguoiDung
     [InverseProperty("NguoiDung")]
     public virtual ICollection<LichSuQuet> LichSuQuets { get; set; } = new List<LichSuQuet>();
 
-    public ICollection<NguoiDungVaiTro> NguoiDungVaiTros { get; set; }
-        = new List<NguoiDungVaiTro>();
+    public ICollection<NguoiDungVaiTro> NguoiDungVaiTros { get; set; } = new List<NguoiDungVaiTro>();
+    public virtual ICollection<DanhGiaSanPham> DanhGiaSanPhams { get; set; } = new List<DanhGiaSanPham>();
+
 
 }

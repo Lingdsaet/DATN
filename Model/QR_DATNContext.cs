@@ -1,4 +1,5 @@
 ﻿using DATN.Model;
+using DATN.Model.DATN.Model;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -40,6 +41,8 @@ public partial class QR_DATNContext : DbContext
 
     public virtual DbSet<SanPham> SanPhams { get; set; }
 
+    public virtual DbSet<DanhGiaSanPham> DanhGiaSanPhams { get; set; }
+
     public virtual DbSet<SuKienChuoiCungUng> SuKienChuoiCungUngs { get; set; }
 
     public virtual DbSet<TrangThaiQr> TrangThaiQrs { get; set; }
@@ -47,6 +50,7 @@ public partial class QR_DATNContext : DbContext
     public virtual DbSet<VaiTro> VaiTros { get; set; }
 
     public virtual DbSet<YeuCauDangKyDn> YeuCauDangKyDns { get; set; }
+
     public virtual DbSet<NguoiDungVaiTro> NguoiDungVaiTro { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -235,10 +239,46 @@ public partial class QR_DATNContext : DbContext
             entity.Property(e => e.Id).HasDefaultValueSql("(newsequentialid())");
         });
 
+        modelBuilder.Entity<DanhGiaSanPham>(entity =>
+        {
+            entity.ToTable("DanhGiaSanPham", t =>
+            {
+                t.HasCheckConstraint(
+                    "CK_DanhGiaSanPham_SoSao",
+                    "[SoSao] BETWEEN 1 AND 5"
+                );
+            });
 
+            entity.HasKey(e => e.Id);
+
+            entity.Property(e => e.Id)
+                .HasDefaultValueSql("(newsequentialid())");
+
+            entity.Property(e => e.SoSao)
+                .IsRequired();
+
+            entity.Property(e => e.NoiDung)
+                .HasMaxLength(1000);
+
+            entity.Property(e => e.CreatedAt)
+                .HasPrecision(0);
+
+            entity.Property(e => e.UpdatedAt)
+                .HasPrecision(0);
+
+            entity.Property(e => e.XoaMem)
+                .HasDefaultValue(false);
+
+            entity.HasOne(d => d.SanPham)
+                .WithMany(p => p.DanhGiaSanPhams)
+                .HasForeignKey(d => d.SanPhamId);
+
+            entity.HasOne(d => d.NguoiDung)
+                .WithMany(p => p.DanhGiaSanPhams)
+                .HasForeignKey(d => d.NguoiDungId);
+        });
 
     }
-
 
     partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
 }

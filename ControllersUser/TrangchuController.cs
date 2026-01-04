@@ -4,21 +4,17 @@ using DATN.Repository;
 using DATN.RequestDto;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using DATN.CotrollerBusiness;
 
 namespace DATN.ControllersUser
 {
     [ApiController]
     [Route("api/[controller]")]
-    public class SanPhamController : ControllerBase
+    public class TrangchuController : ControllerBase
     {
         private readonly ISanPhamRepository _sanPhamRepository;
 
-        public SanPhamController(ISanPhamRepository sanPhamRepository)
+        public TrangchuController(ISanPhamRepository sanPhamRepository)
         {
             _sanPhamRepository = sanPhamRepository;
         }
@@ -64,6 +60,17 @@ namespace DATN.ControllersUser
                 HinhAnhUrl = sp.HinhAnhUrl
             }).ToList();
 
+            return Ok(result);
+        }
+
+        // GET: api/SanPhams/tim-kiem
+        [HttpGet("tim-kiem")]
+        public async Task<ActionResult<IEnumerable<SanPhamSearchResultDto>>> SearchQuick([FromQuery] string keyword)
+        {
+            if (string.IsNullOrWhiteSpace(keyword))
+                return BadRequest("Keyword không được để trống.");
+
+            var result = await _sanPhamRepository.SearchAsync(keyword);
             return Ok(result);
         }
     }

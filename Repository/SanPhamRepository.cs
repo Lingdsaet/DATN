@@ -1,4 +1,6 @@
 ﻿using DATN.Model;
+using DATN.ReponseDto;
+using DATN.RequestDto;
 using Microsoft.EntityFrameworkCore;
 
 namespace DATN.Repository
@@ -60,5 +62,30 @@ namespace DATN.Repository
             await _context.SaveChangesAsync();
             return true;
         }
+        public async Task<List<SanPhamSearchResultDto>> SearchAsync(string keyword)
+        {
+            return await _context.SanPhams
+                .Where(x => !x.XoaMem &&
+                    (
+                        x.Ten.Contains(keyword) ||
+                        (x.MaSanPham != null && x.MaSanPham.Contains(keyword))
+                    )
+                )
+                .Include(x => x.DoanhNghiep)
+                .OrderBy(x => x.Ten)
+                .Select(x => new SanPhamSearchResultDto
+                {
+                    Id = x.Id,
+                    TenSanPham = x.Ten,
+                    Gia = x.Gia,
+                    SoLuong = x.SoLuong,
+                    HinhAnhUrl = x.HinhAnhUrl,
+                    TenDoanhNghiep = x.DoanhNghiep.Ten
+                })
+                .ToListAsync();
+        }
+
+
     }
+
 }

@@ -20,7 +20,7 @@ namespace DATN.CotrollerBusiness
         public SanPhamsController(ISanPhamRepository sanPhamRepo, QR_DATNContext context, IFirebaseService firebaseService, IMaQrSanPhamRepository maQrRepo)
         {
             _sanPhamRepo = sanPhamRepo;
-            _context = context;
+            //_context = context;
             _firebaseService = firebaseService;
             _maQrRepo = maQrRepo;
         }
@@ -286,6 +286,7 @@ namespace DATN.CotrollerBusiness
         }
 
 
+
         // DELETE: api/SanPhams/{id}   (xoá mềm)
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(Guid id)
@@ -324,5 +325,6 @@ namespace DATN.CotrollerBusiness
                 QrImageUrl = qr?.QrImageUrl,
             };
         }
+
     }
 }

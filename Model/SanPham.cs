@@ -1,9 +1,10 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using DATN.Model;
+using DATN.Model.DATN.Model;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using DATN.Model;
 
 namespace DATN.Model;
 
@@ -76,4 +77,6 @@ public partial class SanPham
 
     [InverseProperty("SanPham")]
     public virtual ICollection<MaQrSanPham> MaQrSanPhams { get; set; } = new List<MaQrSanPham>();
+    public virtual ICollection<DanhGiaSanPham> DanhGiaSanPhams { get; set; }= new List<DanhGiaSanPham>();
+
 }

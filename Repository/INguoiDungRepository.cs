@@ -1,6 +1,7 @@
 ﻿namespace DATN.Repository
 {
     using DATN.Model;
+    using DATN.RequestDto;
     using System.Collections.Generic;
     using System.Threading.Tasks;
 
@@ -18,7 +19,8 @@
         Task<List<NguoiDung>> GetAllAsync();
         Task UpdateAdminAsync(NguoiDung entity);
         Task SoftDeleteAsync(Guid id);
-
+        Task<bool> UpdateThongTinAsync(Guid nguoiDungId, NguoiDungUpdateDto dto);
+        Task<bool> DoiMatKhauAsync(Guid nguoiDungId, DoiMatKhauDto dto);
         Task GanVaiTroAsync(Guid nguoiDungId, List<byte> vaiTroIds);
 
     }

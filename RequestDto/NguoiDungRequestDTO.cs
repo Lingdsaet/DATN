@@ -13,5 +13,17 @@
         public Guid NguoiDungId { get; set; }
         public List<byte> VaiTroIds { get; set; } = new();
     }
+    public class NguoiDungUpdateDto
+    {
+        public string? HoTen { get; set; }
+        public string? Email { get; set; }
+        public string? DienThoai { get; set; }
+    }
+
+    public class DoiMatKhauDto
+    {
+        public string MatKhauCu { get; set; } = null!;
+        public string MatKhauMoi { get; set; } = null!;
+    }
 
 }

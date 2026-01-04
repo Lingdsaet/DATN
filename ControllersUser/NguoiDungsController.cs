@@ -134,6 +134,45 @@ namespace DATN.ControllersUser
                 Data = response
             });
         }
-    }
 
+        [HttpPut("doi_thong_tin/{id}")]
+        public async Task<IActionResult> Update(Guid id, [FromBody] NguoiDungUpdateDto dto)
+        {
+            if (dto == null)
+                return BadRequest("Dữ liệu không hợp lệ.");
+
+            var ok = await _nguoiDungRepo.UpdateThongTinAsync(id, dto);
+            if (!ok)
+                return NotFound("Không tìm thấy người dùng.");
+
+            return Ok("Cập nhật thông tin thành công.");
+        }
+
+        [HttpPut("doi-mat-khau/{id}")]
+        public async Task<IActionResult> DoiMatKhau(
+        Guid id,
+        [FromBody] DoiMatKhauDto dto)
+        {
+            if (dto == null ||
+                string.IsNullOrWhiteSpace(dto.MatKhauCu) ||
+                string.IsNullOrWhiteSpace(dto.MatKhauMoi))
+            {
+                return BadRequest("Dữ liệu không hợp lệ.");
+            }
+
+            try
+            {
+                var ok = await _nguoiDungRepo.DoiMatKhauAsync(id, dto);
+                if (!ok)
+                    return NotFound("Không tìm thấy người dùng.");
+
+                return Ok("Đổi mật khẩu thành công.");
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
+    }
 }

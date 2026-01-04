@@ -1,6 +1,10 @@
 ﻿using DATN.Model;
+using DATN.RequestDto;
+using Microsoft.CodeAnalysis.Scripting;
 using Microsoft.EntityFrameworkCore;
 using System;
+using DATN.Utils;
+
 
 namespace DATN.Repository
 {
@@ -112,6 +116,58 @@ namespace DATN.Repository
             }
 
             await _context.SaveChangesAsync();
+        }
+
+        // đổi mật khẩu
+        public async Task<bool> DoiMatKhauAsync(Guid nguoiDungId, DoiMatKhauDto dto)
+        {
+            var user = await _context.NguoiDungs
+                .FirstOrDefaultAsync(x => x.Id == nguoiDungId && !x.XoaMem);
+
+            if (user == null)
+                return false;
+
+            // Kiểm tra mật khẩu cũ
+            var isOldPasswordCorrect =
+                PasswordHasher.VerifyPassword(dto.MatKhauCu, user.MatKhauHash);
+
+            if (!isOldPasswordCorrect)
+                throw new Exception("Mật khẩu cũ không đúng.");
+
+            // Validate mật khẩu mới
+            if (dto.MatKhauMoi.Length < 6)
+                throw new Exception("Mật khẩu mới phải có ít nhất 6 ký tự.");
+
+            // 3Hash & lưu mật khẩu mới
+            user.MatKhauHash = PasswordHasher.HashPassword(dto.MatKhauMoi);
+            user.UpdatedAt = DateTime.UtcNow;
+
+            await _context.SaveChangesAsync();
+            return true;
+        }
+
+        // đổi thông tin (không đổi mật khẩu)
+        public async Task<bool> UpdateThongTinAsync(Guid nguoiDungId, NguoiDungUpdateDto dto)
+        {
+            var user = await _context.NguoiDungs
+                .FirstOrDefaultAsync(x => x.Id == nguoiDungId && !x.XoaMem);
+
+            if (user == null)
+                return false;
+
+            //CẬP NHẬT THÔNG TIN 
+            if (!string.IsNullOrWhiteSpace(dto.HoTen))
+                user.HoTen = dto.HoTen;
+
+            if (!string.IsNullOrWhiteSpace(dto.Email))
+                user.Email = dto.Email;
+
+            if (!string.IsNullOrWhiteSpace(dto.DienThoai))
+                user.DienThoai = dto.DienThoai;
+            user.UpdatedAt = DateTime.UtcNow;
+
+            await _context.SaveChangesAsync();
+            return true;
         }
     }
 

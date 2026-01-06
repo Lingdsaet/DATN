@@ -31,9 +31,11 @@ namespace DATN.ControllersUser
             {
                 Id = sp.Id,
                 DoanhNghiepId = sp.DoanhNghiepId,
+                TenDoanhNghiep = sp.DoanhNghiep?.Ten,
                 MaSanPham = sp.MaSanPham,
                 Ten = sp.Ten,
                 MoTa = sp.MoTa,
+                Gia = sp.Gia,
                 HinhAnhUrl = sp.HinhAnhUrl
             }).ToList();
 

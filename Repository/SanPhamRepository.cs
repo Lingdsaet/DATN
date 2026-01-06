@@ -32,6 +32,7 @@ namespace DATN.Repository
         {
             
             return _context.SanPhams
+                .Include(sp => sp.DoanhNghiep)
                 .Where(sp => !sp.XoaMem)   
                 .ToListAsync();
         }

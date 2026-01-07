@@ -2,150 +2,156 @@
 using DATN.ReponseDto;
 using DATN.Repository;
 using DATN.RequestDto;
+using DATN.Utils;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace DATN.CotrollerBusiness
-{
+{ 
     [ApiController]
     [Route("api/[controller]")]
     public class CuaHangsController : ControllerBase
     {
-        private readonly ICuaHangRepository _cuaHangRepo;
+        private readonly ICuaHangRepository _repo;
         private readonly QR_DATNContext _context;
 
-        public CuaHangsController(ICuaHangRepository cuaHangRepo, QR_DATNContext context)
+        public CuaHangsController(ICuaHangRepository repo, QR_DATNContext context)
         {
-            _cuaHangRepo = cuaHangRepo;
+            _repo = repo;
             _context = context;
         }
 
-        // GET: api/CuaHangs/{id}
-        [HttpGet("{id}")]
-        public async Task<ActionResult<CuaHangResponseDto>> GetById(Guid id)
-        {
-            var entity = await _cuaHangRepo.GetByIdAsync(id);
-            if (entity == null)
-                return NotFound("Không tìm thấy cửa hàng.");
-
-            var dto = MapToDto(entity);
-            return Ok(dto);
-        }
-
-        // GET: api/CuaHangs/doanh-nghiep/{doanhNghiepId}
         [HttpGet("doanh-nghiep/{doanhNghiepId}")]
         public async Task<ActionResult<IEnumerable<CuaHangResponseDto>>> GetByDoanhNghiep(Guid doanhNghiepId)
         {
-            var list = await _cuaHangRepo.GetByDoanhNghiepIdAsync(doanhNghiepId);
-            var result = list.Select(MapToDto);
+            var list = await _repo.GetByDoanhNghiepAsync(doanhNghiepId);
+
+            var result = list.Select(x => new CuaHangResponseDto
+            {
+                Id = x.Id,
+                Ten = x.Ten,
+                LienHe = x.LienHe,
+                DiaDiem = DiaDiemMapper.ToDto(x.DiaDiem)
+            });
+
             return Ok(result);
         }
 
-        // POST: api/CuaHangs  (Thêm cửa hàng)
-        [HttpPost("themCuaHang")]
-        public async Task<ActionResult<CuaHangResponseDto>> Create([FromBody] CuaHangCreateRequestDto request)
+        [HttpGet("{id}")]
+        public async Task<ActionResult<CuaHangResponseDto>> GetById(Guid id)
         {
-            if (!ModelState.IsValid)
-                return BadRequest(ModelState);
+            var x = await _repo.GetByIdAsync(id);
+            if (x == null) return NotFound();
 
-            // Kiểm tra doanh nghiệp tồn tại
+            return Ok(new CuaHangResponseDto
+            {
+                Id = x.Id,
+                Ten = x.Ten,
+                TenDoanhNghiep = x.DoanhNghiep?.Ten,
+                LienHe = x.LienHe,
+                DiaDiem = DiaDiemMapper.ToDto(x.DiaDiem)
+            });
+        }
+
+        [HttpPost("themcuahang")]
+        public async Task<IActionResult> Create([FromBody] CuaHangCreateRequestDto dto)
+        {
+            //  Check doanh nghiệp
             var dnExists = await _context.DoanhNghieps
-                .AnyAsync(x => x.Id == request.DoanhNghiepId && !x.XoaMem);
+                .AnyAsync(x => x.Id == dto.DoanhNghiepId && !x.XoaMem);
 
             if (!dnExists)
                 return BadRequest("Doanh nghiệp không tồn tại.");
 
-            // Nếu có DiaDiemId thì kiểm tra luôn
-            if (request.DiaDiemId.HasValue)
-            {
-                var ddExists = await _context.DiaDiems
-                    .AnyAsync(x => x.Id == request.DiaDiemId.Value && !x.XoaMem);
-                if (!ddExists)
-                    return BadRequest("Địa điểm không tồn tại.");
-            }
+            //  Validate địa điểm
+            if (dto.DiaDiem == null)
+                return BadRequest("Phải nhập thông tin địa điểm.");
 
-            var now = DateTime.UtcNow;
-
-            var entity = new CuaHang
+            //  Tạo địa điểm mới
+            var diaDiem = new DiaDiem
             {
                 Id = Guid.NewGuid(),
-                DoanhNghiepId = request.DoanhNghiepId,
-                Ten = request.Ten,
-                DiaDiemId = request.DiaDiemId,
-                LienHe = request.LienHe,
-                CreatedAt = now,
-                UpdatedAt = now,
+                Ten = dto.DiaDiem.Ten,
+                Tinh = dto.DiaDiem.Tinh,
+                Huyen = dto.DiaDiem.Huyen,
+                Xa = dto.DiaDiem.Xa,
+                DiaChi = dto.DiaDiem.DiaChi,
+                ViDo = dto.DiaDiem.ViDo,
+                KinhDo = dto.DiaDiem.KinhDo,
+                CreatedAt = DateTime.UtcNow,
+                UpdatedAt = DateTime.UtcNow,
                 XoaMem = false
             };
 
-            entity = await _cuaHangRepo.CreateAsync(entity);
-            var dto = MapToDto(entity);
+            _context.DiaDiems.Add(diaDiem);
+            await _context.SaveChangesAsync();
 
-            return CreatedAtAction(nameof(GetById), new { id = dto.Id }, dto);
+            // Tạo cửa hàng
+            var cuaHang = new CuaHang
+            {
+                Id = Guid.NewGuid(),
+                DoanhNghiepId = dto.DoanhNghiepId,
+                Ten = dto.Ten,
+                LienHe = dto.LienHe,
+                DiaDiemId = diaDiem.Id,
+                CreatedAt = DateTime.UtcNow,
+                UpdatedAt = DateTime.UtcNow,
+                XoaMem = false
+            };
+
+            _context.CuaHangs.Add(cuaHang);
+            await _context.SaveChangesAsync();
+
+            return Ok(new
+            {
+                Success = true,
+                CuaHangId = cuaHang.Id,
+                DiaDiemId = diaDiem.Id
+            });
         }
 
-        // PUT: api/CuaHangs/{id}  (Sửa cửa hàng)
-        [HttpPut("sua/{id}")]
-        public async Task<ActionResult<CuaHangResponseDto>> Update(
-            Guid id,
-            [FromBody] CuaHangUpdateRequestDto request)
+
+
+        [HttpPut("{id}")]
+        public async Task<ActionResult> Update(Guid id, CuaHangRequestDto dto)
         {
-            if (!ModelState.IsValid)
-                return BadRequest(ModelState);
+            var entity = await _repo.GetByIdAsync(id);
+            if (entity == null) return NotFound();
 
-            var entity = await _cuaHangRepo.GetByIdAsync(id);
-            if (entity == null)
-                return NotFound("Không tìm thấy cửa hàng.");
-
-            if (!string.IsNullOrWhiteSpace(request.Ten))
-                entity.Ten = request.Ten;
-
-            if (request.DiaDiemId.HasValue)
-            {
-                // kiểm tra DiaDiem tồn tại
-                var ddExists = await _context.DiaDiems
-                    .AnyAsync(x => x.Id == request.DiaDiemId.Value && !x.XoaMem);
-                if (!ddExists)
-                    return BadRequest("Địa điểm không tồn tại.");
-
-                entity.DiaDiemId = request.DiaDiemId;
-            }
-
-            if (request.LienHe != null)
-                entity.LienHe = request.LienHe;
-
+            entity.Ten = dto.Ten;
+            entity.LienHe = dto.LienHe;
+            entity.DiaDiemId = dto.DiaDiemId;
             entity.UpdatedAt = DateTime.UtcNow;
 
-            entity = await _cuaHangRepo.UpdateAsync(entity);
-            var dto = MapToDto(entity);
-
-            return Ok(dto);
+            await _repo.UpdateAsync(entity);
+            return Ok(new { Success = true });
         }
 
-        // DELETE: api/CuaHangs/{id}  (Xoá mềm)
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(Guid id)
         {
-            var success = await _cuaHangRepo.SoftDeleteAsync(id);
-            if (!success)
-                return NotFound("Không tìm thấy cửa hàng.");
+            var ok = await _repo.SoftDeleteAsync(id);
+            if (!ok) return NotFound();
 
             return NoContent();
         }
-
-        // Helper map entity -> DTO
-        private static CuaHangResponseDto MapToDto(CuaHang entity)
+    
+        public static class DiaDiemMapper
         {
-            return new CuaHangResponseDto
+            public static DiaDiemDto? ToDto(DiaDiem? entity)
             {
-                Id = entity.Id,
-                DoanhNghiepId = entity.DoanhNghiepId,
-                Ten = entity.Ten,
-                DiaDiemId = entity.DiaDiemId,
-                LienHe = entity.LienHe,
-                CreatedAt = entity.CreatedAt,
-                UpdatedAt = entity.UpdatedAt
-            };
+                if (entity == null) return null;
+
+                return new DiaDiemDto
+                {
+                    Id = entity.Id,
+                    Ten = entity.Ten,
+                    DiaChi = $"{entity.DiaChi}, {entity.Xa}, {entity.Huyen}, {entity.Tinh}",
+                    ViDo = entity.ViDo,
+                    KinhDo = entity.KinhDo
+                };
+            }
         }
+
     }
 }

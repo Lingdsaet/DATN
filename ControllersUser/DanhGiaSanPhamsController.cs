@@ -29,7 +29,7 @@ namespace DATN.ControllersUser
         }
 
         // POST: api/DanhGiaSanPham
-        [HttpPost("danh gia")]
+        [HttpPost("danh_gia")]
         public async Task<IActionResult> Create(DanhGiaRequestDto dto)
         {
             if (dto.SoSao < 1 || dto.SoSao > 5)
@@ -57,7 +57,7 @@ namespace DATN.ControllersUser
         }
 
         // GET: api/DanhGiaSanPham/san-pham/{sanPhamId}
-        [HttpGet("list Danh gia/{sanPhamId}")]
+        [HttpGet("list_Danh_gia/{sanPhamId}")]
         public async Task<ActionResult<object>> GetBySanPham(Guid sanPhamId)
         {
             var list = await _repo.GetBySanPhamIdAsync(sanPhamId);

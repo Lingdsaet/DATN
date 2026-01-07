@@ -4,10 +4,11 @@ namespace DATN.Repository
 {
     public interface ICuaHangRepository
     {
+        Task<List<CuaHang>> GetByDoanhNghiepAsync(Guid doanhNghiepId);
         Task<CuaHang?> GetByIdAsync(Guid id);
-        Task<List<CuaHang>> GetByDoanhNghiepIdAsync(Guid doanhNghiepId);
-        Task<CuaHang> CreateAsync(CuaHang cuaHang);
-        Task<CuaHang?> UpdateAsync(CuaHang cuaHang);
+        Task<CuaHang> AddAsync(CuaHang entity);
+        Task<CuaHang> UpdateAsync(CuaHang entity);
         Task<bool> SoftDeleteAsync(Guid id);
     }
+
 }

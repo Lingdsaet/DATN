@@ -12,46 +12,47 @@ namespace DATN.Repository
             _context = context;
         }
 
-        public async Task<CuaHang?> GetByIdAsync(Guid id)
+        public async Task<List<CuaHang>> GetByDoanhNghiepAsync(Guid doanhNghiepId)
         {
             return await _context.CuaHangs
-                .FirstOrDefaultAsync(x => x.Id == id && !x.XoaMem);
-        }
-
-        public async Task<List<CuaHang>> GetByDoanhNghiepIdAsync(Guid doanhNghiepId)
-        {
-            return await _context.CuaHangs
+                .Include(x => x.DiaDiem)
                 .Where(x => x.DoanhNghiepId == doanhNghiepId && !x.XoaMem)
-                .OrderByDescending(x => x.CreatedAt)
+                .OrderBy(x => x.Ten)
                 .ToListAsync();
         }
 
-        public async Task<CuaHang> CreateAsync(CuaHang cuaHang)
+        public async Task<CuaHang?> GetByIdAsync(Guid id)
         {
-            _context.CuaHangs.Add(cuaHang);
-            await _context.SaveChangesAsync();
-            return cuaHang;
+            return await _context.CuaHangs
+                .Include(x => x.DoanhNghiep)
+                .Include(x => x.DiaDiem)
+                .FirstOrDefaultAsync(x => x.Id == id && !x.XoaMem);
         }
 
-        public async Task<CuaHang?> UpdateAsync(CuaHang cuaHang)
+        public async Task<CuaHang> AddAsync(CuaHang entity)
         {
-            _context.CuaHangs.Update(cuaHang);
+            _context.CuaHangs.Add(entity);
             await _context.SaveChangesAsync();
-            return cuaHang;
+            return entity;
+        }
+
+        public async Task<CuaHang> UpdateAsync(CuaHang entity)
+        {
+            _context.CuaHangs.Update(entity);
+            await _context.SaveChangesAsync();
+            return entity;
         }
 
         public async Task<bool> SoftDeleteAsync(Guid id)
         {
-            var entity = await _context.CuaHangs
-                .FirstOrDefaultAsync(x => x.Id == id && !x.XoaMem);
-
+            var entity = await _context.CuaHangs.FirstOrDefaultAsync(x => x.Id == id && !x.XoaMem);
             if (entity == null) return false;
 
             entity.XoaMem = true;
             entity.UpdatedAt = DateTime.UtcNow;
-
             await _context.SaveChangesAsync();
             return true;
         }
     }
+
 }

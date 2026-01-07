@@ -20,7 +20,7 @@ namespace DATN.CotrollerBusiness
         public SanPhamsController(ISanPhamRepository sanPhamRepo, QR_DATNContext context, IFirebaseService firebaseService, IMaQrSanPhamRepository maQrRepo)
         {
             _sanPhamRepo = sanPhamRepo;
-            //_context = context;
+            _context = context;
             _firebaseService = firebaseService;
             _maQrRepo = maQrRepo;
         }
@@ -30,6 +30,7 @@ namespace DATN.CotrollerBusiness
         public async Task<ActionResult<IEnumerable<SanPhamResponseDto>>> GetAll()
         {
             var list = await _context.SanPhams
+                .Include(x => x.DoanhNghiep)
                 .Include(x => x.MaQrSanPhams)
                 .Where(x => !x.XoaMem)
                 .ToListAsync();
@@ -323,6 +324,9 @@ namespace DATN.CotrollerBusiness
                 CreatedAt = entity.CreatedAt,
                 UpdatedAt = entity.UpdatedAt,
                 QrImageUrl = qr?.QrImageUrl,
+                TenDoanhNghiep = entity.DoanhNghiep?.Ten
+
+
             };
         }
 

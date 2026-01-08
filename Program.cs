@@ -76,8 +76,9 @@ builder.Services.AddScoped<ILoaiSanPhamRepository, LoaiSanPhamRepository>();
 builder.Services.AddScoped<IJwtTokenService, JwtTokenService>();
 builder.Services.AddScoped<IDanhGiaSanPhamRepository, DanhGiaSanPhamRepository>();
 builder.Services.AddScoped<ITinTucRepository, TinTucRepository>();
-builder.Services.AddScoped<ISuKienChuoiCungUngRepository, SuKienChuoiCungUngRepository>();  
+builder.Services.AddScoped<ISuKienChuoiCungUngRepository, SuKienChuoiCungUngRepository>();
 builder.Services.AddScoped<IBaoCaoNguoiDungRepository, BaoCaoNguoiDungRepository>();
+builder.Services.AddScoped<IDiaDiemRepository, DiaDiemRepository>();
 //builder.Services.AddScoped<IDmLoaiSuKienRepository, DmLoaiSuKienRepository>();
 
 builder.Services.Configure<FormOptions>(options =>

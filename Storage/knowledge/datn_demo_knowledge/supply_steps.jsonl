@@ -1,0 +1,660 @@
+{"type": "supplyStep", "batchId": "LHSP0001-01", "stepOrder": 1, "step": "production", "location": "Nghệ An", "time": "2025-11-04T08:00:00Z", "note": "Sản xuất và kiểm định chất lượng ban đầu"}
+{"type": "supplyStep", "batchId": "LHSP0001-01", "stepOrder": 2, "step": "packaging", "location": "Nghệ An", "time": "2025-11-04T20:00:00Z", "note": "Đóng gói, dán tem, tạo mã truy xuất"}
+{"type": "supplyStep", "batchId": "LHSP0001-01", "stepOrder": 3, "step": "warehouse_in", "location": "Kho TP.HCM", "time": "2025-11-05T08:00:00Z", "note": "Nhập kho trung tâm"}
+{"type": "supplyStep", "batchId": "LHSP0001-01", "stepOrder": 4, "step": "distribution", "location": "Cửa hàng A1", "time": "2025-11-05T20:00:00Z", "note": "Phân phối đến điểm bán"}
+{"type": "supplyStep", "batchId": "LHSP0001-02", "stepOrder": 1, "step": "production", "location": "Nghệ An", "time": "2025-12-14T08:00:00Z", "note": "Sản xuất và kiểm định chất lượng ban đầu"}
+{"type": "supplyStep", "batchId": "LHSP0001-02", "stepOrder": 2, "step": "packaging", "location": "Nghệ An", "time": "2025-12-14T20:00:00Z", "note": "Đóng gói, dán tem, tạo mã truy xuất"}
+{"type": "supplyStep", "batchId": "LHSP0001-02", "stepOrder": 3, "step": "warehouse_in", "location": "Kho Cần Thơ", "time": "2025-12-15T08:00:00Z", "note": "Nhập kho trung tâm"}
+{"type": "supplyStep", "batchId": "LHSP0001-02", "stepOrder": 4, "step": "distribution", "location": "Kho trung chuyển E5", "time": "2025-12-15T20:00:00Z", "note": "Phân phối đến điểm bán"}
+{"type": "supplyStep", "batchId": "LHSP0001-03", "stepOrder": 1, "step": "production", "location": "Nghệ An", "time": "2025-11-21T08:00:00Z", "note": "Sản xuất và kiểm định chất lượng ban đầu"}
+{"type": "supplyStep", "batchId": "LHSP0001-03", "stepOrder": 2, "step": "packaging", "location": "Nghệ An", "time": "2025-11-21T20:00:00Z", "note": "Đóng gói, dán tem, tạo mã truy xuất"}
+{"type": "supplyStep", "batchId": "LHSP0001-03", "stepOrder": 3, "step": "warehouse_in", "location": "Kho Cần Thơ", "time": "2025-11-22T08:00:00Z", "note": "Nhập kho trung tâm"}
+{"type": "supplyStep", "batchId": "LHSP0001-03", "stepOrder": 4, "step": "distribution", "location": "Cửa hàng B2", "time": "2025-11-22T20:00:00Z", "note": "Phân phối đến điểm bán"}
+{"type": "supplyStep", "batchId": "LHSP0002-01", "stepOrder": 1, "step": "production", "location": "TP.HCM", "time": "2025-11-20T08:00:00Z", "note": "Sản xuất và kiểm định chất lượng ban đầu"}
+{"type": "supplyStep", "batchId": "LHSP0002-01", "stepOrder": 2, "step": "packaging", "location": "TP.HCM", "time": "2025-11-20T20:00:00Z", "note": "Đóng gói, dán tem, tạo mã truy xuất"}
+{"type": "supplyStep", "batchId": "LHSP0002-01", "stepOrder": 3, "step": "warehouse_in", "location": "Kho Hà Nội", "time": "2025-11-21T08:00:00Z", "note": "Nhập kho trung tâm"}
+{"type": "supplyStep", "batchId": "LHSP0002-01", "stepOrder": 4, "step": "transport", "location": "Tuyến Nam", "time": "2025-11-21T20:00:00Z", "note": "Vận chuyển theo tuyến"}
+{"type": "supplyStep", "batchId": "LHSP0002-01", "stepOrder": 5, "step": "distribution", "location": "Kho trung chuyển E5", "time": "2025-11-22T08:00:00Z", "note": "Phân phối đến điểm bán"}
+{"type": "supplyStep", "batchId": "LHSP0002-02", "stepOrder": 1, "step": "production", "location": "TP.HCM", "time": "2025-11-09T08:00:00Z", "note": "Sản xuất và kiểm định chất lượng ban đầu"}
+{"type": "supplyStep", "batchId": "LHSP0002-02", "stepOrder": 2, "step": "packaging", "location": "TP.HCM", "time": "2025-11-09T20:00:00Z", "note": "Đóng gói, dán tem, tạo mã truy xuất"}
+{"type": "supplyStep", "batchId": "LHSP0002-02", "stepOrder": 3, "step": "warehouse_in", "location": "Kho TP.HCM", "time": "2025-11-10T08:00:00Z", "note": "Nhập kho trung tâm"}
+{"type": "supplyStep", "batchId": "LHSP0002-02", "stepOrder": 4, "step": "distribution", "location": "Đại lý D4", "time": "2025-11-10T20:00:00Z", "note": "Phân phối đến điểm bán"}
+{"type": "supplyStep", "batchId": "LHSP0002-03", "stepOrder": 1, "step": "production", "location": "TP.HCM", "time": "2025-12-16T08:00:00Z", "note": "Sản xuất và kiểm định chất lượng ban đầu"}
+{"type": "supplyStep", "batchId": "LHSP0002-03", "stepOrder": 2, "step": "packaging", "location": "TP.HCM", "time": "2025-12-16T20:00:00Z", "note": "Đóng gói, dán tem, tạo mã truy xuất"}
+{"type": "supplyStep", "batchId": "LHSP0002-03", "stepOrder": 3, "step": "warehouse_in", "location": "Kho TP.HCM", "time": "2025-12-17T08:00:00Z", "note": "Nhập kho trung tâm"}
+{"type": "supplyStep", "batchId": "LHSP0002-03", "stepOrder": 4, "step": "transport", "location": "Tuyến Bắc", "time": "2025-12-17T20:00:00Z", "note": "Vận chuyển theo tuyến"}
+{"type": "supplyStep", "batchId": "LHSP0002-03", "stepOrder": 5, "step": "distribution", "location": "Siêu thị C3", "time": "2025-12-18T08:00:00Z", "note": "Phân phối đến điểm bán"}
+{"type": "supplyStep", "batchId": "LHSP0003-01", "stepOrder": 1, "step": "production", "location": "Bắc Giang", "time": "2025-12-18T08:00:00Z", "note": "Sản xuất và kiểm định chất lượng ban đầu"}
+{"type": "supplyStep", "batchId": "LHSP0003-01", "stepOrder": 2, "step": "packaging", "location": "Bắc Giang", "time": "2025-12-18T20:00:00Z", "note": "Đóng gói, dán tem, tạo mã truy xuất"}
+{"type": "supplyStep", "batchId": "LHSP0003-01", "stepOrder": 3, "step": "warehouse_in", "location": "Kho Đà Nẵng", "time": "2025-12-19T08:00:00Z", "note": "Nhập kho trung tâm"}
+{"type": "supplyStep", "batchId": "LHSP0003-01", "stepOrder": 4, "step": "distribution", "location": "Cửa hàng B2", "time": "2025-12-19T20:00:00Z", "note": "Phân phối đến điểm bán"}
+{"type": "supplyStep", "batchId": "LHSP0003-02", "stepOrder": 1, "step": "production", "location": "Bắc Giang", "time": "2025-12-25T08:00:00Z", "note": "Sản xuất và kiểm định chất lượng ban đầu"}
+{"type": "supplyStep", "batchId": "LHSP0003-02", "stepOrder": 2, "step": "packaging", "location": "Bắc Giang", "time": "2025-12-25T20:00:00Z", "note": "Đóng gói, dán tem, tạo mã truy xuất"}
+{"type": "supplyStep", "batchId": "LHSP0003-02", "stepOrder": 3, "step": "warehouse_in", "location": "Kho Đà Nẵng", "time": "2025-12-26T08:00:00Z", "note": "Nhập kho trung tâm"}
+{"type": "supplyStep", "batchId": "LHSP0003-02", "stepOrder": 4, "step": "transport", "location": "Tuyến Bắc", "time": "2025-12-26T20:00:00Z", "note": "Vận chuyển theo tuyến"}
+{"type": "supplyStep", "batchId": "LHSP0003-02", "stepOrder": 5, "step": "distribution", "location": "Cửa hàng A1", "time": "2025-12-27T08:00:00Z", "note": "Phân phối đến điểm bán"}
+{"type": "supplyStep", "batchId": "LHSP0003-03", "stepOrder": 1, "step": "production", "location": "Bắc Giang", "time": "2025-12-11T08:00:00Z", "note": "Sản xuất và kiểm định chất lượng ban đầu"}
+{"type": "supplyStep", "batchId": "LHSP0003-03", "stepOrder": 2, "step": "packaging", "location": "Bắc Giang", "time": "2025-12-11T20:00:00Z", "note": "Đóng gói, dán tem, tạo mã truy xuất"}
+{"type": "supplyStep", "batchId": "LHSP0003-03", "stepOrder": 3, "step": "warehouse_in", "location": "Kho Hà Nội", "time": "2025-12-12T08:00:00Z", "note": "Nhập kho trung tâm"}
+{"type": "supplyStep", "batchId": "LHSP0003-03", "stepOrder": 4, "step": "distribution", "location": "Cửa hàng A1", "time": "2025-12-12T20:00:00Z", "note": "Phân phối đến điểm bán"}
+{"type": "supplyStep", "batchId": "LHSP0004-01", "stepOrder": 1, "step": "production", "location": "Bắc Giang", "time": "2025-12-15T08:00:00Z", "note": "Sản xuất và kiểm định chất lượng ban đầu"}
+{"type": "supplyStep", "batchId": "LHSP0004-01", "stepOrder": 2, "step": "packaging", "location": "Bắc Giang", "time": "2025-12-15T20:00:00Z", "note": "Đóng gói, dán tem, tạo mã truy xuất"}
+{"type": "supplyStep", "batchId": "LHSP0004-01", "stepOrder": 3, "step": "warehouse_in", "location": "Kho TP.HCM", "time": "2025-12-16T08:00:00Z", "note": "Nhập kho trung tâm"}
+{"type": "supplyStep", "batchId": "LHSP0004-01", "stepOrder": 4, "step": "transport", "location": "Tuyến Bắc", "time": "2025-12-16T20:00:00Z", "note": "Vận chuyển theo tuyến"}
+{"type": "supplyStep", "batchId": "LHSP0004-01", "stepOrder": 5, "step": "distribution", "location": "Cửa hàng A1", "time": "2025-12-17T08:00:00Z", "note": "Phân phối đến điểm bán"}
+{"type": "supplyStep", "batchId": "LHSP0004-02", "stepOrder": 1, "step": "production", "location": "Bắc Giang", "time": "2025-12-28T08:00:00Z", "note": "Sản xuất và kiểm định chất lượng ban đầu"}
+{"type": "supplyStep", "batchId": "LHSP0004-02", "stepOrder": 2, "step": "packaging", "location": "Bắc Giang", "time": "2025-12-28T20:00:00Z", "note": "Đóng gói, dán tem, tạo mã truy xuất"}
+{"type": "supplyStep", "batchId": "LHSP0004-02", "stepOrder": 3, "step": "warehouse_in", "location": "Kho Cần Thơ", "time": "2025-12-29T08:00:00Z", "note": "Nhập kho trung tâm"}
+{"type": "supplyStep", "batchId": "LHSP0004-02", "stepOrder": 4, "step": "distribution", "location": "Kho trung chuyển E5", "time": "2025-12-29T20:00:00Z", "note": "Phân phối đến điểm bán"}
+{"type": "supplyStep", "batchId": "LHSP0004-03", "stepOrder": 1, "step": "production", "location": "Bắc Giang", "time": "2025-12-30T08:00:00Z", "note": "Sản xuất và kiểm định chất lượng ban đầu"}
+{"type": "supplyStep", "batchId": "LHSP0004-03", "stepOrder": 2, "step": "packaging", "location": "Bắc Giang", "time": "2025-12-30T20:00:00Z", "note": "Đóng gói, dán tem, tạo mã truy xuất"}
+{"type": "supplyStep", "batchId": "LHSP0004-03", "stepOrder": 3, "step": "warehouse_in", "location": "Kho TP.HCM", "time": "2025-12-31T08:00:00Z", "note": "Nhập kho trung tâm"}
+{"type": "supplyStep", "batchId": "LHSP0004-03", "stepOrder": 4, "step": "distribution", "location": "Siêu thị C3", "time": "2025-12-31T20:00:00Z", "note": "Phân phối đến điểm bán"}
+{"type": "supplyStep", "batchId": "LHSP0005-01", "stepOrder": 1, "step": "production", "location": "TP.HCM", "time": "2025-11-27T08:00:00Z", "note": "Sản xuất và kiểm định chất lượng ban đầu"}
+{"type": "supplyStep", "batchId": "LHSP0005-01", "stepOrder": 2, "step": "packaging", "location": "TP.HCM", "time": "2025-11-27T20:00:00Z", "note": "Đóng gói, dán tem, tạo mã truy xuất"}
+{"type": "supplyStep", "batchId": "LHSP0005-01", "stepOrder": 3, "step": "warehouse_in", "location": "Kho Cần Thơ", "time": "2025-11-28T08:00:00Z", "note": "Nhập kho trung tâm"}
+{"type": "supplyStep", "batchId": "LHSP0005-01", "stepOrder": 4, "step": "distribution", "location": "Cửa hàng A1", "time": "2025-11-28T20:00:00Z", "note": "Phân phối đến điểm bán"}
+{"type": "supplyStep", "batchId": "LHSP0005-02", "stepOrder": 1, "step": "production", "location": "TP.HCM", "time": "2025-11-15T08:00:00Z", "note": "Sản xuất và kiểm định chất lượng ban đầu"}
+{"type": "supplyStep", "batchId": "LHSP0005-02", "stepOrder": 2, "step": "packaging", "location": "TP.HCM", "time": "2025-11-15T20:00:00Z", "note": "Đóng gói, dán tem, tạo mã truy xuất"}
+{"type": "supplyStep", "batchId": "LHSP0005-02", "stepOrder": 3, "step": "warehouse_in", "location": "Kho Hà Nội", "time": "2025-11-16T08:00:00Z", "note": "Nhập kho trung tâm"}
+{"type": "supplyStep", "batchId": "LHSP0005-02", "stepOrder": 4, "step": "transport", "location": "Tuyến Nam", "time": "2025-11-16T20:00:00Z", "note": "Vận chuyển theo tuyến"}
+{"type": "supplyStep", "batchId": "LHSP0005-02", "stepOrder": 5, "step": "distribution", "location": "Cửa hàng B2", "time": "2025-11-17T08:00:00Z", "note": "Phân phối đến điểm bán"}
+{"type": "supplyStep", "batchId": "LHSP0005-03", "stepOrder": 1, "step": "production", "location": "TP.HCM", "time": "2025-12-26T08:00:00Z", "note": "Sản xuất và kiểm định chất lượng ban đầu"}
+{"type": "supplyStep", "batchId": "LHSP0005-03", "stepOrder": 2, "step": "packaging", "location": "TP.HCM", "time": "2025-12-26T20:00:00Z", "note": "Đóng gói, dán tem, tạo mã truy xuất"}
+{"type": "supplyStep", "batchId": "LHSP0005-03", "stepOrder": 3, "step": "warehouse_in", "location": "Kho Hà Nội", "time": "2025-12-27T08:00:00Z", "note": "Nhập kho trung tâm"}
+{"type": "supplyStep", "batchId": "LHSP0005-03", "stepOrder": 4, "step": "transport", "location": "Tuyến Nam", "time": "2025-12-27T20:00:00Z", "note": "Vận chuyển theo tuyến"}
+{"type": "supplyStep", "batchId": "LHSP0005-03", "stepOrder": 5, "step": "distribution", "location": "Siêu thị C3", "time": "2025-12-28T08:00:00Z", "note": "Phân phối đến điểm bán"}
+{"type": "supplyStep", "batchId": "LHSP0006-01", "stepOrder": 1, "step": "production", "location": "Bến Tre", "time": "2025-11-03T08:00:00Z", "note": "Sản xuất và kiểm định chất lượng ban đầu"}
+{"type": "supplyStep", "batchId": "LHSP0006-01", "stepOrder": 2, "step": "packaging", "location": "Bến Tre", "time": "2025-11-03T20:00:00Z", "note": "Đóng gói, dán tem, tạo mã truy xuất"}
+{"type": "supplyStep", "batchId": "LHSP0006-01", "stepOrder": 3, "step": "warehouse_in", "location": "Kho Cần Thơ", "time": "2025-11-04T08:00:00Z", "note": "Nhập kho trung tâm"}
+{"type": "supplyStep", "batchId": "LHSP0006-01", "stepOrder": 4, "step": "transport", "location": "Tuyến Bắc", "time": "2025-11-04T20:00:00Z", "note": "Vận chuyển theo tuyến"}
+{"type": "supplyStep", "batchId": "LHSP0006-01", "stepOrder": 5, "step": "distribution", "location": "Kho trung chuyển E5", "time": "2025-11-05T08:00:00Z", "note": "Phân phối đến điểm bán"}
+{"type": "supplyStep", "batchId": "LHSP0006-02", "stepOrder": 1, "step": "production", "location": "Bến Tre", "time": "2025-12-16T08:00:00Z", "note": "Sản xuất và kiểm định chất lượng ban đầu"}
+{"type": "supplyStep", "batchId": "LHSP0006-02", "stepOrder": 2, "step": "packaging", "location": "Bến Tre", "time": "2025-12-16T20:00:00Z", "note": "Đóng gói, dán tem, tạo mã truy xuất"}
+{"type": "supplyStep", "batchId": "LHSP0006-02", "stepOrder": 3, "step": "warehouse_in", "location": "Kho Cần Thơ", "time": "2025-12-17T08:00:00Z", "note": "Nhập kho trung tâm"}
+{"type": "supplyStep", "batchId": "LHSP0006-02", "stepOrder": 4, "step": "distribution", "location": "Cửa hàng A1", "time": "2025-12-17T20:00:00Z", "note": "Phân phối đến điểm bán"}
+{"type": "supplyStep", "batchId": "LHSP0006-03", "stepOrder": 1, "step": "production", "location": "Bến Tre", "time": "2025-12-29T08:00:00Z", "note": "Sản xuất và kiểm định chất lượng ban đầu"}
+{"type": "supplyStep", "batchId": "LHSP0006-03", "stepOrder": 2, "step": "packaging", "location": "Bến Tre", "time": "2025-12-29T20:00:00Z", "note": "Đóng gói, dán tem, tạo mã truy xuất"}
+{"type": "supplyStep", "batchId": "LHSP0006-03", "stepOrder": 3, "step": "warehouse_in", "location": "Kho Đà Nẵng", "time": "2025-12-30T08:00:00Z", "note": "Nhập kho trung tâm"}
+{"type": "supplyStep", "batchId": "LHSP0006-03", "stepOrder": 4, "step": "distribution", "location": "Đại lý D4", "time": "2025-12-30T20:00:00Z", "note": "Phân phối đến điểm bán"}
+{"type": "supplyStep", "batchId": "LHSP0007-01", "stepOrder": 1, "step": "production", "location": "Đà Lạt", "time": "2025-12-06T08:00:00Z", "note": "Sản xuất và kiểm định chất lượng ban đầu"}
+{"type": "supplyStep", "batchId": "LHSP0007-01", "stepOrder": 2, "step": "packaging", "location": "Đà Lạt", "time": "2025-12-06T20:00:00Z", "note": "Đóng gói, dán tem, tạo mã truy xuất"}
+{"type": "supplyStep", "batchId": "LHSP0007-01", "stepOrder": 3, "step": "warehouse_in", "location": "Kho Đà Nẵng", "time": "2025-12-07T08:00:00Z", "note": "Nhập kho trung tâm"}
+{"type": "supplyStep", "batchId": "LHSP0007-01", "stepOrder": 4, "step": "distribution", "location": "Đại lý D4", "time": "2025-12-07T20:00:00Z", "note": "Phân phối đến điểm bán"}
+{"type": "supplyStep", "batchId": "LHSP0007-02", "stepOrder": 1, "step": "production", "location": "Đà Lạt", "time": "2025-11-01T08:00:00Z", "note": "Sản xuất và kiểm định chất lượng ban đầu"}
+{"type": "supplyStep", "batchId": "LHSP0007-02", "stepOrder": 2, "step": "packaging", "location": "Đà Lạt", "time": "2025-11-01T20:00:00Z", "note": "Đóng gói, dán tem, tạo mã truy xuất"}
+{"type": "supplyStep", "batchId": "LHSP0007-02", "stepOrder": 3, "step": "warehouse_in", "location": "Kho Cần Thơ", "time": "2025-11-02T08:00:00Z", "note": "Nhập kho trung tâm"}
+{"type": "supplyStep", "batchId": "LHSP0007-02", "stepOrder": 4, "step": "distribution", "location": "Đại lý D4", "time": "2025-11-02T20:00:00Z", "note": "Phân phối đến điểm bán"}
+{"type": "supplyStep", "batchId": "LHSP0007-03", "stepOrder": 1, "step": "production", "location": "Đà Lạt", "time": "2025-12-03T08:00:00Z", "note": "Sản xuất và kiểm định chất lượng ban đầu"}
+{"type": "supplyStep", "batchId": "LHSP0007-03", "stepOrder": 2, "step": "packaging", "location": "Đà Lạt", "time": "2025-12-03T20:00:00Z", "note": "Đóng gói, dán tem, tạo mã truy xuất"}
+{"type": "supplyStep", "batchId": "LHSP0007-03", "stepOrder": 3, "step": "warehouse_in", "location": "Kho Hà Nội", "time": "2025-12-04T08:00:00Z", "note": "Nhập kho trung tâm"}
+{"type": "supplyStep", "batchId": "LHSP0007-03", "stepOrder": 4, "step": "distribution", "location": "Cửa hàng B2", "time": "2025-12-04T20:00:00Z", "note": "Phân phối đến điểm bán"}
+{"type": "supplyStep", "batchId": "LHSP0008-01", "stepOrder": 1, "step": "production", "location": "Nghệ An", "time": "2025-11-15T08:00:00Z", "note": "Sản xuất và kiểm định chất lượng ban đầu"}
+{"type": "supplyStep", "batchId": "LHSP0008-01", "stepOrder": 2, "step": "packaging", "location": "Nghệ An", "time": "2025-11-15T20:00:00Z", "note": "Đóng gói, dán tem, tạo mã truy xuất"}
+{"type": "supplyStep", "batchId": "LHSP0008-01", "stepOrder": 3, "step": "warehouse_in", "location": "Kho Cần Thơ", "time": "2025-11-16T08:00:00Z", "note": "Nhập kho trung tâm"}
+{"type": "supplyStep", "batchId": "LHSP0008-01", "stepOrder": 4, "step": "distribution", "location": "Kho trung chuyển E5", "time": "2025-11-16T20:00:00Z", "note": "Phân phối đến điểm bán"}
+{"type": "supplyStep", "batchId": "LHSP0008-02", "stepOrder": 1, "step": "production", "location": "Nghệ An", "time": "2025-11-05T08:00:00Z", "note": "Sản xuất và kiểm định chất lượng ban đầu"}
+{"type": "supplyStep", "batchId": "LHSP0008-02", "stepOrder": 2, "step": "packaging", "location": "Nghệ An", "time": "2025-11-05T20:00:00Z", "note": "Đóng gói, dán tem, tạo mã truy xuất"}
+{"type": "supplyStep", "batchId": "LHSP0008-02", "stepOrder": 3, "step": "warehouse_in", "location": "Kho Cần Thơ", "time": "2025-11-06T08:00:00Z", "note": "Nhập kho trung tâm"}
+{"type": "supplyStep", "batchId": "LHSP0008-02", "stepOrder": 4, "step": "transport", "location": "Tuyến Trung", "time": "2025-11-06T20:00:00Z", "note": "Vận chuyển theo tuyến"}
+{"type": "supplyStep", "batchId": "LHSP0008-02", "stepOrder": 5, "step": "distribution", "location": "Cửa hàng B2", "time": "2025-11-07T08:00:00Z", "note": "Phân phối đến điểm bán"}
+{"type": "supplyStep", "batchId": "LHSP0008-03", "stepOrder": 1, "step": "production", "location": "Nghệ An", "time": "2025-11-01T08:00:00Z", "note": "Sản xuất và kiểm định chất lượng ban đầu"}
+{"type": "supplyStep", "batchId": "LHSP0008-03", "stepOrder": 2, "step": "packaging", "location": "Nghệ An", "time": "2025-11-01T20:00:00Z", "note": "Đóng gói, dán tem, tạo mã truy xuất"}
+{"type": "supplyStep", "batchId": "LHSP0008-03", "stepOrder": 3, "step": "warehouse_in", "location": "Kho TP.HCM", "time": "2025-11-02T08:00:00Z", "note": "Nhập kho trung tâm"}
+{"type": "supplyStep", "batchId": "LHSP0008-03", "stepOrder": 4, "step": "distribution", "location": "Cửa hàng A1", "time": "2025-11-02T20:00:00Z", "note": "Phân phối đến điểm bán"}
+{"type": "supplyStep", "batchId": "LHSP0009-01", "stepOrder": 1, "step": "production", "location": "Bến Tre", "time": "2025-12-22T08:00:00Z", "note": "Sản xuất và kiểm định chất lượng ban đầu"}
+{"type": "supplyStep", "batchId": "LHSP0009-01", "stepOrder": 2, "step": "packaging", "location": "Bến Tre", "time": "2025-12-22T20:00:00Z", "note": "Đóng gói, dán tem, tạo mã truy xuất"}
+{"type": "supplyStep", "batchId": "LHSP0009-01", "stepOrder": 3, "step": "warehouse_in", "location": "Kho Cần Thơ", "time": "2025-12-23T08:00:00Z", "note": "Nhập kho trung tâm"}
+{"type": "supplyStep", "batchId": "LHSP0009-01", "stepOrder": 4, "step": "transport", "location": "Tuyến Bắc", "time": "2025-12-23T20:00:00Z", "note": "Vận chuyển theo tuyến"}
+{"type": "supplyStep", "batchId": "LHSP0009-01", "stepOrder": 5, "step": "distribution", "location": "Đại lý D4", "time": "2025-12-24T08:00:00Z", "note": "Phân phối đến điểm bán"}
+{"type": "supplyStep", "batchId": "LHSP0009-02", "stepOrder": 1, "step": "production", "location": "Bến Tre", "time": "2025-12-24T08:00:00Z", "note": "Sản xuất và kiểm định chất lượng ban đầu"}
+{"type": "supplyStep", "batchId": "LHSP0009-02", "stepOrder": 2, "step": "packaging", "location": "Bến Tre", "time": "2025-12-24T20:00:00Z", "note": "Đóng gói, dán tem, tạo mã truy xuất"}
+{"type": "supplyStep", "batchId": "LHSP0009-02", "stepOrder": 3, "step": "warehouse_in", "location": "Kho Cần Thơ", "time": "2025-12-25T08:00:00Z", "note": "Nhập kho trung tâm"}
+{"type": "supplyStep", "batchId": "LHSP0009-02", "stepOrder": 4, "step": "distribution", "location": "Cửa hàng A1", "time": "2025-12-25T20:00:00Z", "note": "Phân phối đến điểm bán"}
+{"type": "supplyStep", "batchId": "LHSP0009-03", "stepOrder": 1, "step": "production", "location": "Bến Tre", "time": "2025-11-16T08:00:00Z", "note": "Sản xuất và kiểm định chất lượng ban đầu"}
+{"type": "supplyStep", "batchId": "LHSP0009-03", "stepOrder": 2, "step": "packaging", "location": "Bến Tre", "time": "2025-11-16T20:00:00Z", "note": "Đóng gói, dán tem, tạo mã truy xuất"}
+{"type": "supplyStep", "batchId": "LHSP0009-03", "stepOrder": 3, "step": "warehouse_in", "location": "Kho TP.HCM", "time": "2025-11-17T08:00:00Z", "note": "Nhập kho trung tâm"}
+{"type": "supplyStep", "batchId": "LHSP0009-03", "stepOrder": 4, "step": "distribution", "location": "Đại lý D4", "time": "2025-11-17T20:00:00Z", "note": "Phân phối đến điểm bán"}
+{"type": "supplyStep", "batchId": "LHSP0010-01", "stepOrder": 1, "step": "production", "location": "Bến Tre", "time": "2025-12-16T08:00:00Z", "note": "Sản xuất và kiểm định chất lượng ban đầu"}
+{"type": "supplyStep", "batchId": "LHSP0010-01", "stepOrder": 2, "step": "packaging", "location": "Bến Tre", "time": "2025-12-16T20:00:00Z", "note": "Đóng gói, dán tem, tạo mã truy xuất"}
+{"type": "supplyStep", "batchId": "LHSP0010-01", "stepOrder": 3, "step": "warehouse_in", "location": "Kho Cần Thơ", "time": "2025-12-17T08:00:00Z", "note": "Nhập kho trung tâm"}
+{"type": "supplyStep", "batchId": "LHSP0010-01", "stepOrder": 4, "step": "transport", "location": "Tuyến Nam", "time": "2025-12-17T20:00:00Z", "note": "Vận chuyển theo tuyến"}
+{"type": "supplyStep", "batchId": "LHSP0010-01", "stepOrder": 5, "step": "distribution", "location": "Đại lý D4", "time": "2025-12-18T08:00:00Z", "note": "Phân phối đến điểm bán"}
+{"type": "supplyStep", "batchId": "LHSP0010-02", "stepOrder": 1, "step": "production", "location": "Bến Tre", "time": "2025-11-25T08:00:00Z", "note": "Sản xuất và kiểm định chất lượng ban đầu"}
+{"type": "supplyStep", "batchId": "LHSP0010-02", "stepOrder": 2, "step": "packaging", "location": "Bến Tre", "time": "2025-11-25T20:00:00Z", "note": "Đóng gói, dán tem, tạo mã truy xuất"}
+{"type": "supplyStep", "batchId": "LHSP0010-02", "stepOrder": 3, "step": "warehouse_in", "location": "Kho Hà Nội", "time": "2025-11-26T08:00:00Z", "note": "Nhập kho trung tâm"}
+{"type": "supplyStep", "batchId": "LHSP0010-02", "stepOrder": 4, "step": "transport", "location": "Tuyến Nam", "time": "2025-11-26T20:00:00Z", "note": "Vận chuyển theo tuyến"}
+{"type": "supplyStep", "batchId": "LHSP0010-02", "stepOrder": 5, "step": "distribution", "location": "Siêu thị C3", "time": "2025-11-27T08:00:00Z", "note": "Phân phối đến điểm bán"}
+{"type": "supplyStep", "batchId": "LHSP0010-03", "stepOrder": 1, "step": "production", "location": "Bến Tre", "time": "2025-12-25T08:00:00Z", "note": "Sản xuất và kiểm định chất lượng ban đầu"}
+{"type": "supplyStep", "batchId": "LHSP0010-03", "stepOrder": 2, "step": "packaging", "location": "Bến Tre", "time": "2025-12-25T20:00:00Z", "note": "Đóng gói, dán tem, tạo mã truy xuất"}
+{"type": "supplyStep", "batchId": "LHSP0010-03", "stepOrder": 3, "step": "warehouse_in", "location": "Kho Cần Thơ", "time": "2025-12-26T08:00:00Z", "note": "Nhập kho trung tâm"}
+{"type": "supplyStep", "batchId": "LHSP0010-03", "stepOrder": 4, "step": "transport", "location": "Tuyến Nam", "time": "2025-12-26T20:00:00Z", "note": "Vận chuyển theo tuyến"}
+{"type": "supplyStep", "batchId": "LHSP0010-03", "stepOrder": 5, "step": "distribution", "location": "Đại lý D4", "time": "2025-12-27T08:00:00Z", "note": "Phân phối đến điểm bán"}
+{"type": "supplyStep", "batchId": "LHSP0011-01", "stepOrder": 1, "step": "production", "location": "Hà Nội", "time": "2025-12-13T08:00:00Z", "note": "Sản xuất và kiểm định chất lượng ban đầu"}
+{"type": "supplyStep", "batchId": "LHSP0011-01", "stepOrder": 2, "step": "packaging", "location": "Hà Nội", "time": "2025-12-13T20:00:00Z", "note": "Đóng gói, dán tem, tạo mã truy xuất"}
+{"type": "supplyStep", "batchId": "LHSP0011-01", "stepOrder": 3, "step": "warehouse_in", "location": "Kho Cần Thơ", "time": "2025-12-14T08:00:00Z", "note": "Nhập kho trung tâm"}
+{"type": "supplyStep", "batchId": "LHSP0011-01", "stepOrder": 4, "step": "distribution", "location": "Kho trung chuyển E5", "time": "2025-12-14T20:00:00Z", "note": "Phân phối đến điểm bán"}
+{"type": "supplyStep", "batchId": "LHSP0011-02", "stepOrder": 1, "step": "production", "location": "Hà Nội", "time": "2025-11-02T08:00:00Z", "note": "Sản xuất và kiểm định chất lượng ban đầu"}
+{"type": "supplyStep", "batchId": "LHSP0011-02", "stepOrder": 2, "step": "packaging", "location": "Hà Nội", "time": "2025-11-02T20:00:00Z", "note": "Đóng gói, dán tem, tạo mã truy xuất"}
+{"type": "supplyStep", "batchId": "LHSP0011-02", "stepOrder": 3, "step": "warehouse_in", "location": "Kho Đà Nẵng", "time": "2025-11-03T08:00:00Z", "note": "Nhập kho trung tâm"}
+{"type": "supplyStep", "batchId": "LHSP0011-02", "stepOrder": 4, "step": "transport", "location": "Tuyến Nam", "time": "2025-11-03T20:00:00Z", "note": "Vận chuyển theo tuyến"}
+{"type": "supplyStep", "batchId": "LHSP0011-02", "stepOrder": 5, "step": "distribution", "location": "Đại lý D4", "time": "2025-11-04T08:00:00Z", "note": "Phân phối đến điểm bán"}
+{"type": "supplyStep", "batchId": "LHSP0011-03", "stepOrder": 1, "step": "production", "location": "Hà Nội", "time": "2025-11-21T08:00:00Z", "note": "Sản xuất và kiểm định chất lượng ban đầu"}
+{"type": "supplyStep", "batchId": "LHSP0011-03", "stepOrder": 2, "step": "packaging", "location": "Hà Nội", "time": "2025-11-21T20:00:00Z", "note": "Đóng gói, dán tem, tạo mã truy xuất"}
+{"type": "supplyStep", "batchId": "LHSP0011-03", "stepOrder": 3, "step": "warehouse_in", "location": "Kho Cần Thơ", "time": "2025-11-22T08:00:00Z", "note": "Nhập kho trung tâm"}
+{"type": "supplyStep", "batchId": "LHSP0011-03", "stepOrder": 4, "step": "distribution", "location": "Cửa hàng A1", "time": "2025-11-22T20:00:00Z", "note": "Phân phối đến điểm bán"}
+{"type": "supplyStep", "batchId": "LHSP0012-01", "stepOrder": 1, "step": "production", "location": "Bắc Giang", "time": "2025-11-04T08:00:00Z", "note": "Sản xuất và kiểm định chất lượng ban đầu"}
+{"type": "supplyStep", "batchId": "LHSP0012-01", "stepOrder": 2, "step": "packaging", "location": "Bắc Giang", "time": "2025-11-04T20:00:00Z", "note": "Đóng gói, dán tem, tạo mã truy xuất"}
+{"type": "supplyStep", "batchId": "LHSP0012-01", "stepOrder": 3, "step": "warehouse_in", "location": "Kho TP.HCM", "time": "2025-11-05T08:00:00Z", "note": "Nhập kho trung tâm"}
+{"type": "supplyStep", "batchId": "LHSP0012-01", "stepOrder": 4, "step": "distribution", "location": "Cửa hàng B2", "time": "2025-11-05T20:00:00Z", "note": "Phân phối đến điểm bán"}
+{"type": "supplyStep", "batchId": "LHSP0012-02", "stepOrder": 1, "step": "production", "location": "Bắc Giang", "time": "2025-12-10T08:00:00Z", "note": "Sản xuất và kiểm định chất lượng ban đầu"}
+{"type": "supplyStep", "batchId": "LHSP0012-02", "stepOrder": 2, "step": "packaging", "location": "Bắc Giang", "time": "2025-12-10T20:00:00Z", "note": "Đóng gói, dán tem, tạo mã truy xuất"}
+{"type": "supplyStep", "batchId": "LHSP0012-02", "stepOrder": 3, "step": "warehouse_in", "location": "Kho TP.HCM", "time": "2025-12-11T08:00:00Z", "note": "Nhập kho trung tâm"}
+{"type": "supplyStep", "batchId": "LHSP0012-02", "stepOrder": 4, "step": "distribution", "location": "Đại lý D4", "time": "2025-12-11T20:00:00Z", "note": "Phân phối đến điểm bán"}
+{"type": "supplyStep", "batchId": "LHSP0012-03", "stepOrder": 1, "step": "production", "location": "Bắc Giang", "time": "2025-12-20T08:00:00Z", "note": "Sản xuất và kiểm định chất lượng ban đầu"}
+{"type": "supplyStep", "batchId": "LHSP0012-03", "stepOrder": 2, "step": "packaging", "location": "Bắc Giang", "time": "2025-12-20T20:00:00Z", "note": "Đóng gói, dán tem, tạo mã truy xuất"}
+{"type": "supplyStep", "batchId": "LHSP0012-03", "stepOrder": 3, "step": "warehouse_in", "location": "Kho Đà Nẵng", "time": "2025-12-21T08:00:00Z", "note": "Nhập kho trung tâm"}
+{"type": "supplyStep", "batchId": "LHSP0012-03", "stepOrder": 4, "step": "distribution", "location": "Cửa hàng A1", "time": "2025-12-21T20:00:00Z", "note": "Phân phối đến điểm bán"}
+{"type": "supplyStep", "batchId": "LHSP0013-01", "stepOrder": 1, "step": "production", "location": "TP.HCM", "time": "2025-12-30T08:00:00Z", "note": "Sản xuất và kiểm định chất lượng ban đầu"}
+{"type": "supplyStep", "batchId": "LHSP0013-01", "stepOrder": 2, "step": "packaging", "location": "TP.HCM", "time": "2025-12-30T20:00:00Z", "note": "Đóng gói, dán tem, tạo mã truy xuất"}
+{"type": "supplyStep", "batchId": "LHSP0013-01", "stepOrder": 3, "step": "warehouse_in", "location": "Kho Hà Nội", "time": "2025-12-31T08:00:00Z", "note": "Nhập kho trung tâm"}
+{"type": "supplyStep", "batchId": "LHSP0013-01", "stepOrder": 4, "step": "distribution", "location": "Siêu thị C3", "time": "2025-12-31T20:00:00Z", "note": "Phân phối đến điểm bán"}
+{"type": "supplyStep", "batchId": "LHSP0013-02", "stepOrder": 1, "step": "production", "location": "TP.HCM", "time": "2025-12-09T08:00:00Z", "note": "Sản xuất và kiểm định chất lượng ban đầu"}
+{"type": "supplyStep", "batchId": "LHSP0013-02", "stepOrder": 2, "step": "packaging", "location": "TP.HCM", "time": "2025-12-09T20:00:00Z", "note": "Đóng gói, dán tem, tạo mã truy xuất"}
+{"type": "supplyStep", "batchId": "LHSP0013-02", "stepOrder": 3, "step": "warehouse_in", "location": "Kho Hà Nội", "time": "2025-12-10T08:00:00Z", "note": "Nhập kho trung tâm"}
+{"type": "supplyStep", "batchId": "LHSP0013-02", "stepOrder": 4, "step": "distribution", "location": "Kho trung chuyển E5", "time": "2025-12-10T20:00:00Z", "note": "Phân phối đến điểm bán"}
+{"type": "supplyStep", "batchId": "LHSP0013-03", "stepOrder": 1, "step": "production", "location": "TP.HCM", "time": "2025-11-01T08:00:00Z", "note": "Sản xuất và kiểm định chất lượng ban đầu"}
+{"type": "supplyStep", "batchId": "LHSP0013-03", "stepOrder": 2, "step": "packaging", "location": "TP.HCM", "time": "2025-11-01T20:00:00Z", "note": "Đóng gói, dán tem, tạo mã truy xuất"}
+{"type": "supplyStep", "batchId": "LHSP0013-03", "stepOrder": 3, "step": "warehouse_in", "location": "Kho TP.HCM", "time": "2025-11-02T08:00:00Z", "note": "Nhập kho trung tâm"}
+{"type": "supplyStep", "batchId": "LHSP0013-03", "stepOrder": 4, "step": "transport", "location": "Tuyến Trung", "time": "2025-11-02T20:00:00Z", "note": "Vận chuyển theo tuyến"}
+{"type": "supplyStep", "batchId": "LHSP0013-03", "stepOrder": 5, "step": "distribution", "location": "Đại lý D4", "time": "2025-11-03T08:00:00Z", "note": "Phân phối đến điểm bán"}
+{"type": "supplyStep", "batchId": "LHSP0014-01", "stepOrder": 1, "step": "production", "location": "Nghệ An", "time": "2025-12-12T08:00:00Z", "note": "Sản xuất và kiểm định chất lượng ban đầu"}
+{"type": "supplyStep", "batchId": "LHSP0014-01", "stepOrder": 2, "step": "packaging", "location": "Nghệ An", "time": "2025-12-12T20:00:00Z", "note": "Đóng gói, dán tem, tạo mã truy xuất"}
+{"type": "supplyStep", "batchId": "LHSP0014-01", "stepOrder": 3, "step": "warehouse_in", "location": "Kho TP.HCM", "time": "2025-12-13T08:00:00Z", "note": "Nhập kho trung tâm"}
+{"type": "supplyStep", "batchId": "LHSP0014-01", "stepOrder": 4, "step": "transport", "location": "Tuyến Nam", "time": "2025-12-13T20:00:00Z", "note": "Vận chuyển theo tuyến"}
+{"type": "supplyStep", "batchId": "LHSP0014-01", "stepOrder": 5, "step": "distribution", "location": "Cửa hàng A1", "time": "2025-12-14T08:00:00Z", "note": "Phân phối đến điểm bán"}
+{"type": "supplyStep", "batchId": "LHSP0014-02", "stepOrder": 1, "step": "production", "location": "Nghệ An", "time": "2025-11-16T08:00:00Z", "note": "Sản xuất và kiểm định chất lượng ban đầu"}
+{"type": "supplyStep", "batchId": "LHSP0014-02", "stepOrder": 2, "step": "packaging", "location": "Nghệ An", "time": "2025-11-16T20:00:00Z", "note": "Đóng gói, dán tem, tạo mã truy xuất"}
+{"type": "supplyStep", "batchId": "LHSP0014-02", "stepOrder": 3, "step": "warehouse_in", "location": "Kho TP.HCM", "time": "2025-11-17T08:00:00Z", "note": "Nhập kho trung tâm"}
+{"type": "supplyStep", "batchId": "LHSP0014-02", "stepOrder": 4, "step": "transport", "location": "Tuyến Nam", "time": "2025-11-17T20:00:00Z", "note": "Vận chuyển theo tuyến"}
+{"type": "supplyStep", "batchId": "LHSP0014-02", "stepOrder": 5, "step": "distribution", "location": "Đại lý D4", "time": "2025-11-18T08:00:00Z", "note": "Phân phối đến điểm bán"}
+{"type": "supplyStep", "batchId": "LHSP0014-03", "stepOrder": 1, "step": "production", "location": "Nghệ An", "time": "2025-11-22T08:00:00Z", "note": "Sản xuất và kiểm định chất lượng ban đầu"}
+{"type": "supplyStep", "batchId": "LHSP0014-03", "stepOrder": 2, "step": "packaging", "location": "Nghệ An", "time": "2025-11-22T20:00:00Z", "note": "Đóng gói, dán tem, tạo mã truy xuất"}
+{"type": "supplyStep", "batchId": "LHSP0014-03", "stepOrder": 3, "step": "warehouse_in", "location": "Kho TP.HCM", "time": "2025-11-23T08:00:00Z", "note": "Nhập kho trung tâm"}
+{"type": "supplyStep", "batchId": "LHSP0014-03", "stepOrder": 4, "step": "distribution", "location": "Đại lý D4", "time": "2025-11-23T20:00:00Z", "note": "Phân phối đến điểm bán"}
+{"type": "supplyStep", "batchId": "LHSP0015-01", "stepOrder": 1, "step": "production", "location": "Đà Lạt", "time": "2025-12-19T08:00:00Z", "note": "Sản xuất và kiểm định chất lượng ban đầu"}
+{"type": "supplyStep", "batchId": "LHSP0015-01", "stepOrder": 2, "step": "packaging", "location": "Đà Lạt", "time": "2025-12-19T20:00:00Z", "note": "Đóng gói, dán tem, tạo mã truy xuất"}
+{"type": "supplyStep", "batchId": "LHSP0015-01", "stepOrder": 3, "step": "warehouse_in", "location": "Kho Đà Nẵng", "time": "2025-12-20T08:00:00Z", "note": "Nhập kho trung tâm"}
+{"type": "supplyStep", "batchId": "LHSP0015-01", "stepOrder": 4, "step": "distribution", "location": "Cửa hàng B2", "time": "2025-12-20T20:00:00Z", "note": "Phân phối đến điểm bán"}
+{"type": "supplyStep", "batchId": "LHSP0015-02", "stepOrder": 1, "step": "production", "location": "Đà Lạt", "time": "2025-11-16T08:00:00Z", "note": "Sản xuất và kiểm định chất lượng ban đầu"}
+{"type": "supplyStep", "batchId": "LHSP0015-02", "stepOrder": 2, "step": "packaging", "location": "Đà Lạt", "time": "2025-11-16T20:00:00Z", "note": "Đóng gói, dán tem, tạo mã truy xuất"}
+{"type": "supplyStep", "batchId": "LHSP0015-02", "stepOrder": 3, "step": "warehouse_in", "location": "Kho Đà Nẵng", "time": "2025-11-17T08:00:00Z", "note": "Nhập kho trung tâm"}
+{"type": "supplyStep", "batchId": "LHSP0015-02", "stepOrder": 4, "step": "transport", "location": "Tuyến Nam", "time": "2025-11-17T20:00:00Z", "note": "Vận chuyển theo tuyến"}
+{"type": "supplyStep", "batchId": "LHSP0015-02", "stepOrder": 5, "step": "distribution", "location": "Đại lý D4", "time": "2025-11-18T08:00:00Z", "note": "Phân phối đến điểm bán"}
+{"type": "supplyStep", "batchId": "LHSP0015-03", "stepOrder": 1, "step": "production", "location": "Đà Lạt", "time": "2025-11-15T08:00:00Z", "note": "Sản xuất và kiểm định chất lượng ban đầu"}
+{"type": "supplyStep", "batchId": "LHSP0015-03", "stepOrder": 2, "step": "packaging", "location": "Đà Lạt", "time": "2025-11-15T20:00:00Z", "note": "Đóng gói, dán tem, tạo mã truy xuất"}
+{"type": "supplyStep", "batchId": "LHSP0015-03", "stepOrder": 3, "step": "warehouse_in", "location": "Kho TP.HCM", "time": "2025-11-16T08:00:00Z", "note": "Nhập kho trung tâm"}
+{"type": "supplyStep", "batchId": "LHSP0015-03", "stepOrder": 4, "step": "distribution", "location": "Cửa hàng B2", "time": "2025-11-16T20:00:00Z", "note": "Phân phối đến điểm bán"}
+{"type": "supplyStep", "batchId": "LHSP0016-01", "stepOrder": 1, "step": "production", "location": "TP.HCM", "time": "2025-11-18T08:00:00Z", "note": "Sản xuất và kiểm định chất lượng ban đầu"}
+{"type": "supplyStep", "batchId": "LHSP0016-01", "stepOrder": 2, "step": "packaging", "location": "TP.HCM", "time": "2025-11-18T20:00:00Z", "note": "Đóng gói, dán tem, tạo mã truy xuất"}
+{"type": "supplyStep", "batchId": "LHSP0016-01", "stepOrder": 3, "step": "warehouse_in", "location": "Kho Đà Nẵng", "time": "2025-11-19T08:00:00Z", "note": "Nhập kho trung tâm"}
+{"type": "supplyStep", "batchId": "LHSP0016-01", "stepOrder": 4, "step": "transport", "location": "Tuyến Trung", "time": "2025-11-19T20:00:00Z", "note": "Vận chuyển theo tuyến"}
+{"type": "supplyStep", "batchId": "LHSP0016-01", "stepOrder": 5, "step": "distribution", "location": "Cửa hàng B2", "time": "2025-11-20T08:00:00Z", "note": "Phân phối đến điểm bán"}
+{"type": "supplyStep", "batchId": "LHSP0016-02", "stepOrder": 1, "step": "production", "location": "TP.HCM", "time": "2025-12-05T08:00:00Z", "note": "Sản xuất và kiểm định chất lượng ban đầu"}
+{"type": "supplyStep", "batchId": "LHSP0016-02", "stepOrder": 2, "step": "packaging", "location": "TP.HCM", "time": "2025-12-05T20:00:00Z", "note": "Đóng gói, dán tem, tạo mã truy xuất"}
+{"type": "supplyStep", "batchId": "LHSP0016-02", "stepOrder": 3, "step": "warehouse_in", "location": "Kho Cần Thơ", "time": "2025-12-06T08:00:00Z", "note": "Nhập kho trung tâm"}
+{"type": "supplyStep", "batchId": "LHSP0016-02", "stepOrder": 4, "step": "distribution", "location": "Cửa hàng A1", "time": "2025-12-06T20:00:00Z", "note": "Phân phối đến điểm bán"}
+{"type": "supplyStep", "batchId": "LHSP0016-03", "stepOrder": 1, "step": "production", "location": "TP.HCM", "time": "2025-12-07T08:00:00Z", "note": "Sản xuất và kiểm định chất lượng ban đầu"}
+{"type": "supplyStep", "batchId": "LHSP0016-03", "stepOrder": 2, "step": "packaging", "location": "TP.HCM", "time": "2025-12-07T20:00:00Z", "note": "Đóng gói, dán tem, tạo mã truy xuất"}
+{"type": "supplyStep", "batchId": "LHSP0016-03", "stepOrder": 3, "step": "warehouse_in", "location": "Kho Hà Nội", "time": "2025-12-08T08:00:00Z", "note": "Nhập kho trung tâm"}
+{"type": "supplyStep", "batchId": "LHSP0016-03", "stepOrder": 4, "step": "distribution", "location": "Siêu thị C3", "time": "2025-12-08T20:00:00Z", "note": "Phân phối đến điểm bán"}
+{"type": "supplyStep", "batchId": "LHSP0017-01", "stepOrder": 1, "step": "production", "location": "Bắc Giang", "time": "2025-12-01T08:00:00Z", "note": "Sản xuất và kiểm định chất lượng ban đầu"}
+{"type": "supplyStep", "batchId": "LHSP0017-01", "stepOrder": 2, "step": "packaging", "location": "Bắc Giang", "time": "2025-12-01T20:00:00Z", "note": "Đóng gói, dán tem, tạo mã truy xuất"}
+{"type": "supplyStep", "batchId": "LHSP0017-01", "stepOrder": 3, "step": "warehouse_in", "location": "Kho Hà Nội", "time": "2025-12-02T08:00:00Z", "note": "Nhập kho trung tâm"}
+{"type": "supplyStep", "batchId": "LHSP0017-01", "stepOrder": 4, "step": "transport", "location": "Tuyến Trung", "time": "2025-12-02T20:00:00Z", "note": "Vận chuyển theo tuyến"}
+{"type": "supplyStep", "batchId": "LHSP0017-01", "stepOrder": 5, "step": "distribution", "location": "Cửa hàng B2", "time": "2025-12-03T08:00:00Z", "note": "Phân phối đến điểm bán"}
+{"type": "supplyStep", "batchId": "LHSP0017-02", "stepOrder": 1, "step": "production", "location": "Bắc Giang", "time": "2025-12-31T08:00:00Z", "note": "Sản xuất và kiểm định chất lượng ban đầu"}
+{"type": "supplyStep", "batchId": "LHSP0017-02", "stepOrder": 2, "step": "packaging", "location": "Bắc Giang", "time": "2025-12-31T20:00:00Z", "note": "Đóng gói, dán tem, tạo mã truy xuất"}
+{"type": "supplyStep", "batchId": "LHSP0017-02", "stepOrder": 3, "step": "warehouse_in", "location": "Kho TP.HCM", "time": "2026-01-01T08:00:00Z", "note": "Nhập kho trung tâm"}
+{"type": "supplyStep", "batchId": "LHSP0017-02", "stepOrder": 4, "step": "transport", "location": "Tuyến Nam", "time": "2026-01-01T20:00:00Z", "note": "Vận chuyển theo tuyến"}
+{"type": "supplyStep", "batchId": "LHSP0017-02", "stepOrder": 5, "step": "distribution", "location": "Kho trung chuyển E5", "time": "2026-01-02T08:00:00Z", "note": "Phân phối đến điểm bán"}
+{"type": "supplyStep", "batchId": "LHSP0017-03", "stepOrder": 1, "step": "production", "location": "Bắc Giang", "time": "2025-11-20T08:00:00Z", "note": "Sản xuất và kiểm định chất lượng ban đầu"}
+{"type": "supplyStep", "batchId": "LHSP0017-03", "stepOrder": 2, "step": "packaging", "location": "Bắc Giang", "time": "2025-11-20T20:00:00Z", "note": "Đóng gói, dán tem, tạo mã truy xuất"}
+{"type": "supplyStep", "batchId": "LHSP0017-03", "stepOrder": 3, "step": "warehouse_in", "location": "Kho TP.HCM", "time": "2025-11-21T08:00:00Z", "note": "Nhập kho trung tâm"}
+{"type": "supplyStep", "batchId": "LHSP0017-03", "stepOrder": 4, "step": "distribution", "location": "Siêu thị C3", "time": "2025-11-21T20:00:00Z", "note": "Phân phối đến điểm bán"}
+{"type": "supplyStep", "batchId": "LHSP0018-01", "stepOrder": 1, "step": "production", "location": "TP.HCM", "time": "2025-11-11T08:00:00Z", "note": "Sản xuất và kiểm định chất lượng ban đầu"}
+{"type": "supplyStep", "batchId": "LHSP0018-01", "stepOrder": 2, "step": "packaging", "location": "TP.HCM", "time": "2025-11-11T20:00:00Z", "note": "Đóng gói, dán tem, tạo mã truy xuất"}
+{"type": "supplyStep", "batchId": "LHSP0018-01", "stepOrder": 3, "step": "warehouse_in", "location": "Kho Hà Nội", "time": "2025-11-12T08:00:00Z", "note": "Nhập kho trung tâm"}
+{"type": "supplyStep", "batchId": "LHSP0018-01", "stepOrder": 4, "step": "distribution", "location": "Đại lý D4", "time": "2025-11-12T20:00:00Z", "note": "Phân phối đến điểm bán"}
+{"type": "supplyStep", "batchId": "LHSP0018-02", "stepOrder": 1, "step": "production", "location": "TP.HCM", "time": "2025-12-09T08:00:00Z", "note": "Sản xuất và kiểm định chất lượng ban đầu"}
+{"type": "supplyStep", "batchId": "LHSP0018-02", "stepOrder": 2, "step": "packaging", "location": "TP.HCM", "time": "2025-12-09T20:00:00Z", "note": "Đóng gói, dán tem, tạo mã truy xuất"}
+{"type": "supplyStep", "batchId": "LHSP0018-02", "stepOrder": 3, "step": "warehouse_in", "location": "Kho Cần Thơ", "time": "2025-12-10T08:00:00Z", "note": "Nhập kho trung tâm"}
+{"type": "supplyStep", "batchId": "LHSP0018-02", "stepOrder": 4, "step": "distribution", "location": "Cửa hàng A1", "time": "2025-12-10T20:00:00Z", "note": "Phân phối đến điểm bán"}
+{"type": "supplyStep", "batchId": "LHSP0018-03", "stepOrder": 1, "step": "production", "location": "TP.HCM", "time": "2025-12-30T08:00:00Z", "note": "Sản xuất và kiểm định chất lượng ban đầu"}
+{"type": "supplyStep", "batchId": "LHSP0018-03", "stepOrder": 2, "step": "packaging", "location": "TP.HCM", "time": "2025-12-30T20:00:00Z", "note": "Đóng gói, dán tem, tạo mã truy xuất"}
+{"type": "supplyStep", "batchId": "LHSP0018-03", "stepOrder": 3, "step": "warehouse_in", "location": "Kho TP.HCM", "time": "2025-12-31T08:00:00Z", "note": "Nhập kho trung tâm"}
+{"type": "supplyStep", "batchId": "LHSP0018-03", "stepOrder": 4, "step": "distribution", "location": "Siêu thị C3", "time": "2025-12-31T20:00:00Z", "note": "Phân phối đến điểm bán"}
+{"type": "supplyStep", "batchId": "LHSP0019-01", "stepOrder": 1, "step": "production", "location": "Đà Nẵng", "time": "2025-11-05T08:00:00Z", "note": "Sản xuất và kiểm định chất lượng ban đầu"}
+{"type": "supplyStep", "batchId": "LHSP0019-01", "stepOrder": 2, "step": "packaging", "location": "Đà Nẵng", "time": "2025-11-05T20:00:00Z", "note": "Đóng gói, dán tem, tạo mã truy xuất"}
+{"type": "supplyStep", "batchId": "LHSP0019-01", "stepOrder": 3, "step": "warehouse_in", "location": "Kho Hà Nội", "time": "2025-11-06T08:00:00Z", "note": "Nhập kho trung tâm"}
+{"type": "supplyStep", "batchId": "LHSP0019-01", "stepOrder": 4, "step": "distribution", "location": "Đại lý D4", "time": "2025-11-06T20:00:00Z", "note": "Phân phối đến điểm bán"}
+{"type": "supplyStep", "batchId": "LHSP0019-02", "stepOrder": 1, "step": "production", "location": "Đà Nẵng", "time": "2025-12-15T08:00:00Z", "note": "Sản xuất và kiểm định chất lượng ban đầu"}
+{"type": "supplyStep", "batchId": "LHSP0019-02", "stepOrder": 2, "step": "packaging", "location": "Đà Nẵng", "time": "2025-12-15T20:00:00Z", "note": "Đóng gói, dán tem, tạo mã truy xuất"}
+{"type": "supplyStep", "batchId": "LHSP0019-02", "stepOrder": 3, "step": "warehouse_in", "location": "Kho Hà Nội", "time": "2025-12-16T08:00:00Z", "note": "Nhập kho trung tâm"}
+{"type": "supplyStep", "batchId": "LHSP0019-02", "stepOrder": 4, "step": "distribution", "location": "Đại lý D4", "time": "2025-12-16T20:00:00Z", "note": "Phân phối đến điểm bán"}
+{"type": "supplyStep", "batchId": "LHSP0019-03", "stepOrder": 1, "step": "production", "location": "Đà Nẵng", "time": "2025-12-09T08:00:00Z", "note": "Sản xuất và kiểm định chất lượng ban đầu"}
+{"type": "supplyStep", "batchId": "LHSP0019-03", "stepOrder": 2, "step": "packaging", "location": "Đà Nẵng", "time": "2025-12-09T20:00:00Z", "note": "Đóng gói, dán tem, tạo mã truy xuất"}
+{"type": "supplyStep", "batchId": "LHSP0019-03", "stepOrder": 3, "step": "warehouse_in", "location": "Kho Đà Nẵng", "time": "2025-12-10T08:00:00Z", "note": "Nhập kho trung tâm"}
+{"type": "supplyStep", "batchId": "LHSP0019-03", "stepOrder": 4, "step": "transport", "location": "Tuyến Bắc", "time": "2025-12-10T20:00:00Z", "note": "Vận chuyển theo tuyến"}
+{"type": "supplyStep", "batchId": "LHSP0019-03", "stepOrder": 5, "step": "distribution", "location": "Kho trung chuyển E5", "time": "2025-12-11T08:00:00Z", "note": "Phân phối đến điểm bán"}
+{"type": "supplyStep", "batchId": "LHSP0020-01", "stepOrder": 1, "step": "production", "location": "Bắc Giang", "time": "2025-12-01T08:00:00Z", "note": "Sản xuất và kiểm định chất lượng ban đầu"}
+{"type": "supplyStep", "batchId": "LHSP0020-01", "stepOrder": 2, "step": "packaging", "location": "Bắc Giang", "time": "2025-12-01T20:00:00Z", "note": "Đóng gói, dán tem, tạo mã truy xuất"}
+{"type": "supplyStep", "batchId": "LHSP0020-01", "stepOrder": 3, "step": "warehouse_in", "location": "Kho Hà Nội", "time": "2025-12-02T08:00:00Z", "note": "Nhập kho trung tâm"}
+{"type": "supplyStep", "batchId": "LHSP0020-01", "stepOrder": 4, "step": "transport", "location": "Tuyến Nam", "time": "2025-12-02T20:00:00Z", "note": "Vận chuyển theo tuyến"}
+{"type": "supplyStep", "batchId": "LHSP0020-01", "stepOrder": 5, "step": "distribution", "location": "Đại lý D4", "time": "2025-12-03T08:00:00Z", "note": "Phân phối đến điểm bán"}
+{"type": "supplyStep", "batchId": "LHSP0020-02", "stepOrder": 1, "step": "production", "location": "Bắc Giang", "time": "2025-11-21T08:00:00Z", "note": "Sản xuất và kiểm định chất lượng ban đầu"}
+{"type": "supplyStep", "batchId": "LHSP0020-02", "stepOrder": 2, "step": "packaging", "location": "Bắc Giang", "time": "2025-11-21T20:00:00Z", "note": "Đóng gói, dán tem, tạo mã truy xuất"}
+{"type": "supplyStep", "batchId": "LHSP0020-02", "stepOrder": 3, "step": "warehouse_in", "location": "Kho Cần Thơ", "time": "2025-11-22T08:00:00Z", "note": "Nhập kho trung tâm"}
+{"type": "supplyStep", "batchId": "LHSP0020-02", "stepOrder": 4, "step": "distribution", "location": "Siêu thị C3", "time": "2025-11-22T20:00:00Z", "note": "Phân phối đến điểm bán"}
+{"type": "supplyStep", "batchId": "LHSP0020-03", "stepOrder": 1, "step": "production", "location": "Bắc Giang", "time": "2025-11-26T08:00:00Z", "note": "Sản xuất và kiểm định chất lượng ban đầu"}
+{"type": "supplyStep", "batchId": "LHSP0020-03", "stepOrder": 2, "step": "packaging", "location": "Bắc Giang", "time": "2025-11-26T20:00:00Z", "note": "Đóng gói, dán tem, tạo mã truy xuất"}
+{"type": "supplyStep", "batchId": "LHSP0020-03", "stepOrder": 3, "step": "warehouse_in", "location": "Kho Đà Nẵng", "time": "2025-11-27T08:00:00Z", "note": "Nhập kho trung tâm"}
+{"type": "supplyStep", "batchId": "LHSP0020-03", "stepOrder": 4, "step": "transport", "location": "Tuyến Nam", "time": "2025-11-27T20:00:00Z", "note": "Vận chuyển theo tuyến"}
+{"type": "supplyStep", "batchId": "LHSP0020-03", "stepOrder": 5, "step": "distribution", "location": "Siêu thị C3", "time": "2025-11-28T08:00:00Z", "note": "Phân phối đến điểm bán"}
+{"type": "supplyStep", "batchId": "LHSP0021-01", "stepOrder": 1, "step": "production", "location": "TP.HCM", "time": "2025-12-26T08:00:00Z", "note": "Sản xuất và kiểm định chất lượng ban đầu"}
+{"type": "supplyStep", "batchId": "LHSP0021-01", "stepOrder": 2, "step": "packaging", "location": "TP.HCM", "time": "2025-12-26T20:00:00Z", "note": "Đóng gói, dán tem, tạo mã truy xuất"}
+{"type": "supplyStep", "batchId": "LHSP0021-01", "stepOrder": 3, "step": "warehouse_in", "location": "Kho Hà Nội", "time": "2025-12-27T08:00:00Z", "note": "Nhập kho trung tâm"}
+{"type": "supplyStep", "batchId": "LHSP0021-01", "stepOrder": 4, "step": "distribution", "location": "Cửa hàng B2", "time": "2025-12-27T20:00:00Z", "note": "Phân phối đến điểm bán"}
+{"type": "supplyStep", "batchId": "LHSP0021-02", "stepOrder": 1, "step": "production", "location": "TP.HCM", "time": "2025-12-10T08:00:00Z", "note": "Sản xuất và kiểm định chất lượng ban đầu"}
+{"type": "supplyStep", "batchId": "LHSP0021-02", "stepOrder": 2, "step": "packaging", "location": "TP.HCM", "time": "2025-12-10T20:00:00Z", "note": "Đóng gói, dán tem, tạo mã truy xuất"}
+{"type": "supplyStep", "batchId": "LHSP0021-02", "stepOrder": 3, "step": "warehouse_in", "location": "Kho Đà Nẵng", "time": "2025-12-11T08:00:00Z", "note": "Nhập kho trung tâm"}
+{"type": "supplyStep", "batchId": "LHSP0021-02", "stepOrder": 4, "step": "distribution", "location": "Đại lý D4", "time": "2025-12-11T20:00:00Z", "note": "Phân phối đến điểm bán"}
+{"type": "supplyStep", "batchId": "LHSP0021-03", "stepOrder": 1, "step": "production", "location": "TP.HCM", "time": "2025-12-02T08:00:00Z", "note": "Sản xuất và kiểm định chất lượng ban đầu"}
+{"type": "supplyStep", "batchId": "LHSP0021-03", "stepOrder": 2, "step": "packaging", "location": "TP.HCM", "time": "2025-12-02T20:00:00Z", "note": "Đóng gói, dán tem, tạo mã truy xuất"}
+{"type": "supplyStep", "batchId": "LHSP0021-03", "stepOrder": 3, "step": "warehouse_in", "location": "Kho Đà Nẵng", "time": "2025-12-03T08:00:00Z", "note": "Nhập kho trung tâm"}
+{"type": "supplyStep", "batchId": "LHSP0021-03", "stepOrder": 4, "step": "transport", "location": "Tuyến Nam", "time": "2025-12-03T20:00:00Z", "note": "Vận chuyển theo tuyến"}
+{"type": "supplyStep", "batchId": "LHSP0021-03", "stepOrder": 5, "step": "distribution", "location": "Kho trung chuyển E5", "time": "2025-12-04T08:00:00Z", "note": "Phân phối đến điểm bán"}
+{"type": "supplyStep", "batchId": "LHSP0022-01", "stepOrder": 1, "step": "production", "location": "Phú Quốc", "time": "2025-11-06T08:00:00Z", "note": "Sản xuất và kiểm định chất lượng ban đầu"}
+{"type": "supplyStep", "batchId": "LHSP0022-01", "stepOrder": 2, "step": "packaging", "location": "Phú Quốc", "time": "2025-11-06T20:00:00Z", "note": "Đóng gói, dán tem, tạo mã truy xuất"}
+{"type": "supplyStep", "batchId": "LHSP0022-01", "stepOrder": 3, "step": "warehouse_in", "location": "Kho Cần Thơ", "time": "2025-11-07T08:00:00Z", "note": "Nhập kho trung tâm"}
+{"type": "supplyStep", "batchId": "LHSP0022-01", "stepOrder": 4, "step": "distribution", "location": "Siêu thị C3", "time": "2025-11-07T20:00:00Z", "note": "Phân phối đến điểm bán"}
+{"type": "supplyStep", "batchId": "LHSP0022-02", "stepOrder": 1, "step": "production", "location": "Phú Quốc", "time": "2025-11-18T08:00:00Z", "note": "Sản xuất và kiểm định chất lượng ban đầu"}
+{"type": "supplyStep", "batchId": "LHSP0022-02", "stepOrder": 2, "step": "packaging", "location": "Phú Quốc", "time": "2025-11-18T20:00:00Z", "note": "Đóng gói, dán tem, tạo mã truy xuất"}
+{"type": "supplyStep", "batchId": "LHSP0022-02", "stepOrder": 3, "step": "warehouse_in", "location": "Kho Cần Thơ", "time": "2025-11-19T08:00:00Z", "note": "Nhập kho trung tâm"}
+{"type": "supplyStep", "batchId": "LHSP0022-02", "stepOrder": 4, "step": "distribution", "location": "Cửa hàng B2", "time": "2025-11-19T20:00:00Z", "note": "Phân phối đến điểm bán"}
+{"type": "supplyStep", "batchId": "LHSP0022-03", "stepOrder": 1, "step": "production", "location": "Phú Quốc", "time": "2025-12-03T08:00:00Z", "note": "Sản xuất và kiểm định chất lượng ban đầu"}
+{"type": "supplyStep", "batchId": "LHSP0022-03", "stepOrder": 2, "step": "packaging", "location": "Phú Quốc", "time": "2025-12-03T20:00:00Z", "note": "Đóng gói, dán tem, tạo mã truy xuất"}
+{"type": "supplyStep", "batchId": "LHSP0022-03", "stepOrder": 3, "step": "warehouse_in", "location": "Kho Đà Nẵng", "time": "2025-12-04T08:00:00Z", "note": "Nhập kho trung tâm"}
+{"type": "supplyStep", "batchId": "LHSP0022-03", "stepOrder": 4, "step": "transport", "location": "Tuyến Bắc", "time": "2025-12-04T20:00:00Z", "note": "Vận chuyển theo tuyến"}
+{"type": "supplyStep", "batchId": "LHSP0022-03", "stepOrder": 5, "step": "distribution", "location": "Kho trung chuyển E5", "time": "2025-12-05T08:00:00Z", "note": "Phân phối đến điểm bán"}
+{"type": "supplyStep", "batchId": "LHSP0023-01", "stepOrder": 1, "step": "production", "location": "Đà Lạt", "time": "2025-11-19T08:00:00Z", "note": "Sản xuất và kiểm định chất lượng ban đầu"}
+{"type": "supplyStep", "batchId": "LHSP0023-01", "stepOrder": 2, "step": "packaging", "location": "Đà Lạt", "time": "2025-11-19T20:00:00Z", "note": "Đóng gói, dán tem, tạo mã truy xuất"}
+{"type": "supplyStep", "batchId": "LHSP0023-01", "stepOrder": 3, "step": "warehouse_in", "location": "Kho Cần Thơ", "time": "2025-11-20T08:00:00Z", "note": "Nhập kho trung tâm"}
+{"type": "supplyStep", "batchId": "LHSP0023-01", "stepOrder": 4, "step": "transport", "location": "Tuyến Trung", "time": "2025-11-20T20:00:00Z", "note": "Vận chuyển theo tuyến"}
+{"type": "supplyStep", "batchId": "LHSP0023-01", "stepOrder": 5, "step": "distribution", "location": "Siêu thị C3", "time": "2025-11-21T08:00:00Z", "note": "Phân phối đến điểm bán"}
+{"type": "supplyStep", "batchId": "LHSP0023-02", "stepOrder": 1, "step": "production", "location": "Đà Lạt", "time": "2025-11-25T08:00:00Z", "note": "Sản xuất và kiểm định chất lượng ban đầu"}
+{"type": "supplyStep", "batchId": "LHSP0023-02", "stepOrder": 2, "step": "packaging", "location": "Đà Lạt", "time": "2025-11-25T20:00:00Z", "note": "Đóng gói, dán tem, tạo mã truy xuất"}
+{"type": "supplyStep", "batchId": "LHSP0023-02", "stepOrder": 3, "step": "warehouse_in", "location": "Kho Cần Thơ", "time": "2025-11-26T08:00:00Z", "note": "Nhập kho trung tâm"}
+{"type": "supplyStep", "batchId": "LHSP0023-02", "stepOrder": 4, "step": "transport", "location": "Tuyến Nam", "time": "2025-11-26T20:00:00Z", "note": "Vận chuyển theo tuyến"}
+{"type": "supplyStep", "batchId": "LHSP0023-02", "stepOrder": 5, "step": "distribution", "location": "Cửa hàng A1", "time": "2025-11-27T08:00:00Z", "note": "Phân phối đến điểm bán"}
+{"type": "supplyStep", "batchId": "LHSP0023-03", "stepOrder": 1, "step": "production", "location": "Đà Lạt", "time": "2025-12-16T08:00:00Z", "note": "Sản xuất và kiểm định chất lượng ban đầu"}
+{"type": "supplyStep", "batchId": "LHSP0023-03", "stepOrder": 2, "step": "packaging", "location": "Đà Lạt", "time": "2025-12-16T20:00:00Z", "note": "Đóng gói, dán tem, tạo mã truy xuất"}
+{"type": "supplyStep", "batchId": "LHSP0023-03", "stepOrder": 3, "step": "warehouse_in", "location": "Kho Đà Nẵng", "time": "2025-12-17T08:00:00Z", "note": "Nhập kho trung tâm"}
+{"type": "supplyStep", "batchId": "LHSP0023-03", "stepOrder": 4, "step": "distribution", "location": "Cửa hàng A1", "time": "2025-12-17T20:00:00Z", "note": "Phân phối đến điểm bán"}
+{"type": "supplyStep", "batchId": "LHSP0024-01", "stepOrder": 1, "step": "production", "location": "Phú Quốc", "time": "2025-11-29T08:00:00Z", "note": "Sản xuất và kiểm định chất lượng ban đầu"}
+{"type": "supplyStep", "batchId": "LHSP0024-01", "stepOrder": 2, "step": "packaging", "location": "Phú Quốc", "time": "2025-11-29T20:00:00Z", "note": "Đóng gói, dán tem, tạo mã truy xuất"}
+{"type": "supplyStep", "batchId": "LHSP0024-01", "stepOrder": 3, "step": "warehouse_in", "location": "Kho Hà Nội", "time": "2025-11-30T08:00:00Z", "note": "Nhập kho trung tâm"}
+{"type": "supplyStep", "batchId": "LHSP0024-01", "stepOrder": 4, "step": "distribution", "location": "Đại lý D4", "time": "2025-11-30T20:00:00Z", "note": "Phân phối đến điểm bán"}
+{"type": "supplyStep", "batchId": "LHSP0024-02", "stepOrder": 1, "step": "production", "location": "Phú Quốc", "time": "2025-11-17T08:00:00Z", "note": "Sản xuất và kiểm định chất lượng ban đầu"}
+{"type": "supplyStep", "batchId": "LHSP0024-02", "stepOrder": 2, "step": "packaging", "location": "Phú Quốc", "time": "2025-11-17T20:00:00Z", "note": "Đóng gói, dán tem, tạo mã truy xuất"}
+{"type": "supplyStep", "batchId": "LHSP0024-02", "stepOrder": 3, "step": "warehouse_in", "location": "Kho Cần Thơ", "time": "2025-11-18T08:00:00Z", "note": "Nhập kho trung tâm"}
+{"type": "supplyStep", "batchId": "LHSP0024-02", "stepOrder": 4, "step": "transport", "location": "Tuyến Bắc", "time": "2025-11-18T20:00:00Z", "note": "Vận chuyển theo tuyến"}
+{"type": "supplyStep", "batchId": "LHSP0024-02", "stepOrder": 5, "step": "distribution", "location": "Kho trung chuyển E5", "time": "2025-11-19T08:00:00Z", "note": "Phân phối đến điểm bán"}
+{"type": "supplyStep", "batchId": "LHSP0024-03", "stepOrder": 1, "step": "production", "location": "Phú Quốc", "time": "2025-11-16T08:00:00Z", "note": "Sản xuất và kiểm định chất lượng ban đầu"}
+{"type": "supplyStep", "batchId": "LHSP0024-03", "stepOrder": 2, "step": "packaging", "location": "Phú Quốc", "time": "2025-11-16T20:00:00Z", "note": "Đóng gói, dán tem, tạo mã truy xuất"}
+{"type": "supplyStep", "batchId": "LHSP0024-03", "stepOrder": 3, "step": "warehouse_in", "location": "Kho Hà Nội", "time": "2025-11-17T08:00:00Z", "note": "Nhập kho trung tâm"}
+{"type": "supplyStep", "batchId": "LHSP0024-03", "stepOrder": 4, "step": "transport", "location": "Tuyến Nam", "time": "2025-11-17T20:00:00Z", "note": "Vận chuyển theo tuyến"}
+{"type": "supplyStep", "batchId": "LHSP0024-03", "stepOrder": 5, "step": "distribution", "location": "Đại lý D4", "time": "2025-11-18T08:00:00Z", "note": "Phân phối đến điểm bán"}
+{"type": "supplyStep", "batchId": "LHSP0025-01", "stepOrder": 1, "step": "production", "location": "Đà Lạt", "time": "2025-12-28T08:00:00Z", "note": "Sản xuất và kiểm định chất lượng ban đầu"}
+{"type": "supplyStep", "batchId": "LHSP0025-01", "stepOrder": 2, "step": "packaging", "location": "Đà Lạt", "time": "2025-12-28T20:00:00Z", "note": "Đóng gói, dán tem, tạo mã truy xuất"}
+{"type": "supplyStep", "batchId": "LHSP0025-01", "stepOrder": 3, "step": "warehouse_in", "location": "Kho Đà Nẵng", "time": "2025-12-29T08:00:00Z", "note": "Nhập kho trung tâm"}
+{"type": "supplyStep", "batchId": "LHSP0025-01", "stepOrder": 4, "step": "distribution", "location": "Siêu thị C3", "time": "2025-12-29T20:00:00Z", "note": "Phân phối đến điểm bán"}
+{"type": "supplyStep", "batchId": "LHSP0025-02", "stepOrder": 1, "step": "production", "location": "Đà Lạt", "time": "2025-11-16T08:00:00Z", "note": "Sản xuất và kiểm định chất lượng ban đầu"}
+{"type": "supplyStep", "batchId": "LHSP0025-02", "stepOrder": 2, "step": "packaging", "location": "Đà Lạt", "time": "2025-11-16T20:00:00Z", "note": "Đóng gói, dán tem, tạo mã truy xuất"}
+{"type": "supplyStep", "batchId": "LHSP0025-02", "stepOrder": 3, "step": "warehouse_in", "location": "Kho Hà Nội", "time": "2025-11-17T08:00:00Z", "note": "Nhập kho trung tâm"}
+{"type": "supplyStep", "batchId": "LHSP0025-02", "stepOrder": 4, "step": "distribution", "location": "Kho trung chuyển E5", "time": "2025-11-17T20:00:00Z", "note": "Phân phối đến điểm bán"}
+{"type": "supplyStep", "batchId": "LHSP0025-03", "stepOrder": 1, "step": "production", "location": "Đà Lạt", "time": "2025-12-10T08:00:00Z", "note": "Sản xuất và kiểm định chất lượng ban đầu"}
+{"type": "supplyStep", "batchId": "LHSP0025-03", "stepOrder": 2, "step": "packaging", "location": "Đà Lạt", "time": "2025-12-10T20:00:00Z", "note": "Đóng gói, dán tem, tạo mã truy xuất"}
+{"type": "supplyStep", "batchId": "LHSP0025-03", "stepOrder": 3, "step": "warehouse_in", "location": "Kho Cần Thơ", "time": "2025-12-11T08:00:00Z", "note": "Nhập kho trung tâm"}
+{"type": "supplyStep", "batchId": "LHSP0025-03", "stepOrder": 4, "step": "distribution", "location": "Siêu thị C3", "time": "2025-12-11T20:00:00Z", "note": "Phân phối đến điểm bán"}
+{"type": "supplyStep", "batchId": "LHSP0026-01", "stepOrder": 1, "step": "production", "location": "Hà Nội", "time": "2025-12-13T08:00:00Z", "note": "Sản xuất và kiểm định chất lượng ban đầu"}
+{"type": "supplyStep", "batchId": "LHSP0026-01", "stepOrder": 2, "step": "packaging", "location": "Hà Nội", "time": "2025-12-13T20:00:00Z", "note": "Đóng gói, dán tem, tạo mã truy xuất"}
+{"type": "supplyStep", "batchId": "LHSP0026-01", "stepOrder": 3, "step": "warehouse_in", "location": "Kho Đà Nẵng", "time": "2025-12-14T08:00:00Z", "note": "Nhập kho trung tâm"}
+{"type": "supplyStep", "batchId": "LHSP0026-01", "stepOrder": 4, "step": "transport", "location": "Tuyến Nam", "time": "2025-12-14T20:00:00Z", "note": "Vận chuyển theo tuyến"}
+{"type": "supplyStep", "batchId": "LHSP0026-01", "stepOrder": 5, "step": "distribution", "location": "Kho trung chuyển E5", "time": "2025-12-15T08:00:00Z", "note": "Phân phối đến điểm bán"}
+{"type": "supplyStep", "batchId": "LHSP0026-02", "stepOrder": 1, "step": "production", "location": "Hà Nội", "time": "2025-12-15T08:00:00Z", "note": "Sản xuất và kiểm định chất lượng ban đầu"}
+{"type": "supplyStep", "batchId": "LHSP0026-02", "stepOrder": 2, "step": "packaging", "location": "Hà Nội", "time": "2025-12-15T20:00:00Z", "note": "Đóng gói, dán tem, tạo mã truy xuất"}
+{"type": "supplyStep", "batchId": "LHSP0026-02", "stepOrder": 3, "step": "warehouse_in", "location": "Kho Hà Nội", "time": "2025-12-16T08:00:00Z", "note": "Nhập kho trung tâm"}
+{"type": "supplyStep", "batchId": "LHSP0026-02", "stepOrder": 4, "step": "transport", "location": "Tuyến Nam", "time": "2025-12-16T20:00:00Z", "note": "Vận chuyển theo tuyến"}
+{"type": "supplyStep", "batchId": "LHSP0026-02", "stepOrder": 5, "step": "distribution", "location": "Cửa hàng B2", "time": "2025-12-17T08:00:00Z", "note": "Phân phối đến điểm bán"}
+{"type": "supplyStep", "batchId": "LHSP0026-03", "stepOrder": 1, "step": "production", "location": "Hà Nội", "time": "2025-12-07T08:00:00Z", "note": "Sản xuất và kiểm định chất lượng ban đầu"}
+{"type": "supplyStep", "batchId": "LHSP0026-03", "stepOrder": 2, "step": "packaging", "location": "Hà Nội", "time": "2025-12-07T20:00:00Z", "note": "Đóng gói, dán tem, tạo mã truy xuất"}
+{"type": "supplyStep", "batchId": "LHSP0026-03", "stepOrder": 3, "step": "warehouse_in", "location": "Kho Hà Nội", "time": "2025-12-08T08:00:00Z", "note": "Nhập kho trung tâm"}
+{"type": "supplyStep", "batchId": "LHSP0026-03", "stepOrder": 4, "step": "distribution", "location": "Kho trung chuyển E5", "time": "2025-12-08T20:00:00Z", "note": "Phân phối đến điểm bán"}
+{"type": "supplyStep", "batchId": "LHSP0027-01", "stepOrder": 1, "step": "production", "location": "Phú Quốc", "time": "2025-12-24T08:00:00Z", "note": "Sản xuất và kiểm định chất lượng ban đầu"}
+{"type": "supplyStep", "batchId": "LHSP0027-01", "stepOrder": 2, "step": "packaging", "location": "Phú Quốc", "time": "2025-12-24T20:00:00Z", "note": "Đóng gói, dán tem, tạo mã truy xuất"}
+{"type": "supplyStep", "batchId": "LHSP0027-01", "stepOrder": 3, "step": "warehouse_in", "location": "Kho TP.HCM", "time": "2025-12-25T08:00:00Z", "note": "Nhập kho trung tâm"}
+{"type": "supplyStep", "batchId": "LHSP0027-01", "stepOrder": 4, "step": "transport", "location": "Tuyến Trung", "time": "2025-12-25T20:00:00Z", "note": "Vận chuyển theo tuyến"}
+{"type": "supplyStep", "batchId": "LHSP0027-01", "stepOrder": 5, "step": "distribution", "location": "Kho trung chuyển E5", "time": "2025-12-26T08:00:00Z", "note": "Phân phối đến điểm bán"}
+{"type": "supplyStep", "batchId": "LHSP0027-02", "stepOrder": 1, "step": "production", "location": "Phú Quốc", "time": "2025-12-20T08:00:00Z", "note": "Sản xuất và kiểm định chất lượng ban đầu"}
+{"type": "supplyStep", "batchId": "LHSP0027-02", "stepOrder": 2, "step": "packaging", "location": "Phú Quốc", "time": "2025-12-20T20:00:00Z", "note": "Đóng gói, dán tem, tạo mã truy xuất"}
+{"type": "supplyStep", "batchId": "LHSP0027-02", "stepOrder": 3, "step": "warehouse_in", "location": "Kho Cần Thơ", "time": "2025-12-21T08:00:00Z", "note": "Nhập kho trung tâm"}
+{"type": "supplyStep", "batchId": "LHSP0027-02", "stepOrder": 4, "step": "distribution", "location": "Cửa hàng A1", "time": "2025-12-21T20:00:00Z", "note": "Phân phối đến điểm bán"}
+{"type": "supplyStep", "batchId": "LHSP0027-03", "stepOrder": 1, "step": "production", "location": "Phú Quốc", "time": "2025-12-17T08:00:00Z", "note": "Sản xuất và kiểm định chất lượng ban đầu"}
+{"type": "supplyStep", "batchId": "LHSP0027-03", "stepOrder": 2, "step": "packaging", "location": "Phú Quốc", "time": "2025-12-17T20:00:00Z", "note": "Đóng gói, dán tem, tạo mã truy xuất"}
+{"type": "supplyStep", "batchId": "LHSP0027-03", "stepOrder": 3, "step": "warehouse_in", "location": "Kho TP.HCM", "time": "2025-12-18T08:00:00Z", "note": "Nhập kho trung tâm"}
+{"type": "supplyStep", "batchId": "LHSP0027-03", "stepOrder": 4, "step": "transport", "location": "Tuyến Trung", "time": "2025-12-18T20:00:00Z", "note": "Vận chuyển theo tuyến"}
+{"type": "supplyStep", "batchId": "LHSP0027-03", "stepOrder": 5, "step": "distribution", "location": "Cửa hàng B2", "time": "2025-12-19T08:00:00Z", "note": "Phân phối đến điểm bán"}
+{"type": "supplyStep", "batchId": "LHSP0028-01", "stepOrder": 1, "step": "production", "location": "Phú Quốc", "time": "2025-12-27T08:00:00Z", "note": "Sản xuất và kiểm định chất lượng ban đầu"}
+{"type": "supplyStep", "batchId": "LHSP0028-01", "stepOrder": 2, "step": "packaging", "location": "Phú Quốc", "time": "2025-12-27T20:00:00Z", "note": "Đóng gói, dán tem, tạo mã truy xuất"}
+{"type": "supplyStep", "batchId": "LHSP0028-01", "stepOrder": 3, "step": "warehouse_in", "location": "Kho Đà Nẵng", "time": "2025-12-28T08:00:00Z", "note": "Nhập kho trung tâm"}
+{"type": "supplyStep", "batchId": "LHSP0028-01", "stepOrder": 4, "step": "distribution", "location": "Cửa hàng A1", "time": "2025-12-28T20:00:00Z", "note": "Phân phối đến điểm bán"}
+{"type": "supplyStep", "batchId": "LHSP0028-02", "stepOrder": 1, "step": "production", "location": "Phú Quốc", "time": "2025-11-05T08:00:00Z", "note": "Sản xuất và kiểm định chất lượng ban đầu"}
+{"type": "supplyStep", "batchId": "LHSP0028-02", "stepOrder": 2, "step": "packaging", "location": "Phú Quốc", "time": "2025-11-05T20:00:00Z", "note": "Đóng gói, dán tem, tạo mã truy xuất"}
+{"type": "supplyStep", "batchId": "LHSP0028-02", "stepOrder": 3, "step": "warehouse_in", "location": "Kho Cần Thơ", "time": "2025-11-06T08:00:00Z", "note": "Nhập kho trung tâm"}
+{"type": "supplyStep", "batchId": "LHSP0028-02", "stepOrder": 4, "step": "transport", "location": "Tuyến Bắc", "time": "2025-11-06T20:00:00Z", "note": "Vận chuyển theo tuyến"}
+{"type": "supplyStep", "batchId": "LHSP0028-02", "stepOrder": 5, "step": "distribution", "location": "Cửa hàng A1", "time": "2025-11-07T08:00:00Z", "note": "Phân phối đến điểm bán"}
+{"type": "supplyStep", "batchId": "LHSP0028-03", "stepOrder": 1, "step": "production", "location": "Phú Quốc", "time": "2025-11-30T08:00:00Z", "note": "Sản xuất và kiểm định chất lượng ban đầu"}
+{"type": "supplyStep", "batchId": "LHSP0028-03", "stepOrder": 2, "step": "packaging", "location": "Phú Quốc", "time": "2025-11-30T20:00:00Z", "note": "Đóng gói, dán tem, tạo mã truy xuất"}
+{"type": "supplyStep", "batchId": "LHSP0028-03", "stepOrder": 3, "step": "warehouse_in", "location": "Kho TP.HCM", "time": "2025-12-01T08:00:00Z", "note": "Nhập kho trung tâm"}
+{"type": "supplyStep", "batchId": "LHSP0028-03", "stepOrder": 4, "step": "transport", "location": "Tuyến Trung", "time": "2025-12-01T20:00:00Z", "note": "Vận chuyển theo tuyến"}
+{"type": "supplyStep", "batchId": "LHSP0028-03", "stepOrder": 5, "step": "distribution", "location": "Đại lý D4", "time": "2025-12-02T08:00:00Z", "note": "Phân phối đến điểm bán"}
+{"type": "supplyStep", "batchId": "LHSP0029-01", "stepOrder": 1, "step": "production", "location": "Đà Lạt", "time": "2025-11-21T08:00:00Z", "note": "Sản xuất và kiểm định chất lượng ban đầu"}
+{"type": "supplyStep", "batchId": "LHSP0029-01", "stepOrder": 2, "step": "packaging", "location": "Đà Lạt", "time": "2025-11-21T20:00:00Z", "note": "Đóng gói, dán tem, tạo mã truy xuất"}
+{"type": "supplyStep", "batchId": "LHSP0029-01", "stepOrder": 3, "step": "warehouse_in", "location": "Kho Cần Thơ", "time": "2025-11-22T08:00:00Z", "note": "Nhập kho trung tâm"}
+{"type": "supplyStep", "batchId": "LHSP0029-01", "stepOrder": 4, "step": "transport", "location": "Tuyến Bắc", "time": "2025-11-22T20:00:00Z", "note": "Vận chuyển theo tuyến"}
+{"type": "supplyStep", "batchId": "LHSP0029-01", "stepOrder": 5, "step": "distribution", "location": "Cửa hàng A1", "time": "2025-11-23T08:00:00Z", "note": "Phân phối đến điểm bán"}
+{"type": "supplyStep", "batchId": "LHSP0029-02", "stepOrder": 1, "step": "production", "location": "Đà Lạt", "time": "2025-11-20T08:00:00Z", "note": "Sản xuất và kiểm định chất lượng ban đầu"}
+{"type": "supplyStep", "batchId": "LHSP0029-02", "stepOrder": 2, "step": "packaging", "location": "Đà Lạt", "time": "2025-11-20T20:00:00Z", "note": "Đóng gói, dán tem, tạo mã truy xuất"}
+{"type": "supplyStep", "batchId": "LHSP0029-02", "stepOrder": 3, "step": "warehouse_in", "location": "Kho Cần Thơ", "time": "2025-11-21T08:00:00Z", "note": "Nhập kho trung tâm"}
+{"type": "supplyStep", "batchId": "LHSP0029-02", "stepOrder": 4, "step": "transport", "location": "Tuyến Trung", "time": "2025-11-21T20:00:00Z", "note": "Vận chuyển theo tuyến"}
+{"type": "supplyStep", "batchId": "LHSP0029-02", "stepOrder": 5, "step": "distribution", "location": "Đại lý D4", "time": "2025-11-22T08:00:00Z", "note": "Phân phối đến điểm bán"}
+{"type": "supplyStep", "batchId": "LHSP0029-03", "stepOrder": 1, "step": "production", "location": "Đà Lạt", "time": "2025-12-15T08:00:00Z", "note": "Sản xuất và kiểm định chất lượng ban đầu"}
+{"type": "supplyStep", "batchId": "LHSP0029-03", "stepOrder": 2, "step": "packaging", "location": "Đà Lạt", "time": "2025-12-15T20:00:00Z", "note": "Đóng gói, dán tem, tạo mã truy xuất"}
+{"type": "supplyStep", "batchId": "LHSP0029-03", "stepOrder": 3, "step": "warehouse_in", "location": "Kho Cần Thơ", "time": "2025-12-16T08:00:00Z", "note": "Nhập kho trung tâm"}
+{"type": "supplyStep", "batchId": "LHSP0029-03", "stepOrder": 4, "step": "distribution", "location": "Kho trung chuyển E5", "time": "2025-12-16T20:00:00Z", "note": "Phân phối đến điểm bán"}
+{"type": "supplyStep", "batchId": "LHSP0030-01", "stepOrder": 1, "step": "production", "location": "Cần Thơ", "time": "2025-12-31T08:00:00Z", "note": "Sản xuất và kiểm định chất lượng ban đầu"}
+{"type": "supplyStep", "batchId": "LHSP0030-01", "stepOrder": 2, "step": "packaging", "location": "Cần Thơ", "time": "2025-12-31T20:00:00Z", "note": "Đóng gói, dán tem, tạo mã truy xuất"}
+{"type": "supplyStep", "batchId": "LHSP0030-01", "stepOrder": 3, "step": "warehouse_in", "location": "Kho Cần Thơ", "time": "2026-01-01T08:00:00Z", "note": "Nhập kho trung tâm"}
+{"type": "supplyStep", "batchId": "LHSP0030-01", "stepOrder": 4, "step": "distribution", "location": "Cửa hàng B2", "time": "2026-01-01T20:00:00Z", "note": "Phân phối đến điểm bán"}
+{"type": "supplyStep", "batchId": "LHSP0030-02", "stepOrder": 1, "step": "production", "location": "Cần Thơ", "time": "2025-11-07T08:00:00Z", "note": "Sản xuất và kiểm định chất lượng ban đầu"}
+{"type": "supplyStep", "batchId": "LHSP0030-02", "stepOrder": 2, "step": "packaging", "location": "Cần Thơ", "time": "2025-11-07T20:00:00Z", "note": "Đóng gói, dán tem, tạo mã truy xuất"}
+{"type": "supplyStep", "batchId": "LHSP0030-02", "stepOrder": 3, "step": "warehouse_in", "location": "Kho Đà Nẵng", "time": "2025-11-08T08:00:00Z", "note": "Nhập kho trung tâm"}
+{"type": "supplyStep", "batchId": "LHSP0030-02", "stepOrder": 4, "step": "distribution", "location": "Cửa hàng B2", "time": "2025-11-08T20:00:00Z", "note": "Phân phối đến điểm bán"}
+{"type": "supplyStep", "batchId": "LHSP0030-03", "stepOrder": 1, "step": "production", "location": "Cần Thơ", "time": "2025-12-31T08:00:00Z", "note": "Sản xuất và kiểm định chất lượng ban đầu"}
+{"type": "supplyStep", "batchId": "LHSP0030-03", "stepOrder": 2, "step": "packaging", "location": "Cần Thơ", "time": "2025-12-31T20:00:00Z", "note": "Đóng gói, dán tem, tạo mã truy xuất"}
+{"type": "supplyStep", "batchId": "LHSP0030-03", "stepOrder": 3, "step": "warehouse_in", "location": "Kho Đà Nẵng", "time": "2026-01-01T08:00:00Z", "note": "Nhập kho trung tâm"}
+{"type": "supplyStep", "batchId": "LHSP0030-03", "stepOrder": 4, "step": "distribution", "location": "Cửa hàng B2", "time": "2026-01-01T20:00:00Z", "note": "Phân phối đến điểm bán"}
+{"type": "supplyStep", "batchId": "LHSP0031-01", "stepOrder": 1, "step": "production", "location": "Cần Thơ", "time": "2025-12-21T08:00:00Z", "note": "Sản xuất và kiểm định chất lượng ban đầu"}
+{"type": "supplyStep", "batchId": "LHSP0031-01", "stepOrder": 2, "step": "packaging", "location": "Cần Thơ", "time": "2025-12-21T20:00:00Z", "note": "Đóng gói, dán tem, tạo mã truy xuất"}
+{"type": "supplyStep", "batchId": "LHSP0031-01", "stepOrder": 3, "step": "warehouse_in", "location": "Kho TP.HCM", "time": "2025-12-22T08:00:00Z", "note": "Nhập kho trung tâm"}
+{"type": "supplyStep", "batchId": "LHSP0031-01", "stepOrder": 4, "step": "distribution", "location": "Siêu thị C3", "time": "2025-12-22T20:00:00Z", "note": "Phân phối đến điểm bán"}
+{"type": "supplyStep", "batchId": "LHSP0031-02", "stepOrder": 1, "step": "production", "location": "Cần Thơ", "time": "2025-12-21T08:00:00Z", "note": "Sản xuất và kiểm định chất lượng ban đầu"}
+{"type": "supplyStep", "batchId": "LHSP0031-02", "stepOrder": 2, "step": "packaging", "location": "Cần Thơ", "time": "2025-12-21T20:00:00Z", "note": "Đóng gói, dán tem, tạo mã truy xuất"}
+{"type": "supplyStep", "batchId": "LHSP0031-02", "stepOrder": 3, "step": "warehouse_in", "location": "Kho Đà Nẵng", "time": "2025-12-22T08:00:00Z", "note": "Nhập kho trung tâm"}
+{"type": "supplyStep", "batchId": "LHSP0031-02", "stepOrder": 4, "step": "transport", "location": "Tuyến Bắc", "time": "2025-12-22T20:00:00Z", "note": "Vận chuyển theo tuyến"}
+{"type": "supplyStep", "batchId": "LHSP0031-02", "stepOrder": 5, "step": "distribution", "location": "Cửa hàng B2", "time": "2025-12-23T08:00:00Z", "note": "Phân phối đến điểm bán"}
+{"type": "supplyStep", "batchId": "LHSP0031-03", "stepOrder": 1, "step": "production", "location": "Cần Thơ", "time": "2025-11-09T08:00:00Z", "note": "Sản xuất và kiểm định chất lượng ban đầu"}
+{"type": "supplyStep", "batchId": "LHSP0031-03", "stepOrder": 2, "step": "packaging", "location": "Cần Thơ", "time": "2025-11-09T20:00:00Z", "note": "Đóng gói, dán tem, tạo mã truy xuất"}
+{"type": "supplyStep", "batchId": "LHSP0031-03", "stepOrder": 3, "step": "warehouse_in", "location": "Kho Đà Nẵng", "time": "2025-11-10T08:00:00Z", "note": "Nhập kho trung tâm"}
+{"type": "supplyStep", "batchId": "LHSP0031-03", "stepOrder": 4, "step": "transport", "location": "Tuyến Nam", "time": "2025-11-10T20:00:00Z", "note": "Vận chuyển theo tuyến"}
+{"type": "supplyStep", "batchId": "LHSP0031-03", "stepOrder": 5, "step": "distribution", "location": "Cửa hàng A1", "time": "2025-11-11T08:00:00Z", "note": "Phân phối đến điểm bán"}
+{"type": "supplyStep", "batchId": "LHSP0032-01", "stepOrder": 1, "step": "production", "location": "Hà Nội", "time": "2025-12-04T08:00:00Z", "note": "Sản xuất và kiểm định chất lượng ban đầu"}
+{"type": "supplyStep", "batchId": "LHSP0032-01", "stepOrder": 2, "step": "packaging", "location": "Hà Nội", "time": "2025-12-04T20:00:00Z", "note": "Đóng gói, dán tem, tạo mã truy xuất"}
+{"type": "supplyStep", "batchId": "LHSP0032-01", "stepOrder": 3, "step": "warehouse_in", "location": "Kho Hà Nội", "time": "2025-12-05T08:00:00Z", "note": "Nhập kho trung tâm"}
+{"type": "supplyStep", "batchId": "LHSP0032-01", "stepOrder": 4, "step": "distribution", "location": "Đại lý D4", "time": "2025-12-05T20:00:00Z", "note": "Phân phối đến điểm bán"}
+{"type": "supplyStep", "batchId": "LHSP0032-02", "stepOrder": 1, "step": "production", "location": "Hà Nội", "time": "2025-12-31T08:00:00Z", "note": "Sản xuất và kiểm định chất lượng ban đầu"}
+{"type": "supplyStep", "batchId": "LHSP0032-02", "stepOrder": 2, "step": "packaging", "location": "Hà Nội", "time": "2025-12-31T20:00:00Z", "note": "Đóng gói, dán tem, tạo mã truy xuất"}
+{"type": "supplyStep", "batchId": "LHSP0032-02", "stepOrder": 3, "step": "warehouse_in", "location": "Kho Hà Nội", "time": "2026-01-01T08:00:00Z", "note": "Nhập kho trung tâm"}
+{"type": "supplyStep", "batchId": "LHSP0032-02", "stepOrder": 4, "step": "distribution", "location": "Cửa hàng A1", "time": "2026-01-01T20:00:00Z", "note": "Phân phối đến điểm bán"}
+{"type": "supplyStep", "batchId": "LHSP0032-03", "stepOrder": 1, "step": "production", "location": "Hà Nội", "time": "2025-12-25T08:00:00Z", "note": "Sản xuất và kiểm định chất lượng ban đầu"}
+{"type": "supplyStep", "batchId": "LHSP0032-03", "stepOrder": 2, "step": "packaging", "location": "Hà Nội", "time": "2025-12-25T20:00:00Z", "note": "Đóng gói, dán tem, tạo mã truy xuất"}
+{"type": "supplyStep", "batchId": "LHSP0032-03", "stepOrder": 3, "step": "warehouse_in", "location": "Kho Hà Nội", "time": "2025-12-26T08:00:00Z", "note": "Nhập kho trung tâm"}
+{"type": "supplyStep", "batchId": "LHSP0032-03", "stepOrder": 4, "step": "distribution", "location": "Siêu thị C3", "time": "2025-12-26T20:00:00Z", "note": "Phân phối đến điểm bán"}
+{"type": "supplyStep", "batchId": "LHSP0033-01", "stepOrder": 1, "step": "production", "location": "Nghệ An", "time": "2025-11-05T08:00:00Z", "note": "Sản xuất và kiểm định chất lượng ban đầu"}
+{"type": "supplyStep", "batchId": "LHSP0033-01", "stepOrder": 2, "step": "packaging", "location": "Nghệ An", "time": "2025-11-05T20:00:00Z", "note": "Đóng gói, dán tem, tạo mã truy xuất"}
+{"type": "supplyStep", "batchId": "LHSP0033-01", "stepOrder": 3, "step": "warehouse_in", "location": "Kho Cần Thơ", "time": "2025-11-06T08:00:00Z", "note": "Nhập kho trung tâm"}
+{"type": "supplyStep", "batchId": "LHSP0033-01", "stepOrder": 4, "step": "distribution", "location": "Kho trung chuyển E5", "time": "2025-11-06T20:00:00Z", "note": "Phân phối đến điểm bán"}
+{"type": "supplyStep", "batchId": "LHSP0033-02", "stepOrder": 1, "step": "production", "location": "Nghệ An", "time": "2025-11-07T08:00:00Z", "note": "Sản xuất và kiểm định chất lượng ban đầu"}
+{"type": "supplyStep", "batchId": "LHSP0033-02", "stepOrder": 2, "step": "packaging", "location": "Nghệ An", "time": "2025-11-07T20:00:00Z", "note": "Đóng gói, dán tem, tạo mã truy xuất"}
+{"type": "supplyStep", "batchId": "LHSP0033-02", "stepOrder": 3, "step": "warehouse_in", "location": "Kho Cần Thơ", "time": "2025-11-08T08:00:00Z", "note": "Nhập kho trung tâm"}
+{"type": "supplyStep", "batchId": "LHSP0033-02", "stepOrder": 4, "step": "distribution", "location": "Cửa hàng B2", "time": "2025-11-08T20:00:00Z", "note": "Phân phối đến điểm bán"}
+{"type": "supplyStep", "batchId": "LHSP0033-03", "stepOrder": 1, "step": "production", "location": "Nghệ An", "time": "2025-12-23T08:00:00Z", "note": "Sản xuất và kiểm định chất lượng ban đầu"}
+{"type": "supplyStep", "batchId": "LHSP0033-03", "stepOrder": 2, "step": "packaging", "location": "Nghệ An", "time": "2025-12-23T20:00:00Z", "note": "Đóng gói, dán tem, tạo mã truy xuất"}
+{"type": "supplyStep", "batchId": "LHSP0033-03", "stepOrder": 3, "step": "warehouse_in", "location": "Kho Đà Nẵng", "time": "2025-12-24T08:00:00Z", "note": "Nhập kho trung tâm"}
+{"type": "supplyStep", "batchId": "LHSP0033-03", "stepOrder": 4, "step": "transport", "location": "Tuyến Bắc", "time": "2025-12-24T20:00:00Z", "note": "Vận chuyển theo tuyến"}
+{"type": "supplyStep", "batchId": "LHSP0033-03", "stepOrder": 5, "step": "distribution", "location": "Siêu thị C3", "time": "2025-12-25T08:00:00Z", "note": "Phân phối đến điểm bán"}
+{"type": "supplyStep", "batchId": "LHSP0034-01", "stepOrder": 1, "step": "production", "location": "Cần Thơ", "time": "2025-12-14T08:00:00Z", "note": "Sản xuất và kiểm định chất lượng ban đầu"}
+{"type": "supplyStep", "batchId": "LHSP0034-01", "stepOrder": 2, "step": "packaging", "location": "Cần Thơ", "time": "2025-12-14T20:00:00Z", "note": "Đóng gói, dán tem, tạo mã truy xuất"}
+{"type": "supplyStep", "batchId": "LHSP0034-01", "stepOrder": 3, "step": "warehouse_in", "location": "Kho Cần Thơ", "time": "2025-12-15T08:00:00Z", "note": "Nhập kho trung tâm"}
+{"type": "supplyStep", "batchId": "LHSP0034-01", "stepOrder": 4, "step": "distribution", "location": "Cửa hàng A1", "time": "2025-12-15T20:00:00Z", "note": "Phân phối đến điểm bán"}
+{"type": "supplyStep", "batchId": "LHSP0034-02", "stepOrder": 1, "step": "production", "location": "Cần Thơ", "time": "2025-11-24T08:00:00Z", "note": "Sản xuất và kiểm định chất lượng ban đầu"}
+{"type": "supplyStep", "batchId": "LHSP0034-02", "stepOrder": 2, "step": "packaging", "location": "Cần Thơ", "time": "2025-11-24T20:00:00Z", "note": "Đóng gói, dán tem, tạo mã truy xuất"}
+{"type": "supplyStep", "batchId": "LHSP0034-02", "stepOrder": 3, "step": "warehouse_in", "location": "Kho Cần Thơ", "time": "2025-11-25T08:00:00Z", "note": "Nhập kho trung tâm"}
+{"type": "supplyStep", "batchId": "LHSP0034-02", "stepOrder": 4, "step": "distribution", "location": "Siêu thị C3", "time": "2025-11-25T20:00:00Z", "note": "Phân phối đến điểm bán"}
+{"type": "supplyStep", "batchId": "LHSP0034-03", "stepOrder": 1, "step": "production", "location": "Cần Thơ", "time": "2025-12-31T08:00:00Z", "note": "Sản xuất và kiểm định chất lượng ban đầu"}
+{"type": "supplyStep", "batchId": "LHSP0034-03", "stepOrder": 2, "step": "packaging", "location": "Cần Thơ", "time": "2025-12-31T20:00:00Z", "note": "Đóng gói, dán tem, tạo mã truy xuất"}
+{"type": "supplyStep", "batchId": "LHSP0034-03", "stepOrder": 3, "step": "warehouse_in", "location": "Kho Hà Nội", "time": "2026-01-01T08:00:00Z", "note": "Nhập kho trung tâm"}
+{"type": "supplyStep", "batchId": "LHSP0034-03", "stepOrder": 4, "step": "distribution", "location": "Kho trung chuyển E5", "time": "2026-01-01T20:00:00Z", "note": "Phân phối đến điểm bán"}
+{"type": "supplyStep", "batchId": "LHSP0035-01", "stepOrder": 1, "step": "production", "location": "Phú Quốc", "time": "2025-11-10T08:00:00Z", "note": "Sản xuất và kiểm định chất lượng ban đầu"}
+{"type": "supplyStep", "batchId": "LHSP0035-01", "stepOrder": 2, "step": "packaging", "location": "Phú Quốc", "time": "2025-11-10T20:00:00Z", "note": "Đóng gói, dán tem, tạo mã truy xuất"}
+{"type": "supplyStep", "batchId": "LHSP0035-01", "stepOrder": 3, "step": "warehouse_in", "location": "Kho Hà Nội", "time": "2025-11-11T08:00:00Z", "note": "Nhập kho trung tâm"}
+{"type": "supplyStep", "batchId": "LHSP0035-01", "stepOrder": 4, "step": "distribution", "location": "Siêu thị C3", "time": "2025-11-11T20:00:00Z", "note": "Phân phối đến điểm bán"}
+{"type": "supplyStep", "batchId": "LHSP0035-02", "stepOrder": 1, "step": "production", "location": "Phú Quốc", "time": "2025-12-22T08:00:00Z", "note": "Sản xuất và kiểm định chất lượng ban đầu"}
+{"type": "supplyStep", "batchId": "LHSP0035-02", "stepOrder": 2, "step": "packaging", "location": "Phú Quốc", "time": "2025-12-22T20:00:00Z", "note": "Đóng gói, dán tem, tạo mã truy xuất"}
+{"type": "supplyStep", "batchId": "LHSP0035-02", "stepOrder": 3, "step": "warehouse_in", "location": "Kho TP.HCM", "time": "2025-12-23T08:00:00Z", "note": "Nhập kho trung tâm"}
+{"type": "supplyStep", "batchId": "LHSP0035-02", "stepOrder": 4, "step": "distribution", "location": "Siêu thị C3", "time": "2025-12-23T20:00:00Z", "note": "Phân phối đến điểm bán"}
+{"type": "supplyStep", "batchId": "LHSP0035-03", "stepOrder": 1, "step": "production", "location": "Phú Quốc", "time": "2025-11-20T08:00:00Z", "note": "Sản xuất và kiểm định chất lượng ban đầu"}
+{"type": "supplyStep", "batchId": "LHSP0035-03", "stepOrder": 2, "step": "packaging", "location": "Phú Quốc", "time": "2025-11-20T20:00:00Z", "note": "Đóng gói, dán tem, tạo mã truy xuất"}
+{"type": "supplyStep", "batchId": "LHSP0035-03", "stepOrder": 3, "step": "warehouse_in", "location": "Kho Hà Nội", "time": "2025-11-21T08:00:00Z", "note": "Nhập kho trung tâm"}
+{"type": "supplyStep", "batchId": "LHSP0035-03", "stepOrder": 4, "step": "distribution", "location": "Cửa hàng B2", "time": "2025-11-21T20:00:00Z", "note": "Phân phối đến điểm bán"}
+{"type": "supplyStep", "batchId": "LHSP0036-01", "stepOrder": 1, "step": "production", "location": "Đà Lạt", "time": "2025-11-02T08:00:00Z", "note": "Sản xuất và kiểm định chất lượng ban đầu"}
+{"type": "supplyStep", "batchId": "LHSP0036-01", "stepOrder": 2, "step": "packaging", "location": "Đà Lạt", "time": "2025-11-02T20:00:00Z", "note": "Đóng gói, dán tem, tạo mã truy xuất"}
+{"type": "supplyStep", "batchId": "LHSP0036-01", "stepOrder": 3, "step": "warehouse_in", "location": "Kho Đà Nẵng", "time": "2025-11-03T08:00:00Z", "note": "Nhập kho trung tâm"}
+{"type": "supplyStep", "batchId": "LHSP0036-01", "stepOrder": 4, "step": "transport", "location": "Tuyến Trung", "time": "2025-11-03T20:00:00Z", "note": "Vận chuyển theo tuyến"}
+{"type": "supplyStep", "batchId": "LHSP0036-01", "stepOrder": 5, "step": "distribution", "location": "Cửa hàng B2", "time": "2025-11-04T08:00:00Z", "note": "Phân phối đến điểm bán"}
+{"type": "supplyStep", "batchId": "LHSP0036-02", "stepOrder": 1, "step": "production", "location": "Đà Lạt", "time": "2025-11-21T08:00:00Z", "note": "Sản xuất và kiểm định chất lượng ban đầu"}
+{"type": "supplyStep", "batchId": "LHSP0036-02", "stepOrder": 2, "step": "packaging", "location": "Đà Lạt", "time": "2025-11-21T20:00:00Z", "note": "Đóng gói, dán tem, tạo mã truy xuất"}
+{"type": "supplyStep", "batchId": "LHSP0036-02", "stepOrder": 3, "step": "warehouse_in", "location": "Kho Hà Nội", "time": "2025-11-22T08:00:00Z", "note": "Nhập kho trung tâm"}
+{"type": "supplyStep", "batchId": "LHSP0036-02", "stepOrder": 4, "step": "transport", "location": "Tuyến Trung", "time": "2025-11-22T20:00:00Z", "note": "Vận chuyển theo tuyến"}
+{"type": "supplyStep", "batchId": "LHSP0036-02", "stepOrder": 5, "step": "distribution", "location": "Cửa hàng A1", "time": "2025-11-23T08:00:00Z", "note": "Phân phối đến điểm bán"}
+{"type": "supplyStep", "batchId": "LHSP0036-03", "stepOrder": 1, "step": "production", "location": "Đà Lạt", "time": "2025-11-28T08:00:00Z", "note": "Sản xuất và kiểm định chất lượng ban đầu"}
+{"type": "supplyStep", "batchId": "LHSP0036-03", "stepOrder": 2, "step": "packaging", "location": "Đà Lạt", "time": "2025-11-28T20:00:00Z", "note": "Đóng gói, dán tem, tạo mã truy xuất"}
+{"type": "supplyStep", "batchId": "LHSP0036-03", "stepOrder": 3, "step": "warehouse_in", "location": "Kho Đà Nẵng", "time": "2025-11-29T08:00:00Z", "note": "Nhập kho trung tâm"}
+{"type": "supplyStep", "batchId": "LHSP0036-03", "stepOrder": 4, "step": "transport", "location": "Tuyến Trung", "time": "2025-11-29T20:00:00Z", "note": "Vận chuyển theo tuyến"}
+{"type": "supplyStep", "batchId": "LHSP0036-03", "stepOrder": 5, "step": "distribution", "location": "Đại lý D4", "time": "2025-11-30T08:00:00Z", "note": "Phân phối đến điểm bán"}
+{"type": "supplyStep", "batchId": "LHSP0037-01", "stepOrder": 1, "step": "production", "location": "Nghệ An", "time": "2025-12-14T08:00:00Z", "note": "Sản xuất và kiểm định chất lượng ban đầu"}
+{"type": "supplyStep", "batchId": "LHSP0037-01", "stepOrder": 2, "step": "packaging", "location": "Nghệ An", "time": "2025-12-14T20:00:00Z", "note": "Đóng gói, dán tem, tạo mã truy xuất"}
+{"type": "supplyStep", "batchId": "LHSP0037-01", "stepOrder": 3, "step": "warehouse_in", "location": "Kho Cần Thơ", "time": "2025-12-15T08:00:00Z", "note": "Nhập kho trung tâm"}
+{"type": "supplyStep", "batchId": "LHSP0037-01", "stepOrder": 4, "step": "transport", "location": "Tuyến Bắc", "time": "2025-12-15T20:00:00Z", "note": "Vận chuyển theo tuyến"}
+{"type": "supplyStep", "batchId": "LHSP0037-01", "stepOrder": 5, "step": "distribution", "location": "Kho trung chuyển E5", "time": "2025-12-16T08:00:00Z", "note": "Phân phối đến điểm bán"}
+{"type": "supplyStep", "batchId": "LHSP0037-02", "stepOrder": 1, "step": "production", "location": "Nghệ An", "time": "2025-11-20T08:00:00Z", "note": "Sản xuất và kiểm định chất lượng ban đầu"}
+{"type": "supplyStep", "batchId": "LHSP0037-02", "stepOrder": 2, "step": "packaging", "location": "Nghệ An", "time": "2025-11-20T20:00:00Z", "note": "Đóng gói, dán tem, tạo mã truy xuất"}
+{"type": "supplyStep", "batchId": "LHSP0037-02", "stepOrder": 3, "step": "warehouse_in", "location": "Kho Hà Nội", "time": "2025-11-21T08:00:00Z", "note": "Nhập kho trung tâm"}
+{"type": "supplyStep", "batchId": "LHSP0037-02", "stepOrder": 4, "step": "distribution", "location": "Cửa hàng A1", "time": "2025-11-21T20:00:00Z", "note": "Phân phối đến điểm bán"}
+{"type": "supplyStep", "batchId": "LHSP0037-03", "stepOrder": 1, "step": "production", "location": "Nghệ An", "time": "2025-11-28T08:00:00Z", "note": "Sản xuất và kiểm định chất lượng ban đầu"}
+{"type": "supplyStep", "batchId": "LHSP0037-03", "stepOrder": 2, "step": "packaging", "location": "Nghệ An", "time": "2025-11-28T20:00:00Z", "note": "Đóng gói, dán tem, tạo mã truy xuất"}
+{"type": "supplyStep", "batchId": "LHSP0037-03", "stepOrder": 3, "step": "warehouse_in", "location": "Kho Hà Nội", "time": "2025-11-29T08:00:00Z", "note": "Nhập kho trung tâm"}
+{"type": "supplyStep", "batchId": "LHSP0037-03", "stepOrder": 4, "step": "distribution", "location": "Đại lý D4", "time": "2025-11-29T20:00:00Z", "note": "Phân phối đến điểm bán"}
+{"type": "supplyStep", "batchId": "LHSP0038-01", "stepOrder": 1, "step": "production", "location": "Đà Nẵng", "time": "2025-11-03T08:00:00Z", "note": "Sản xuất và kiểm định chất lượng ban đầu"}
+{"type": "supplyStep", "batchId": "LHSP0038-01", "stepOrder": 2, "step": "packaging", "location": "Đà Nẵng", "time": "2025-11-03T20:00:00Z", "note": "Đóng gói, dán tem, tạo mã truy xuất"}
+{"type": "supplyStep", "batchId": "LHSP0038-01", "stepOrder": 3, "step": "warehouse_in", "location": "Kho Cần Thơ", "time": "2025-11-04T08:00:00Z", "note": "Nhập kho trung tâm"}
+{"type": "supplyStep", "batchId": "LHSP0038-01", "stepOrder": 4, "step": "distribution", "location": "Kho trung chuyển E5", "time": "2025-11-04T20:00:00Z", "note": "Phân phối đến điểm bán"}
+{"type": "supplyStep", "batchId": "LHSP0038-02", "stepOrder": 1, "step": "production", "location": "Đà Nẵng", "time": "2025-12-11T08:00:00Z", "note": "Sản xuất và kiểm định chất lượng ban đầu"}
+{"type": "supplyStep", "batchId": "LHSP0038-02", "stepOrder": 2, "step": "packaging", "location": "Đà Nẵng", "time": "2025-12-11T20:00:00Z", "note": "Đóng gói, dán tem, tạo mã truy xuất"}
+{"type": "supplyStep", "batchId": "LHSP0038-02", "stepOrder": 3, "step": "warehouse_in", "location": "Kho TP.HCM", "time": "2025-12-12T08:00:00Z", "note": "Nhập kho trung tâm"}
+{"type": "supplyStep", "batchId": "LHSP0038-02", "stepOrder": 4, "step": "distribution", "location": "Kho trung chuyển E5", "time": "2025-12-12T20:00:00Z", "note": "Phân phối đến điểm bán"}
+{"type": "supplyStep", "batchId": "LHSP0038-03", "stepOrder": 1, "step": "production", "location": "Đà Nẵng", "time": "2025-12-15T08:00:00Z", "note": "Sản xuất và kiểm định chất lượng ban đầu"}
+{"type": "supplyStep", "batchId": "LHSP0038-03", "stepOrder": 2, "step": "packaging", "location": "Đà Nẵng", "time": "2025-12-15T20:00:00Z", "note": "Đóng gói, dán tem, tạo mã truy xuất"}
+{"type": "supplyStep", "batchId": "LHSP0038-03", "stepOrder": 3, "step": "warehouse_in", "location": "Kho Cần Thơ", "time": "2025-12-16T08:00:00Z", "note": "Nhập kho trung tâm"}
+{"type": "supplyStep", "batchId": "LHSP0038-03", "stepOrder": 4, "step": "distribution", "location": "Kho trung chuyển E5", "time": "2025-12-16T20:00:00Z", "note": "Phân phối đến điểm bán"}
+{"type": "supplyStep", "batchId": "LHSP0039-01", "stepOrder": 1, "step": "production", "location": "TP.HCM", "time": "2025-11-06T08:00:00Z", "note": "Sản xuất và kiểm định chất lượng ban đầu"}
+{"type": "supplyStep", "batchId": "LHSP0039-01", "stepOrder": 2, "step": "packaging", "location": "TP.HCM", "time": "2025-11-06T20:00:00Z", "note": "Đóng gói, dán tem, tạo mã truy xuất"}
+{"type": "supplyStep", "batchId": "LHSP0039-01", "stepOrder": 3, "step": "warehouse_in", "location": "Kho Hà Nội", "time": "2025-11-07T08:00:00Z", "note": "Nhập kho trung tâm"}
+{"type": "supplyStep", "batchId": "LHSP0039-01", "stepOrder": 4, "step": "distribution", "location": "Kho trung chuyển E5", "time": "2025-11-07T20:00:00Z", "note": "Phân phối đến điểm bán"}
+{"type": "supplyStep", "batchId": "LHSP0039-02", "stepOrder": 1, "step": "production", "location": "TP.HCM", "time": "2025-12-04T08:00:00Z", "note": "Sản xuất và kiểm định chất lượng ban đầu"}
+{"type": "supplyStep", "batchId": "LHSP0039-02", "stepOrder": 2, "step": "packaging", "location": "TP.HCM", "time": "2025-12-04T20:00:00Z", "note": "Đóng gói, dán tem, tạo mã truy xuất"}
+{"type": "supplyStep", "batchId": "LHSP0039-02", "stepOrder": 3, "step": "warehouse_in", "location": "Kho TP.HCM", "time": "2025-12-05T08:00:00Z", "note": "Nhập kho trung tâm"}
+{"type": "supplyStep", "batchId": "LHSP0039-02", "stepOrder": 4, "step": "transport", "location": "Tuyến Bắc", "time": "2025-12-05T20:00:00Z", "note": "Vận chuyển theo tuyến"}
+{"type": "supplyStep", "batchId": "LHSP0039-02", "stepOrder": 5, "step": "distribution", "location": "Cửa hàng A1", "time": "2025-12-06T08:00:00Z", "note": "Phân phối đến điểm bán"}
+{"type": "supplyStep", "batchId": "LHSP0039-03", "stepOrder": 1, "step": "production", "location": "TP.HCM", "time": "2025-11-12T08:00:00Z", "note": "Sản xuất và kiểm định chất lượng ban đầu"}
+{"type": "supplyStep", "batchId": "LHSP0039-03", "stepOrder": 2, "step": "packaging", "location": "TP.HCM", "time": "2025-11-12T20:00:00Z", "note": "Đóng gói, dán tem, tạo mã truy xuất"}
+{"type": "supplyStep", "batchId": "LHSP0039-03", "stepOrder": 3, "step": "warehouse_in", "location": "Kho Cần Thơ", "time": "2025-11-13T08:00:00Z", "note": "Nhập kho trung tâm"}
+{"type": "supplyStep", "batchId": "LHSP0039-03", "stepOrder": 4, "step": "distribution", "location": "Kho trung chuyển E5", "time": "2025-11-13T20:00:00Z", "note": "Phân phối đến điểm bán"}
+{"type": "supplyStep", "batchId": "LHSP0040-01", "stepOrder": 1, "step": "production", "location": "Phú Quốc", "time": "2025-11-29T08:00:00Z", "note": "Sản xuất và kiểm định chất lượng ban đầu"}
+{"type": "supplyStep", "batchId": "LHSP0040-01", "stepOrder": 2, "step": "packaging", "location": "Phú Quốc", "time": "2025-11-29T20:00:00Z", "note": "Đóng gói, dán tem, tạo mã truy xuất"}
+{"type": "supplyStep", "batchId": "LHSP0040-01", "stepOrder": 3, "step": "warehouse_in", "location": "Kho Cần Thơ", "time": "2025-11-30T08:00:00Z", "note": "Nhập kho trung tâm"}
+{"type": "supplyStep", "batchId": "LHSP0040-01", "stepOrder": 4, "step": "distribution", "location": "Đại lý D4", "time": "2025-11-30T20:00:00Z", "note": "Phân phối đến điểm bán"}
+{"type": "supplyStep", "batchId": "LHSP0040-02", "stepOrder": 1, "step": "production", "location": "Phú Quốc", "time": "2025-12-21T08:00:00Z", "note": "Sản xuất và kiểm định chất lượng ban đầu"}
+{"type": "supplyStep", "batchId": "LHSP0040-02", "stepOrder": 2, "step": "packaging", "location": "Phú Quốc", "time": "2025-12-21T20:00:00Z", "note": "Đóng gói, dán tem, tạo mã truy xuất"}
+{"type": "supplyStep", "batchId": "LHSP0040-02", "stepOrder": 3, "step": "warehouse_in", "location": "Kho Cần Thơ", "time": "2025-12-22T08:00:00Z", "note": "Nhập kho trung tâm"}
+{"type": "supplyStep", "batchId": "LHSP0040-02", "stepOrder": 4, "step": "transport", "location": "Tuyến Nam", "time": "2025-12-22T20:00:00Z", "note": "Vận chuyển theo tuyến"}
+{"type": "supplyStep", "batchId": "LHSP0040-02", "stepOrder": 5, "step": "distribution", "location": "Đại lý D4", "time": "2025-12-23T08:00:00Z", "note": "Phân phối đến điểm bán"}
+{"type": "supplyStep", "batchId": "LHSP0040-03", "stepOrder": 1, "step": "production", "location": "Phú Quốc", "time": "2025-12-24T08:00:00Z", "note": "Sản xuất và kiểm định chất lượng ban đầu"}
+{"type": "supplyStep", "batchId": "LHSP0040-03", "stepOrder": 2, "step": "packaging", "location": "Phú Quốc", "time": "2025-12-24T20:00:00Z", "note": "Đóng gói, dán tem, tạo mã truy xuất"}
+{"type": "supplyStep", "batchId": "LHSP0040-03", "stepOrder": 3, "step": "warehouse_in", "location": "Kho Hà Nội", "time": "2025-12-25T08:00:00Z", "note": "Nhập kho trung tâm"}
+{"type": "supplyStep", "batchId": "LHSP0040-03", "stepOrder": 4, "step": "distribution", "location": "Đại lý D4", "time": "2025-12-25T20:00:00Z", "note": "Phân phối đến điểm bán"}
+{"type": "supplyStep", "batchId": "LHSP0041-01", "stepOrder": 1, "step": "production", "location": "Hà Nội", "time": "2025-12-07T08:00:00Z", "note": "Sản xuất và kiểm định chất lượng ban đầu"}
+{"type": "supplyStep", "batchId": "LHSP0041-01", "stepOrder": 2, "step": "packaging", "location": "Hà Nội", "time": "2025-12-07T20:00:00Z", "note": "Đóng gói, dán tem, tạo mã truy xuất"}
+{"type": "supplyStep", "batchId": "LHSP0041-01", "stepOrder": 3, "step": "warehouse_in", "location": "Kho Hà Nội", "time": "2025-12-08T08:00:00Z", "note": "Nhập kho trung tâm"}
+{"type": "supplyStep", "batchId": "LHSP0041-01", "stepOrder": 4, "step": "transport", "location": "Tuyến Nam", "time": "2025-12-08T20:00:00Z", "note": "Vận chuyển theo tuyến"}
+{"type": "supplyStep", "batchId": "LHSP0041-01", "stepOrder": 5, "step": "distribution", "location": "Đại lý D4", "time": "2025-12-09T08:00:00Z", "note": "Phân phối đến điểm bán"}
+{"type": "supplyStep", "batchId": "LHSP0041-02", "stepOrder": 1, "step": "production", "location": "Hà Nội", "time": "2025-12-16T08:00:00Z", "note": "Sản xuất và kiểm định chất lượng ban đầu"}
+{"type": "supplyStep", "batchId": "LHSP0041-02", "stepOrder": 2, "step": "packaging", "location": "Hà Nội", "time": "2025-12-16T20:00:00Z", "note": "Đóng gói, dán tem, tạo mã truy xuất"}
+{"type": "supplyStep", "batchId": "LHSP0041-02", "stepOrder": 3, "step": "warehouse_in", "location": "Kho Cần Thơ", "time": "2025-12-17T08:00:00Z", "note": "Nhập kho trung tâm"}
+{"type": "supplyStep", "batchId": "LHSP0041-02", "stepOrder": 4, "step": "distribution", "location": "Kho trung chuyển E5", "time": "2025-12-17T20:00:00Z", "note": "Phân phối đến điểm bán"}
+{"type": "supplyStep", "batchId": "LHSP0041-03", "stepOrder": 1, "step": "production", "location": "Hà Nội", "time": "2025-11-11T08:00:00Z", "note": "Sản xuất và kiểm định chất lượng ban đầu"}
+{"type": "supplyStep", "batchId": "LHSP0041-03", "stepOrder": 2, "step": "packaging", "location": "Hà Nội", "time": "2025-11-11T20:00:00Z", "note": "Đóng gói, dán tem, tạo mã truy xuất"}
+{"type": "supplyStep", "batchId": "LHSP0041-03", "stepOrder": 3, "step": "warehouse_in", "location": "Kho Hà Nội", "time": "2025-11-12T08:00:00Z", "note": "Nhập kho trung tâm"}
+{"type": "supplyStep", "batchId": "LHSP0041-03", "stepOrder": 4, "step": "transport", "location": "Tuyến Bắc", "time": "2025-11-12T20:00:00Z", "note": "Vận chuyển theo tuyến"}
+{"type": "supplyStep", "batchId": "LHSP0041-03", "stepOrder": 5, "step": "distribution", "location": "Siêu thị C3", "time": "2025-11-13T08:00:00Z", "note": "Phân phối đến điểm bán"}
+{"type": "supplyStep", "batchId": "LHSP0042-01", "stepOrder": 1, "step": "production", "location": "Cần Thơ", "time": "2025-12-06T08:00:00Z", "note": "Sản xuất và kiểm định chất lượng ban đầu"}
+{"type": "supplyStep", "batchId": "LHSP0042-01", "stepOrder": 2, "step": "packaging", "location": "Cần Thơ", "time": "2025-12-06T20:00:00Z", "note": "Đóng gói, dán tem, tạo mã truy xuất"}
+{"type": "supplyStep", "batchId": "LHSP0042-01", "stepOrder": 3, "step": "warehouse_in", "location": "Kho Hà Nội", "time": "2025-12-07T08:00:00Z", "note": "Nhập kho trung tâm"}
+{"type": "supplyStep", "batchId": "LHSP0042-01", "stepOrder": 4, "step": "distribution", "location": "Kho trung chuyển E5", "time": "2025-12-07T20:00:00Z", "note": "Phân phối đến điểm bán"}
+{"type": "supplyStep", "batchId": "LHSP0042-02", "stepOrder": 1, "step": "production", "location": "Cần Thơ", "time": "2025-12-29T08:00:00Z", "note": "Sản xuất và kiểm định chất lượng ban đầu"}
+{"type": "supplyStep", "batchId": "LHSP0042-02", "stepOrder": 2, "step": "packaging", "location": "Cần Thơ", "time": "2025-12-29T20:00:00Z", "note": "Đóng gói, dán tem, tạo mã truy xuất"}
+{"type": "supplyStep", "batchId": "LHSP0042-02", "stepOrder": 3, "step": "warehouse_in", "location": "Kho Cần Thơ", "time": "2025-12-30T08:00:00Z", "note": "Nhập kho trung tâm"}
+{"type": "supplyStep", "batchId": "LHSP0042-02", "stepOrder": 4, "step": "distribution", "location": "Siêu thị C3", "time": "2025-12-30T20:00:00Z", "note": "Phân phối đến điểm bán"}
+{"type": "supplyStep", "batchId": "LHSP0042-03", "stepOrder": 1, "step": "production", "location": "Cần Thơ", "time": "2025-12-13T08:00:00Z", "note": "Sản xuất và kiểm định chất lượng ban đầu"}
+{"type": "supplyStep", "batchId": "LHSP0042-03", "stepOrder": 2, "step": "packaging", "location": "Cần Thơ", "time": "2025-12-13T20:00:00Z", "note": "Đóng gói, dán tem, tạo mã truy xuất"}
+{"type": "supplyStep", "batchId": "LHSP0042-03", "stepOrder": 3, "step": "warehouse_in", "location": "Kho Đà Nẵng", "time": "2025-12-14T08:00:00Z", "note": "Nhập kho trung tâm"}
+{"type": "supplyStep", "batchId": "LHSP0042-03", "stepOrder": 4, "step": "transport", "location": "Tuyến Bắc", "time": "2025-12-14T20:00:00Z", "note": "Vận chuyển theo tuyến"}
+{"type": "supplyStep", "batchId": "LHSP0042-03", "stepOrder": 5, "step": "distribution", "location": "Siêu thị C3", "time": "2025-12-15T08:00:00Z", "note": "Phân phối đến điểm bán"}
+{"type": "supplyStep", "batchId": "LHSP0043-01", "stepOrder": 1, "step": "production", "location": "Bến Tre", "time": "2025-11-22T08:00:00Z", "note": "Sản xuất và kiểm định chất lượng ban đầu"}
+{"type": "supplyStep", "batchId": "LHSP0043-01", "stepOrder": 2, "step": "packaging", "location": "Bến Tre", "time": "2025-11-22T20:00:00Z", "note": "Đóng gói, dán tem, tạo mã truy xuất"}
+{"type": "supplyStep", "batchId": "LHSP0043-01", "stepOrder": 3, "step": "warehouse_in", "location": "Kho Hà Nội", "time": "2025-11-23T08:00:00Z", "note": "Nhập kho trung tâm"}
+{"type": "supplyStep", "batchId": "LHSP0043-01", "stepOrder": 4, "step": "distribution", "location": "Siêu thị C3", "time": "2025-11-23T20:00:00Z", "note": "Phân phối đến điểm bán"}
+{"type": "supplyStep", "batchId": "LHSP0043-02", "stepOrder": 1, "step": "production", "location": "Bến Tre", "time": "2025-11-07T08:00:00Z", "note": "Sản xuất và kiểm định chất lượng ban đầu"}
+{"type": "supplyStep", "batchId": "LHSP0043-02", "stepOrder": 2, "step": "packaging", "location": "Bến Tre", "time": "2025-11-07T20:00:00Z", "note": "Đóng gói, dán tem, tạo mã truy xuất"}
+{"type": "supplyStep", "batchId": "LHSP0043-02", "stepOrder": 3, "step": "warehouse_in", "location": "Kho TP.HCM", "time": "2025-11-08T08:00:00Z", "note": "Nhập kho trung tâm"}
+{"type": "supplyStep", "batchId": "LHSP0043-02", "stepOrder": 4, "step": "transport", "location": "Tuyến Trung", "time": "2025-11-08T20:00:00Z", "note": "Vận chuyển theo tuyến"}
+{"type": "supplyStep", "batchId": "LHSP0043-02", "stepOrder": 5, "step": "distribution", "location": "Cửa hàng B2", "time": "2025-11-09T08:00:00Z", "note": "Phân phối đến điểm bán"}
+{"type": "supplyStep", "batchId": "LHSP0043-03", "stepOrder": 1, "step": "production", "location": "Bến Tre", "time": "2025-12-20T08:00:00Z", "note": "Sản xuất và kiểm định chất lượng ban đầu"}
+{"type": "supplyStep", "batchId": "LHSP0043-03", "stepOrder": 2, "step": "packaging", "location": "Bến Tre", "time": "2025-12-20T20:00:00Z", "note": "Đóng gói, dán tem, tạo mã truy xuất"}
+{"type": "supplyStep", "batchId": "LHSP0043-03", "stepOrder": 3, "step": "warehouse_in", "location": "Kho Đà Nẵng", "time": "2025-12-21T08:00:00Z", "note": "Nhập kho trung tâm"}
+{"type": "supplyStep", "batchId": "LHSP0043-03", "stepOrder": 4, "step": "distribution", "location": "Cửa hàng B2", "time": "2025-12-21T20:00:00Z", "note": "Phân phối đến điểm bán"}
+{"type": "supplyStep", "batchId": "LHSP0044-01", "stepOrder": 1, "step": "production", "location": "Cần Thơ", "time": "2025-12-10T08:00:00Z", "note": "Sản xuất và kiểm định chất lượng ban đầu"}
+{"type": "supplyStep", "batchId": "LHSP0044-01", "stepOrder": 2, "step": "packaging", "location": "Cần Thơ", "time": "2025-12-10T20:00:00Z", "note": "Đóng gói, dán tem, tạo mã truy xuất"}
+{"type": "supplyStep", "batchId": "LHSP0044-01", "stepOrder": 3, "step": "warehouse_in", "location": "Kho TP.HCM", "time": "2025-12-11T08:00:00Z", "note": "Nhập kho trung tâm"}
+{"type": "supplyStep", "batchId": "LHSP0044-01", "stepOrder": 4, "step": "distribution", "location": "Siêu thị C3", "time": "2025-12-11T20:00:00Z", "note": "Phân phối đến điểm bán"}
+{"type": "supplyStep", "batchId": "LHSP0044-02", "stepOrder": 1, "step": "production", "location": "Cần Thơ", "time": "2025-12-07T08:00:00Z", "note": "Sản xuất và kiểm định chất lượng ban đầu"}
+{"type": "supplyStep", "batchId": "LHSP0044-02", "stepOrder": 2, "step": "packaging", "location": "Cần Thơ", "time": "2025-12-07T20:00:00Z", "note": "Đóng gói, dán tem, tạo mã truy xuất"}
+{"type": "supplyStep", "batchId": "LHSP0044-02", "stepOrder": 3, "step": "warehouse_in", "location": "Kho TP.HCM", "time": "2025-12-08T08:00:00Z", "note": "Nhập kho trung tâm"}
+{"type": "supplyStep", "batchId": "LHSP0044-02", "stepOrder": 4, "step": "transport", "location": "Tuyến Nam", "time": "2025-12-08T20:00:00Z", "note": "Vận chuyển theo tuyến"}
+{"type": "supplyStep", "batchId": "LHSP0044-02", "stepOrder": 5, "step": "distribution", "location": "Kho trung chuyển E5", "time": "2025-12-09T08:00:00Z", "note": "Phân phối đến điểm bán"}
+{"type": "supplyStep", "batchId": "LHSP0044-03", "stepOrder": 1, "step": "production", "location": "Cần Thơ", "time": "2025-11-04T08:00:00Z", "note": "Sản xuất và kiểm định chất lượng ban đầu"}
+{"type": "supplyStep", "batchId": "LHSP0044-03", "stepOrder": 2, "step": "packaging", "location": "Cần Thơ", "time": "2025-11-04T20:00:00Z", "note": "Đóng gói, dán tem, tạo mã truy xuất"}
+{"type": "supplyStep", "batchId": "LHSP0044-03", "stepOrder": 3, "step": "warehouse_in", "location": "Kho Hà Nội", "time": "2025-11-05T08:00:00Z", "note": "Nhập kho trung tâm"}
+{"type": "supplyStep", "batchId": "LHSP0044-03", "stepOrder": 4, "step": "transport", "location": "Tuyến Trung", "time": "2025-11-05T20:00:00Z", "note": "Vận chuyển theo tuyến"}
+{"type": "supplyStep", "batchId": "LHSP0044-03", "stepOrder": 5, "step": "distribution", "location": "Cửa hàng B2", "time": "2025-11-06T08:00:00Z", "note": "Phân phối đến điểm bán"}
+{"type": "supplyStep", "batchId": "LHSP0045-01", "stepOrder": 1, "step": "production", "location": "Nghệ An", "time": "2025-11-10T08:00:00Z", "note": "Sản xuất và kiểm định chất lượng ban đầu"}
+{"type": "supplyStep", "batchId": "LHSP0045-01", "stepOrder": 2, "step": "packaging", "location": "Nghệ An", "time": "2025-11-10T20:00:00Z", "note": "Đóng gói, dán tem, tạo mã truy xuất"}
+{"type": "supplyStep", "batchId": "LHSP0045-01", "stepOrder": 3, "step": "warehouse_in", "location": "Kho Hà Nội", "time": "2025-11-11T08:00:00Z", "note": "Nhập kho trung tâm"}
+{"type": "supplyStep", "batchId": "LHSP0045-01", "stepOrder": 4, "step": "transport", "location": "Tuyến Trung", "time": "2025-11-11T20:00:00Z", "note": "Vận chuyển theo tuyến"}
+{"type": "supplyStep", "batchId": "LHSP0045-01", "stepOrder": 5, "step": "distribution", "location": "Đại lý D4", "time": "2025-11-12T08:00:00Z", "note": "Phân phối đến điểm bán"}
+{"type": "supplyStep", "batchId": "LHSP0045-02", "stepOrder": 1, "step": "production", "location": "Nghệ An", "time": "2025-11-24T08:00:00Z", "note": "Sản xuất và kiểm định chất lượng ban đầu"}
+{"type": "supplyStep", "batchId": "LHSP0045-02", "stepOrder": 2, "step": "packaging", "location": "Nghệ An", "time": "2025-11-24T20:00:00Z", "note": "Đóng gói, dán tem, tạo mã truy xuất"}
+{"type": "supplyStep", "batchId": "LHSP0045-02", "stepOrder": 3, "step": "warehouse_in", "location": "Kho Đà Nẵng", "time": "2025-11-25T08:00:00Z", "note": "Nhập kho trung tâm"}
+{"type": "supplyStep", "batchId": "LHSP0045-02", "stepOrder": 4, "step": "distribution", "location": "Cửa hàng A1", "time": "2025-11-25T20:00:00Z", "note": "Phân phối đến điểm bán"}
+{"type": "supplyStep", "batchId": "LHSP0045-03", "stepOrder": 1, "step": "production", "location": "Nghệ An", "time": "2025-12-12T08:00:00Z", "note": "Sản xuất và kiểm định chất lượng ban đầu"}
+{"type": "supplyStep", "batchId": "LHSP0045-03", "stepOrder": 2, "step": "packaging", "location": "Nghệ An", "time": "2025-12-12T20:00:00Z", "note": "Đóng gói, dán tem, tạo mã truy xuất"}
+{"type": "supplyStep", "batchId": "LHSP0045-03", "stepOrder": 3, "step": "warehouse_in", "location": "Kho Cần Thơ", "time": "2025-12-13T08:00:00Z", "note": "Nhập kho trung tâm"}
+{"type": "supplyStep", "batchId": "LHSP0045-03", "stepOrder": 4, "step": "distribution", "location": "Cửa hàng B2", "time": "2025-12-13T20:00:00Z", "note": "Phân phối đến điểm bán"}
+{"type": "supplyStep", "batchId": "LHSP0046-01", "stepOrder": 1, "step": "production", "location": "Nghệ An", "time": "2025-12-01T08:00:00Z", "note": "Sản xuất và kiểm định chất lượng ban đầu"}
+{"type": "supplyStep", "batchId": "LHSP0046-01", "stepOrder": 2, "step": "packaging", "location": "Nghệ An", "time": "2025-12-01T20:00:00Z", "note": "Đóng gói, dán tem, tạo mã truy xuất"}
+{"type": "supplyStep", "batchId": "LHSP0046-01", "stepOrder": 3, "step": "warehouse_in", "location": "Kho TP.HCM", "time": "2025-12-02T08:00:00Z", "note": "Nhập kho trung tâm"}
+{"type": "supplyStep", "batchId": "LHSP0046-01", "stepOrder": 4, "step": "distribution", "location": "Cửa hàng B2", "time": "2025-12-02T20:00:00Z", "note": "Phân phối đến điểm bán"}
+{"type": "supplyStep", "batchId": "LHSP0046-02", "stepOrder": 1, "step": "production", "location": "Nghệ An", "time": "2025-12-17T08:00:00Z", "note": "Sản xuất và kiểm định chất lượng ban đầu"}
+{"type": "supplyStep", "batchId": "LHSP0046-02", "stepOrder": 2, "step": "packaging", "location": "Nghệ An", "time": "2025-12-17T20:00:00Z", "note": "Đóng gói, dán tem, tạo mã truy xuất"}
+{"type": "supplyStep", "batchId": "LHSP0046-02", "stepOrder": 3, "step": "warehouse_in", "location": "Kho Hà Nội", "time": "2025-12-18T08:00:00Z", "note": "Nhập kho trung tâm"}
+{"type": "supplyStep", "batchId": "LHSP0046-02", "stepOrder": 4, "step": "transport", "location": "Tuyến Trung", "time": "2025-12-18T20:00:00Z", "note": "Vận chuyển theo tuyến"}
+{"type": "supplyStep", "batchId": "LHSP0046-02", "stepOrder": 5, "step": "distribution", "location": "Cửa hàng A1", "time": "2025-12-19T08:00:00Z", "note": "Phân phối đến điểm bán"}
+{"type": "supplyStep", "batchId": "LHSP0046-03", "stepOrder": 1, "step": "production", "location": "Nghệ An", "time": "2025-12-21T08:00:00Z", "note": "Sản xuất và kiểm định chất lượng ban đầu"}
+{"type": "supplyStep", "batchId": "LHSP0046-03", "stepOrder": 2, "step": "packaging", "location": "Nghệ An", "time": "2025-12-21T20:00:00Z", "note": "Đóng gói, dán tem, tạo mã truy xuất"}
+{"type": "supplyStep", "batchId": "LHSP0046-03", "stepOrder": 3, "step": "warehouse_in", "location": "Kho TP.HCM", "time": "2025-12-22T08:00:00Z", "note": "Nhập kho trung tâm"}
+{"type": "supplyStep", "batchId": "LHSP0046-03", "stepOrder": 4, "step": "transport", "location": "Tuyến Bắc", "time": "2025-12-22T20:00:00Z", "note": "Vận chuyển theo tuyến"}
+{"type": "supplyStep", "batchId": "LHSP0046-03", "stepOrder": 5, "step": "distribution", "location": "Cửa hàng B2", "time": "2025-12-23T08:00:00Z", "note": "Phân phối đến điểm bán"}
+{"type": "supplyStep", "batchId": "LHSP0047-01", "stepOrder": 1, "step": "production", "location": "Phú Quốc", "time": "2025-12-10T08:00:00Z", "note": "Sản xuất và kiểm định chất lượng ban đầu"}
+{"type": "supplyStep", "batchId": "LHSP0047-01", "stepOrder": 2, "step": "packaging", "location": "Phú Quốc", "time": "2025-12-10T20:00:00Z", "note": "Đóng gói, dán tem, tạo mã truy xuất"}
+{"type": "supplyStep", "batchId": "LHSP0047-01", "stepOrder": 3, "step": "warehouse_in", "location": "Kho Hà Nội", "time": "2025-12-11T08:00:00Z", "note": "Nhập kho trung tâm"}
+{"type": "supplyStep", "batchId": "LHSP0047-01", "stepOrder": 4, "step": "distribution", "location": "Kho trung chuyển E5", "time": "2025-12-11T20:00:00Z", "note": "Phân phối đến điểm bán"}
+{"type": "supplyStep", "batchId": "LHSP0047-02", "stepOrder": 1, "step": "production", "location": "Phú Quốc", "time": "2025-11-05T08:00:00Z", "note": "Sản xuất và kiểm định chất lượng ban đầu"}
+{"type": "supplyStep", "batchId": "LHSP0047-02", "stepOrder": 2, "step": "packaging", "location": "Phú Quốc", "time": "2025-11-05T20:00:00Z", "note": "Đóng gói, dán tem, tạo mã truy xuất"}
+{"type": "supplyStep", "batchId": "LHSP0047-02", "stepOrder": 3, "step": "warehouse_in", "location": "Kho Cần Thơ", "time": "2025-11-06T08:00:00Z", "note": "Nhập kho trung tâm"}
+{"type": "supplyStep", "batchId": "LHSP0047-02", "stepOrder": 4, "step": "transport", "location": "Tuyến Bắc", "time": "2025-11-06T20:00:00Z", "note": "Vận chuyển theo tuyến"}
+{"type": "supplyStep", "batchId": "LHSP0047-02", "stepOrder": 5, "step": "distribution", "location": "Siêu thị C3", "time": "2025-11-07T08:00:00Z", "note": "Phân phối đến điểm bán"}
+{"type": "supplyStep", "batchId": "LHSP0047-03", "stepOrder": 1, "step": "production", "location": "Phú Quốc", "time": "2025-11-23T08:00:00Z", "note": "Sản xuất và kiểm định chất lượng ban đầu"}
+{"type": "supplyStep", "batchId": "LHSP0047-03", "stepOrder": 2, "step": "packaging", "location": "Phú Quốc", "time": "2025-11-23T20:00:00Z", "note": "Đóng gói, dán tem, tạo mã truy xuất"}
+{"type": "supplyStep", "batchId": "LHSP0047-03", "stepOrder": 3, "step": "warehouse_in", "location": "Kho Hà Nội", "time": "2025-11-24T08:00:00Z", "note": "Nhập kho trung tâm"}
+{"type": "supplyStep", "batchId": "LHSP0047-03", "stepOrder": 4, "step": "distribution", "location": "Siêu thị C3", "time": "2025-11-24T20:00:00Z", "note": "Phân phối đến điểm bán"}
+{"type": "supplyStep", "batchId": "LHSP0048-01", "stepOrder": 1, "step": "production", "location": "TP.HCM", "time": "2025-12-23T08:00:00Z", "note": "Sản xuất và kiểm định chất lượng ban đầu"}
+{"type": "supplyStep", "batchId": "LHSP0048-01", "stepOrder": 2, "step": "packaging", "location": "TP.HCM", "time": "2025-12-23T20:00:00Z", "note": "Đóng gói, dán tem, tạo mã truy xuất"}
+{"type": "supplyStep", "batchId": "LHSP0048-01", "stepOrder": 3, "step": "warehouse_in", "location": "Kho TP.HCM", "time": "2025-12-24T08:00:00Z", "note": "Nhập kho trung tâm"}
+{"type": "supplyStep", "batchId": "LHSP0048-01", "stepOrder": 4, "step": "distribution", "location": "Cửa hàng A1", "time": "2025-12-24T20:00:00Z", "note": "Phân phối đến điểm bán"}
+{"type": "supplyStep", "batchId": "LHSP0048-02", "stepOrder": 1, "step": "production", "location": "TP.HCM", "time": "2025-12-31T08:00:00Z", "note": "Sản xuất và kiểm định chất lượng ban đầu"}
+{"type": "supplyStep", "batchId": "LHSP0048-02", "stepOrder": 2, "step": "packaging", "location": "TP.HCM", "time": "2025-12-31T20:00:00Z", "note": "Đóng gói, dán tem, tạo mã truy xuất"}
+{"type": "supplyStep", "batchId": "LHSP0048-02", "stepOrder": 3, "step": "warehouse_in", "location": "Kho TP.HCM", "time": "2026-01-01T08:00:00Z", "note": "Nhập kho trung tâm"}
+{"type": "supplyStep", "batchId": "LHSP0048-02", "stepOrder": 4, "step": "transport", "location": "Tuyến Nam", "time": "2026-01-01T20:00:00Z", "note": "Vận chuyển theo tuyến"}
+{"type": "supplyStep", "batchId": "LHSP0048-02", "stepOrder": 5, "step": "distribution", "location": "Cửa hàng A1", "time": "2026-01-02T08:00:00Z", "note": "Phân phối đến điểm bán"}
+{"type": "supplyStep", "batchId": "LHSP0048-03", "stepOrder": 1, "step": "production", "location": "TP.HCM", "time": "2025-12-03T08:00:00Z", "note": "Sản xuất và kiểm định chất lượng ban đầu"}
+{"type": "supplyStep", "batchId": "LHSP0048-03", "stepOrder": 2, "step": "packaging", "location": "TP.HCM", "time": "2025-12-03T20:00:00Z", "note": "Đóng gói, dán tem, tạo mã truy xuất"}
+{"type": "supplyStep", "batchId": "LHSP0048-03", "stepOrder": 3, "step": "warehouse_in", "location": "Kho Đà Nẵng", "time": "2025-12-04T08:00:00Z", "note": "Nhập kho trung tâm"}
+{"type": "supplyStep", "batchId": "LHSP0048-03", "stepOrder": 4, "step": "distribution", "location": "Cửa hàng A1", "time": "2025-12-04T20:00:00Z", "note": "Phân phối đến điểm bán"}
+{"type": "supplyStep", "batchId": "LHSP0049-01", "stepOrder": 1, "step": "production", "location": "Bến Tre", "time": "2025-11-22T08:00:00Z", "note": "Sản xuất và kiểm định chất lượng ban đầu"}
+{"type": "supplyStep", "batchId": "LHSP0049-01", "stepOrder": 2, "step": "packaging", "location": "Bến Tre", "time": "2025-11-22T20:00:00Z", "note": "Đóng gói, dán tem, tạo mã truy xuất"}
+{"type": "supplyStep", "batchId": "LHSP0049-01", "stepOrder": 3, "step": "warehouse_in", "location": "Kho Cần Thơ", "time": "2025-11-23T08:00:00Z", "note": "Nhập kho trung tâm"}
+{"type": "supplyStep", "batchId": "LHSP0049-01", "stepOrder": 4, "step": "transport", "location": "Tuyến Bắc", "time": "2025-11-23T20:00:00Z", "note": "Vận chuyển theo tuyến"}
+{"type": "supplyStep", "batchId": "LHSP0049-01", "stepOrder": 5, "step": "distribution", "location": "Đại lý D4", "time": "2025-11-24T08:00:00Z", "note": "Phân phối đến điểm bán"}
+{"type": "supplyStep", "batchId": "LHSP0049-02", "stepOrder": 1, "step": "production", "location": "Bến Tre", "time": "2025-12-02T08:00:00Z", "note": "Sản xuất và kiểm định chất lượng ban đầu"}
+{"type": "supplyStep", "batchId": "LHSP0049-02", "stepOrder": 2, "step": "packaging", "location": "Bến Tre", "time": "2025-12-02T20:00:00Z", "note": "Đóng gói, dán tem, tạo mã truy xuất"}
+{"type": "supplyStep", "batchId": "LHSP0049-02", "stepOrder": 3, "step": "warehouse_in", "location": "Kho Hà Nội", "time": "2025-12-03T08:00:00Z", "note": "Nhập kho trung tâm"}
+{"type": "supplyStep", "batchId": "LHSP0049-02", "stepOrder": 4, "step": "distribution", "location": "Đại lý D4", "time": "2025-12-03T20:00:00Z", "note": "Phân phối đến điểm bán"}
+{"type": "supplyStep", "batchId": "LHSP0049-03", "stepOrder": 1, "step": "production", "location": "Bến Tre", "time": "2025-12-23T08:00:00Z", "note": "Sản xuất và kiểm định chất lượng ban đầu"}
+{"type": "supplyStep", "batchId": "LHSP0049-03", "stepOrder": 2, "step": "packaging", "location": "Bến Tre", "time": "2025-12-23T20:00:00Z", "note": "Đóng gói, dán tem, tạo mã truy xuất"}
+{"type": "supplyStep", "batchId": "LHSP0049-03", "stepOrder": 3, "step": "warehouse_in", "location": "Kho Đà Nẵng", "time": "2025-12-24T08:00:00Z", "note": "Nhập kho trung tâm"}
+{"type": "supplyStep", "batchId": "LHSP0049-03", "stepOrder": 4, "step": "distribution", "location": "Siêu thị C3", "time": "2025-12-24T20:00:00Z", "note": "Phân phối đến điểm bán"}
+{"type": "supplyStep", "batchId": "LHSP0050-01", "stepOrder": 1, "step": "production", "location": "Phú Quốc", "time": "2025-12-16T08:00:00Z", "note": "Sản xuất và kiểm định chất lượng ban đầu"}
+{"type": "supplyStep", "batchId": "LHSP0050-01", "stepOrder": 2, "step": "packaging", "location": "Phú Quốc", "time": "2025-12-16T20:00:00Z", "note": "Đóng gói, dán tem, tạo mã truy xuất"}
+{"type": "supplyStep", "batchId": "LHSP0050-01", "stepOrder": 3, "step": "warehouse_in", "location": "Kho Hà Nội", "time": "2025-12-17T08:00:00Z", "note": "Nhập kho trung tâm"}
+{"type": "supplyStep", "batchId": "LHSP0050-01", "stepOrder": 4, "step": "distribution", "location": "Siêu thị C3", "time": "2025-12-17T20:00:00Z", "note": "Phân phối đến điểm bán"}
+{"type": "supplyStep", "batchId": "LHSP0050-02", "stepOrder": 1, "step": "production", "location": "Phú Quốc", "time": "2025-11-28T08:00:00Z", "note": "Sản xuất và kiểm định chất lượng ban đầu"}
+{"type": "supplyStep", "batchId": "LHSP0050-02", "stepOrder": 2, "step": "packaging", "location": "Phú Quốc", "time": "2025-11-28T20:00:00Z", "note": "Đóng gói, dán tem, tạo mã truy xuất"}
+{"type": "supplyStep", "batchId": "LHSP0050-02", "stepOrder": 3, "step": "warehouse_in", "location": "Kho TP.HCM", "time": "2025-11-29T08:00:00Z", "note": "Nhập kho trung tâm"}
+{"type": "supplyStep", "batchId": "LHSP0050-02", "stepOrder": 4, "step": "transport", "location": "Tuyến Trung", "time": "2025-11-29T20:00:00Z", "note": "Vận chuyển theo tuyến"}
+{"type": "supplyStep", "batchId": "LHSP0050-02", "stepOrder": 5, "step": "distribution", "location": "Cửa hàng A1", "time": "2025-11-30T08:00:00Z", "note": "Phân phối đến điểm bán"}
+{"type": "supplyStep", "batchId": "LHSP0050-03", "stepOrder": 1, "step": "production", "location": "Phú Quốc", "time": "2025-12-14T08:00:00Z", "note": "Sản xuất và kiểm định chất lượng ban đầu"}
+{"type": "supplyStep", "batchId": "LHSP0050-03", "stepOrder": 2, "step": "packaging", "location": "Phú Quốc", "time": "2025-12-14T20:00:00Z", "note": "Đóng gói, dán tem, tạo mã truy xuất"}
+{"type": "supplyStep", "batchId": "LHSP0050-03", "stepOrder": 3, "step": "warehouse_in", "location": "Kho Đà Nẵng", "time": "2025-12-15T08:00:00Z", "note": "Nhập kho trung tâm"}
+{"type": "supplyStep", "batchId": "LHSP0050-03", "stepOrder": 4, "step": "transport", "location": "Tuyến Trung", "time": "2025-12-15T20:00:00Z", "note": "Vận chuyển theo tuyến"}
+{"type": "supplyStep", "batchId": "LHSP0050-03", "stepOrder": 5, "step": "distribution", "location": "Siêu thị C3", "time": "2025-12-16T08:00:00Z", "note": "Phân phối đến điểm bán"}

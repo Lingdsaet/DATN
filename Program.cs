@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Http.Features;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
+using System.Net.Http.Headers;
 using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -35,7 +36,21 @@ builder.Services.AddCors(options =>
             .AllowAnyHeader();
     });
 });
+// GEMINI HttpClient
+builder.Services.AddHttpClient("gemini", (sp, http) =>
+{
+    var cfg = sp.GetRequiredService<IConfiguration>();
+    var baseUrl = cfg["Gemini:BaseUrl"]!;
+    var apiKey = cfg["Gemini:ApiKey"]!;
 
+    http.BaseAddress = new Uri(baseUrl);
+    http.Timeout = TimeSpan.FromSeconds(60);
+    http.DefaultRequestHeaders.Accept.Add(
+        new MediaTypeWithQualityHeaderValue("application/json"));
+
+    // Khuyến nghị dùng header thay vì ?key=...
+    http.DefaultRequestHeaders.Add("x-goog-api-key", apiKey);
+});
 
 // Đăng ký DbContext
 builder.Services.AddDbContext<QR_DATNContext>(options =>

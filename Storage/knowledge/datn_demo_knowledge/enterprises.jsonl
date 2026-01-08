@@ -1,0 +1,5 @@
+{"type": "enterprise", "enterpriseId": "DN001", "name": "Công ty Dấu Việt", "address": "Đà Lạt, Việt Nam", "hotline": "0913356886", "website": "https://dau-viet.example"}
+{"type": "enterprise", "enterpriseId": "DN002", "name": "Công ty An Lộc", "address": "Bến Tre, Việt Nam", "hotline": "0942868828", "website": "https://an-loc.example"}
+{"type": "enterprise", "enterpriseId": "DN003", "name": "Công ty GreenFarm", "address": "Nghệ An, Việt Nam", "hotline": "0928728463", "website": "https://greenfarm.example"}
+{"type": "enterprise", "enterpriseId": "DN004", "name": "Công ty HerbalCare", "address": "Đà Lạt, Việt Nam", "hotline": "0983197857", "website": "https://herbalcare.example"}
+{"type": "enterprise", "enterpriseId": "DN005", "name": "Công ty OceanFoods", "address": "Đà Lạt, Việt Nam", "hotline": "0989254563", "website": "https://oceanfoods.example"}
